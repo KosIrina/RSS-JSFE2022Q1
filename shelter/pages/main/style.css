@@ -34,7 +34,11 @@ h3 {
 .mail,
 .phone,
 .location1,
-.location2, h4, .credit-card {
+.location2, h4, .credit-card, .arrow-start-button,
+.arrow-end-button,
+.arrow-back-button.pets-page,
+.arrow-forward-button.pets-page,
+.current-page-button {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
@@ -135,6 +139,36 @@ h5 {
 }
 .arrow-back-button:active,
 .arrow-forward-button:active {
+  transform: scale(0.8);
+}
+
+.arrow-start-button,
+.arrow-end-button,
+.arrow-back-button.pets-page,
+.arrow-forward-button.pets-page,
+.current-page-button {
+  color: #292929;
+  text-align: center;
+  padding: 0;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.arrow-start-button:hover,
+.arrow-end-button:hover,
+.arrow-back-button.pets-page:hover,
+.arrow-forward-button.pets-page:hover,
+.current-page-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.arrow-start-button:active,
+.arrow-end-button:active,
+.arrow-back-button.pets-page:active,
+.arrow-forward-button.pets-page:active,
+.current-page-button:active {
   transform: scale(0.8);
 }
 
@@ -770,6 +804,30 @@ h5 {
   background-image: url("../../assets/icons/credit-card.svg");
 }
 
+.pets-buttons > button {
+  width: 52px;
+  height: 52px;
+}
+
+.arrow-start-button.disabled,
+.arrow-end-button.disabled,
+.arrow-back-button.pets-page.disabled,
+.arrow-forward-button.pets-page.disabled,
+.current-page-button.disabled {
+  border: 2px solid #CDCDCD;
+  background-color: transparent;
+  color: #CDCDCD;
+  cursor: url("../../assets/images/cursor-normal-light.png"), auto;
+  transform: none;
+}
+
+.current-page-button.active {
+  border: 2px solid #F1CDB3;
+  background-color: #F1CDB3;
+  cursor: url("../../assets/images/cursor-normal-light.png"), auto;
+  transform: none;
+}
+
 .header-wrapper {
   position: relative;
   max-width: 1280px;
@@ -1048,4 +1106,25 @@ h5 {
 }
 .navigation-link.pets-page.active::after {
   bottom: -7px;
+}
+
+.pets-slider.pets-page {
+  display: block;
+  max-width: 1280px;
+}
+
+.pets-cards.pets-page {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  max-width: 1280px;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.pets-buttons {
+  display: flex;
+  width: 340px;
+  justify-content: space-between;
 }/*# sourceMappingURL=style.css.map */

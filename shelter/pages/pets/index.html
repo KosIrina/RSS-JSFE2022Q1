@@ -20,7 +20,7 @@
             <nav class="navigation">
                 <ul class="navigation-list">
                     <li class="navigation-item nav-about-item"><a href="https://rolling-scopes-school.github.io/kosirina-JSFE2022Q1/shelter/pages/main/" class="navigation-link pets-page">About the shelter</a></li>
-                    <li class="navigation-item nav-pets-item"><a href="#pets" class="navigation-link active pets-page" onclick="return false;">Our pets</a></li>
+                    <li class="navigation-item nav-pets-item"><a href="#pets" class="navigation-link active pets-page" onclick="event.preventDefault()">Our pets</a></li>
                     <li class="navigation-item nav-help-item"><a href="#help" class="navigation-link pets-page">Help the shelter</a></li>
                     <li class="navigation-item nav-contacts-item"><a href="#contacts" class="navigation-link pets-page">Contacts</a></li>
                 </ul>
@@ -31,10 +31,10 @@
     <main class="main">
         <div class="main-container">
             <section class="pets-section" id="pets">
-                <h3 class="pets-heading">Our friends who are looking for a house</h3>
+                <h3 class="pets-heading">Our friends who are&nbsplooking for a house</h3>
 
-                <div class="pets-slider">                    
-                    <div class="pets-cards">
+                <div class="pets-slider pets-page">                    
+                    <div class="pets-cards pets-page">
                         <div class="pet-card pet-card-1">
                             <img class="pet-card-image pet1-image" src="../../assets/images/katrine.png">
                             <h4 class="pet-card-title pet1-title">Katrine</h4>
@@ -86,11 +86,11 @@
                 </div> 
 
                 <div class="pets-buttons">
-                    <button class="arrow-start-button"></button>
-                    <button class="arrow-back-button pets-page"></button>
-                    <button class="current-page-button"></button>
-                    <button class="arrow-forward-button pets-page"></button>
-                    <button class="arrow-end-button"></button>
+                    <button class="arrow-start-button disabled" >&lt&lt</button>
+                    <button class="arrow-back-button pets-page disabled" >&lt</button>
+                    <button class="current-page-button active">1</button>
+                    <button class="arrow-forward-button pets-page">&gt</button>
+                    <button class="arrow-end-button">&gt&gt</button>
                 </div> 
             </section>
         </div>

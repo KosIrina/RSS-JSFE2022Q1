@@ -1,0 +1,54 @@
+.start-screen-button,
+.know-the-rest-button {
+    @extend %colored-button;
+}
+
+.learn-more-button {
+    @extend %bordered-button;
+}
+
+.arrow-back-button, 
+.arrow-forward-button {
+    @extend %circle-button;
+    line-height: 0;
+    height: 52px;
+}
+
+.arrow-reversed {
+    transform: rotate(-180deg);
+}
+
+.credit-card {
+    position: relative;
+    @extend %donation-bank-account;
+    @include add-icon(30px, 23px, url('../../assets/icons/credit-card.svg'), 15px);
+    width: 350px;
+}
+
+.pets-buttons > button {
+    width: 52px;
+    height: 52px;
+}
+
+.arrow-start-button, 
+.arrow-end-button,
+.arrow-back-button.pets-page,
+.arrow-forward-button.pets-page,
+.current-page-button {
+    @extend %circle-button-pets-page;
+
+    &.disabled {
+        border: 2px solid $color-dark-s;
+        background-color: transparent;
+        color: $color-dark-s;
+        cursor: $cursor-normal, auto;
+        transform: none;  
+    }
+}
+
+.current-page-button.active {
+    border: 2px solid $color-primary;
+    background-color: $color-primary;
+    cursor: $cursor-normal, auto;
+    transform: none;    
+}

@@ -1,0 +1,49 @@
+.header-container.pets-page {
+    margin: 30px auto;
+    position: relative;
+    background: $color-light-xl;
+}
+
+.logo-title.pets-page {
+    margin-top: 1px;
+    color: $color-dark-l;
+}
+
+.logo-subtitle.pets-page {
+    color: $color-dark-3xl;
+}
+
+.navigation-link.pets-page {
+    color: $color-dark-l;
+    &:hover {
+        color: $color-dark-3xl;
+    }
+}
+
+.navigation-link.pets-page.active {
+    color: $color-dark-3xl;
+    &::after {
+        bottom: -7px;
+    }
+}
+
+.pets-slider.pets-page {
+    display: block;    
+    max-width: 1280px;
+}
+
+.pets-cards.pets-page {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    max-width: 1280px;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.pets-buttons {
+    display: flex;
+    width: 340px;
+    justify-content: space-between;
+}

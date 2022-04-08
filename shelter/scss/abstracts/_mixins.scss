@@ -1,0 +1,29 @@
+@mixin add-icon($width, $height, $icon, $left) {
+    &::before {
+    content: "";
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: $left;
+    background-image: $icon;
+    }
+}
+
+@mixin style-button($padding, $border, $background, $radius, $border-hover, $background-hover) {
+    padding: $padding;
+    border: $border;
+    background-color: $background;
+    border-radius: $radius;
+    cursor: $cursor-hover, pointer;
+    transition: 0.5s;
+
+    &:hover {
+        border: $border-hover;
+        background-color: $background-hover;
+    }
+    &:active {
+        transform: scale(0.8);
+    }
+}

@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+    
+html {
+    scroll-behavior: smooth; 
+    cursor: $cursor-normal, auto;
+}
+
+body {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.about-section,
+.pets-section,
+.help, 
+.donation {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.pets-section,
+.donation {
+    background: $color-light-l;
+}
+
+a {
+    text-decoration: none;
+    cursor: $cursor-hover, pointer; 
+}
+
+button {
+    cursor: $cursor-hover, pointer; 
+}

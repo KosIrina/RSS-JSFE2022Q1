@@ -1,0 +1,34 @@
+h2 {
+    margin: 0;
+    @extend %h2-style;
+    color: $color-light-xl;
+}
+
+p {
+    margin: 0;
+    @extend %paragraph-l;
+    color: $color-dark-s;
+}
+
+h3 {
+    margin: 0;
+    @extend %h3-style;
+    color: $color-dark-l;
+}
+
+h4 {
+    margin: 0;
+    @extend %h4-style;
+    color: $color-dark-l;
+}
+
+h5 {
+    margin: 0;
+    @extend %h5-style;
+    color: $color-dark-l;
+}
+
+.donation-legal {
+    @extend %paragraph-s;
+    color: $color-dark-m;
+}
