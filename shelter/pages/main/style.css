@@ -34,12 +34,21 @@ h3 {
 .mail,
 .phone,
 .location1,
-.location2, h4 {
+.location2, h4, .credit-card {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
+  letter-spacing: 0.06em;
+}
+
+h5 {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
   letter-spacing: 0.06em;
 }
 
@@ -58,6 +67,14 @@ h3 {
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
+}
+
+.donation-legal {
+  font-family: Arial-italic, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .start-screen-button,
@@ -119,6 +136,26 @@ h3 {
 .arrow-back-button:active,
 .arrow-forward-button:active {
   transform: scale(0.8);
+}
+
+.credit-card {
+  color: #545454;
+  padding: 10px 15px 10px 60px;
+  border: 0;
+  background-color: #F1CDB3;
+  border-radius: 9px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.credit-card:hover {
+  border: 0;
+  background-color: #FDDCC4;
+}
+.credit-card:active {
+  transform: scale(0.8);
+}
+.credit-card:hover {
+  transform: scale(1.02);
 }
 
 * {
@@ -541,6 +578,15 @@ h4 {
   color: #545454;
 }
 
+h5 {
+  margin: 0;
+  color: #545454;
+}
+
+.donation-legal {
+  color: #B2B2B2;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -709,6 +755,21 @@ h4 {
   transform: rotate(-180deg);
 }
 
+.credit-card {
+  position: relative;
+  width: 350px;
+}
+.credit-card::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 23px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 15px;
+  background-image: url("../../assets/icons/credit-card.svg");
+}
+
 .header-wrapper {
   position: relative;
   max-width: 1280px;
@@ -862,6 +923,102 @@ h4 {
 .pet-card:hover .learn-more-button {
   border: 2px solid #FDDCC4;
   background-color: #FDDCC4;
+}
+
+.help {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.help-heading {
+  max-width: 310px;
+  text-align: center;
+}
+
+.help-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 60px 27px 0 27px;
+  row-gap: 55px;
+}
+
+.pet-food,
+.transportation,
+.toys,
+.bowls-and-cups,
+.shampoos,
+.vitamins,
+.medicines,
+.collars-leashes,
+.sleeping-areas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 113px;
+}
+
+.pet-food {
+  width: 202px;
+}
+
+.transportation {
+  width: 270px;
+}
+
+.toys {
+  width: 180px;
+}
+
+.bowls-and-cups {
+  width: 273px;
+}
+
+.shampoos {
+  width: 221px;
+}
+
+.vitamins {
+  width: 209px;
+}
+
+.medicines {
+  width: 221px;
+}
+
+.collars-leashes {
+  width: 285px;
+}
+
+.sleeping-areas {
+  width: 263px;
+}
+
+.donation {
+  display: grid;
+  grid-template: auto/58.47% 41.53%;
+  padding: 80px 182px 100px 183px;
+}
+
+.donation-dog {
+  width: 94.39%;
+  align-self: center;
+}
+
+.donation-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 282px;
+}
+
+.donation-heading {
+  max-width: 300px;
 }
 
 .header-container.pets-page {
