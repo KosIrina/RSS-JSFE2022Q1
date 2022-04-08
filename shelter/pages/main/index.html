@@ -20,7 +20,7 @@
 
                 <nav class="navigation">
                     <ul class="navigation-list">
-                        <li class="navigation-item nav-about-item"><a href="#about" class="navigation-link active" onclick="return false;">About the shelter</a></li>
+                        <li class="navigation-item nav-about-item"><a href="#about" class="navigation-link active" onclick="event.preventDefault()">About the shelter</a></li>
                         <li class="navigation-item nav-pets-item"><a href="https://rolling-scopes-school.github.io/kosirina-JSFE2022Q1/shelter/pages/pets/" class="navigation-link">Our pets</a></li>
                         <li class="navigation-item nav-help-item"><a href="#help" class="navigation-link">Help the shelter</a></li>
                         <li class="navigation-item nav-contacts-item"><a href="#contacts" class="navigation-link">Contacts</a></li>
@@ -41,7 +41,7 @@
             <img class="start-screen-puppy" src="../../assets/images/start-screen-puppy.png">
         </div>
 
-        <div class="container main-container">
+        <div class="main-container">
             <section class="about-section" id="about">
                 <img class="about-pets" src="../../assets/images/about-pets.png">
 
@@ -53,10 +53,10 @@
             </section>
 
             <section class="pets-section" id="pets">
-                <h3 class="pets-heading">Our friends who are looking for a house</h3>
+                <h3 class="pets-heading">Our friends who are&nbsplooking for a house</h3>
 
                 <div class="pets-slider">
-                    <button class="arrow-back-button"></button>
+                    <button class="arrow-back-button"><img class="arrow" src="../../assets/icons/Arrow.svg"></button>
 
                     <div class="pets-cards">
                         <div class="pet-card pet-card-1">
@@ -78,9 +78,9 @@
                         </div>
                     </div>
 
-                    <button class="arrow-forward-button"></button>
+                    <button class="arrow-forward-button"><img class="arrow-reversed" src="../../assets/icons/Arrow.svg"></button>
                 </div> 
-
+            
                 <a href="https://rolling-scopes-school.github.io/kosirina-JSFE2022Q1/shelter/pages/pets/" class="know-the-rest-button">Get to know the rest</a>
             </section>
 
@@ -141,7 +141,7 @@
                 <div class="donation-content">
                     <h3 class="donation-heading">You can also make a donation</h3>
                     <h5 class="donation-subheading">Name of the bank / Type of bank account</h5>
-                    <a class="credit-card" href="donate" onclick="return false;">8380 2880 8028 8791 7435</a>
+                    <a class="credit-card" href="donate" onclick="event.preventDefault()">8380 2880 8028 8791 7435</a>
                     <p class="donation-legal">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
             </section>

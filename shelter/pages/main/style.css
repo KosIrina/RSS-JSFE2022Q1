@@ -34,7 +34,7 @@ h3 {
 .mail,
 .phone,
 .location1,
-.location2 {
+.location2, h4 {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
@@ -43,7 +43,8 @@ h3 {
   letter-spacing: 0.06em;
 }
 
-.start-screen-button {
+.learn-more-button, .start-screen-button,
+.know-the-rest-button {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
@@ -59,20 +60,64 @@ h3 {
   line-height: 24px;
 }
 
-.start-screen-button {
+.start-screen-button,
+.know-the-rest-button {
+  text-align: center;
+  color: #292929;
   padding: 15px 45px;
   border: 0;
   background-color: #F1CDB3;
   border-radius: 100px;
-  text-align: center;
-  color: #292929;
   cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
   transition: 0.5s;
 }
-.start-screen-button:hover {
+.start-screen-button:hover,
+.know-the-rest-button:hover {
+  border: 0;
   background-color: #FDDCC4;
 }
-.start-screen-button:active {
+.start-screen-button:active,
+.know-the-rest-button:active {
+  transform: scale(0.8);
+}
+
+.learn-more-button {
+  text-align: center;
+  color: #292929;
+  padding: 13px 43px;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.learn-more-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.learn-more-button:active {
+  transform: scale(0.8);
+}
+.learn-more-button:hover {
+  transform: scale(1.1);
+}
+
+.arrow-back-button,
+.arrow-forward-button {
+  padding: 21px 17px;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.arrow-back-button:hover,
+.arrow-forward-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.arrow-back-button:active,
+.arrow-forward-button:active {
   transform: scale(0.8);
 }
 
@@ -97,6 +142,19 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+}
+
+.about-section,
+.pets-section,
+.help,
+.donation {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pets-section,
+.donation {
+  background: #F6F6F6;
 }
 
 a {
@@ -475,6 +533,12 @@ p {
 
 h3 {
   margin: 0;
+  color: #545454;
+}
+
+h4 {
+  margin: 0;
+  color: #545454;
 }
 
 .header-container {
@@ -635,6 +699,16 @@ h3 {
   background-image: url("../../assets/icons/icon-phone.svg");
 }
 
+.arrow-back-button,
+.arrow-forward-button {
+  line-height: 0;
+  height: 52px;
+}
+
+.arrow-reversed {
+  transform: rotate(-180deg);
+}
+
 .header-wrapper {
   position: relative;
   max-width: 1280px;
@@ -711,6 +785,83 @@ h3 {
 
 .start-screen-puppy {
   width: 58.2%;
+}
+
+.about-section {
+  display: grid;
+  grid-template: auto/49.41% 50.59%;
+  padding: 80px 215px 100px 215px;
+}
+
+.about-pets {
+  width: 71.43%;
+  align-self: center;
+}
+
+.about-content {
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-heading {
+  max-width: 370px;
+}
+
+.about-subheading-part1,
+.about-subheading-part2 {
+  color: #4C4C4C;
+}
+
+.pets-section {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pets-heading {
+  max-width: 400px;
+  text-align: center;
+}
+
+.pets-slider {
+  display: grid;
+  grid-template: auto/4.33% 82.5% 4.33%;
+  -moz-column-gap: 4.42%;
+       column-gap: 4.42%;
+  align-items: center;
+  width: 100%;
+}
+
+.pets-cards {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 270px;
+  height: 435px;
+  padding-bottom: 30px;
+  background: #FAFAFA;
+  border-radius: 9px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.pet-card:hover {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.pet-card:hover .learn-more-button {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
 }
 
 .header-container.pets-page {
