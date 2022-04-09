@@ -214,6 +214,11 @@ body {
   margin: 0 auto;
   padding: 0 40px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    padding: 0 30px;
+  }
+}
 
 .about-section,
 .pets-section,
@@ -684,6 +689,15 @@ h5 {
   padding-top: 40px;
   background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(80% 170% at 0% 0%, #5B483A 0%, #262425 90%), #211F20;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer-container {
+    padding-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 65px;
+    max-width: 944px;
+  }
+}
 
 .contacts,
 .location {
@@ -694,17 +708,40 @@ h5 {
   padding-top: 16.5px;
   box-sizing: content-box;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .contacts,
+.location {
+    padding: 0;
+  }
+}
 
 .contacts {
   width: 23.2%;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .contacts {
+    width: 279px;
+    padding-left: 2px;
+  }
 }
 
 .location {
   width: 25%;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .location {
+    width: 302px;
+    padding-right: 1.5px;
+  }
+}
 
 .footer-puppy {
   width: 24.95%;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer-puppy {
+    width: 300px;
+  }
 }
 
 .contacts-heading,
@@ -779,6 +816,12 @@ h5 {
   background-image: url("../../assets/icons/icon-phone.svg");
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .start-screen-button {
+    align-self: center;
+  }
+}
+
 .arrow-back-button,
 .arrow-forward-button {
   line-height: 0;
@@ -842,6 +885,11 @@ h5 {
   top: 0;
   background: transparent;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header-container {
+    margin: 31px auto;
+  }
+}
 
 .logo-title {
   color: #F1CDB3;
@@ -872,8 +920,10 @@ h5 {
   height: 100%;
   background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(80% 170% at 0% 0%, #5B483A 0%, #262425 90%), #211F20;
 }
-@media (max-width: 898px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .start-screen-container {
+    padding-top: 120px;
+    flex-direction: column;
     align-items: center;
   }
 }
@@ -887,9 +937,15 @@ h5 {
   width: 38.3%;
   height: 322px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .start-screen-content {
+    width: 64.97%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+}
 @media (max-width: 898px) {
   .start-screen-content {
-    margin: 0;
     min-height: 322px;
     height: auto;
   }
@@ -906,6 +962,12 @@ h5 {
 .start-screen-puppy {
   width: 58.2%;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .start-screen-puppy {
+    align-self: flex-end;
+    width: 80.37%;
+  }
+}
 
 .about-section {
   display: grid;
@@ -913,10 +975,27 @@ h5 {
   padding: 80px 215px 100px 215px;
   background-color: #FFFFFF;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .about-section {
+    padding-left: 165px;
+    padding-right: 166px;
+    grid-template: 380px 408px/100%;
+    row-gap: 80px;
+    justify-items: center;
+    justify-content: center;
+  }
+}
 
 .about-pets {
   width: 71.43%;
   align-self: center;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .about-pets {
+    padding: 0;
+    grid-area: 2/1/3/2;
+    width: 300px;
+  }
 }
 
 .about-content {
@@ -924,6 +1003,20 @@ h5 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media (min-width: 1006px) and (max-width: 1279px) {
+  .about-content {
+    padding: 0 3px 0 4px;
+    grid-area: 1/1/2/2;
+    width: 65%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1005px) {
+  .about-content {
+    padding: 0 3px 0 4px;
+    grid-area: 1/1/2/2;
+    width: 100%;
+  }
 }
 
 .about-heading {
@@ -935,12 +1028,24 @@ h5 {
   color: #4C4C4C;
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .about-subheading-part1 {
+    padding: 25px 0;
+  }
+}
+
 .pets-section {
   padding: 80px 40px 100px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pets-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .pets-heading {
@@ -956,11 +1061,23 @@ h5 {
   align-items: center;
   width: 100%;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pets-slider {
+    grid-template: auto/7.34% 81.9% 7.34%;
+    -moz-column-gap: 1.69%;
+         column-gap: 1.69%;
+  }
+}
 
 .pets-cards {
   display: flex;
   justify-content: space-between;
   padding: 60px 0;
+}
+@media (min-width: 812px) and (max-width: 1279px) {
+  .pets-cards {
+    justify-content: space-evenly;
+  }
 }
 
 .pet-card {
@@ -990,6 +1107,12 @@ h5 {
   height: 270px;
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pet-card-3.main-page {
+    display: none;
+  }
+}
+
 .help {
   padding: 80px 40px 100px 40px;
   display: flex;
@@ -997,6 +1120,12 @@ h5 {
   justify-content: space-between;
   align-items: center;
   background-color: #FFFFFF;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .help {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .help-heading {
@@ -1011,6 +1140,17 @@ h5 {
   width: 100%;
   padding: 60px 27px 0 27px;
   row-gap: 55px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .help-items {
+    padding-left: 39px;
+    padding-right: 39px;
+    display: grid;
+    -moz-column-gap: 60px;
+         column-gap: 60px;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+    justify-items: center;
+  }
 }
 
 .pet-food,
@@ -1032,37 +1172,82 @@ h5 {
 .pet-food {
   width: 202px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pet-food {
+    width: 170px;
+  }
+}
 
 .transportation {
   width: 270px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .transportation {
+    width: 170px;
+  }
 }
 
 .toys {
   width: 180px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .toys {
+    width: 170px;
+  }
+}
 
 .bowls-and-cups {
   width: 273px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .bowls-and-cups {
+    width: 170px;
+  }
 }
 
 .shampoos {
   width: 221px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shampoos {
+    width: 170px;
+  }
+}
 
 .vitamins {
   width: 209px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .vitamins {
+    width: 170px;
+  }
 }
 
 .medicines {
   width: 221px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .medicines {
+    width: 170px;
+  }
+}
 
 .collars-leashes {
   width: 285px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .collars-leashes {
+    width: 170px;
+  }
+}
 
 .sleeping-areas {
   width: 263px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .sleeping-areas {
+    width: 170px;
+  }
 }
 
 .donation {
@@ -1070,10 +1255,26 @@ h5 {
   grid-template: auto/58.47% 41.53%;
   padding: 80px 182px 100px 183px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .donation {
+    padding-left: 131px;
+    padding-right: 132px;
+    grid-template: 282px 261px/100%;
+    row-gap: 60px;
+    justify-items: center;
+    justify-content: center;
+  }
+}
 
 .donation-dog {
   width: 94.39%;
   align-self: center;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .donation-dog {
+    grid-area: 2/1/3/2;
+    width: 505px;
+  }
 }
 
 .donation-content {
@@ -1081,6 +1282,12 @@ h5 {
   flex-direction: column;
   justify-content: space-between;
   min-height: 282px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .donation-content {
+    padding: 0 62px 0 63px;
+    grid-area: 1/1/2/2;
+  }
 }
 
 .donation-heading {
@@ -1124,9 +1331,20 @@ h5 {
   bottom: -7px;
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pets-section.pets-page {
+    padding-bottom: 76px;
+  }
+}
+
 .pets-slider.pets-page {
   display: block;
   max-width: 1280px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pets-slider.pets-page {
+    padding: 0 64px;
+  }
 }
 
 .pets-cards.pets-page {
@@ -1137,6 +1355,21 @@ h5 {
   max-width: 1280px;
   width: 100%;
   padding: 60px 0;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pets-cards.pets-page {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    max-width: 678px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .pet-card-7,
+.pet-card-8 {
+    display: none;
+  }
 }
 
 .pets-buttons {
