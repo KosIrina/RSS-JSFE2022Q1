@@ -76,6 +76,7 @@
     display: grid;
     grid-template: auto / 49.41% 50.59%; 
     padding: 80px 215px 100px 215px;
+    background-color: $color-light-xl;
 }
 
 .about-pets {
@@ -159,6 +160,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: $color-light-xl;
 }
 
 .help-heading {
