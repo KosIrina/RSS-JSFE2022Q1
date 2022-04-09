@@ -782,6 +782,7 @@ h5 {
 .arrow-back-button,
 .arrow-forward-button {
   line-height: 0;
+  width: 52px;
   height: 52px;
 }
 
@@ -981,6 +982,11 @@ h5 {
 .pet-card:hover .learn-more-button {
   border: 2px solid #FDDCC4;
   background-color: #FDDCC4;
+}
+
+.pet-card-image {
+  width: 270px;
+  height: 270px;
 }
 
 .help {
