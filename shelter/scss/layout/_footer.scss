@@ -3,6 +3,14 @@
     justify-content: space-between;
     padding-top: 40px;
     background: $gradient-background;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        padding-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        row-gap: 65px;
+        max-width: 944px;
+    }
 }
 
 .contacts,
@@ -13,18 +21,33 @@
     height: 234px;
     padding-top: 16.5px;
     box-sizing: content-box;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        padding: 0;
+    }
 }
 
 .contacts {
     width: 23.2%;
+    @media (min-width: 768px) and (max-width: 1279px) {
+        width: 279px;
+        padding-left: 2px;
+    }
 }
 
 .location {
     width: 25%;
+    @media (min-width: 768px) and (max-width: 1279px) {
+        width: 302px;
+        padding-right: 1.5px;
+    }
 }
 
 .footer-puppy {
     width: 24.95%;
+    @media (min-width: 768px) and (max-width: 1279px) {
+        width: 300px;
+    }
 }
 
 .contacts-heading, 
