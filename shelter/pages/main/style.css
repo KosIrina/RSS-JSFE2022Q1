@@ -1085,8 +1085,16 @@ h5 {
   max-width: 300px;
 }
 
+.header.pets-page {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .header-container.pets-page {
-  margin: 30px auto;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
   position: relative;
   background: #FFFFFF;
 }
