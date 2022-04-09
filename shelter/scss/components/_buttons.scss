@@ -11,6 +11,7 @@
 .arrow-forward-button {
     @extend %circle-button;
     line-height: 0;
+    width: 52px;
     height: 52px;
 }
 

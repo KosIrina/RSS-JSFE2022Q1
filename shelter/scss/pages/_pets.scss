@@ -1,5 +1,13 @@
+.header.pets-page {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
 .header-container.pets-page {
-    margin: 30px auto;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
     position: relative;
     background: $color-light-xl;
 }
