@@ -1,0 +1,1 @@
+console.log('Всего 100 баллов:\nСоздана страница main, все требования выполнены +60 (блок Header +10, блок Not only +5, блок About +5, блок Our Friends +20, блок Help +5, блок In addition +5, блок Footer +10).\nСоздана страница our pets, все требования выполнены  +40 (блок Header +10, блок Our Friends +20, блок Footer +10).')

@@ -1,0 +1,250 @@
+.header-wrapper {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.header-container {
+    margin: 61px auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+}
+
+.logo-title {
+    color: $color-primary;
+}
+
+.logo-subtitle {
+    color: $color-light-xl;
+}
+
+.navigation-link {
+    color: $color-dark-s;
+    &:hover {
+        color: $color-light-s;
+    }
+}
+
+.navigation-link.active {
+    color: $color-light-s;
+    &::after {
+        bottom: -6px;
+    }
+}
+
+.start-screen-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 180px;
+    height: 100%;
+    background: $gradient-background;
+    @media (max-width: 898px) {
+        align-items: center;
+    }
+}
+
+.start-screen-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 13.58%;
+    width: 38.3%;
+    height: 322px;
+    @media (max-width: 898px) {
+        margin: 0;
+        min-height: 322px;
+        height: auto;
+    }
+}
+
+.start-screen-heading {
+    max-width: 310px;
+}
+
+.start-screen-subheading {
+    padding: 15px 0;
+}
+
+.start-screen-puppy {
+    width: 58.2%;
+}
+
+.about-section {
+    display: grid;
+    grid-template: auto / 49.41% 50.59%; 
+    padding: 80px 215px 100px 215px;
+}
+
+.about-pets {
+    width: 71.43%;
+    align-self: center;
+}
+
+.about-content {
+    padding: 14px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-heading {
+    max-width: 370px;
+}
+
+.about-subheading-part1, 
+.about-subheading-part2 {
+    color: $color-dark-xl;
+}
+
+.pets-section {
+    padding: 80px 40px 100px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pets-heading {
+    max-width: 400px;
+    text-align: center;
+}
+
+.pets-slider {
+    display: grid;
+    grid-template: auto / 4.33% 82.5% 4.33%;
+    column-gap: 4.42%;
+    align-items: center;
+    width: 100%;
+}
+
+.pets-cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+}
+
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 270px;
+    height: 435px;
+    padding-bottom: 30px;
+    background: $color-light-s;
+    border-radius: 9px;
+    cursor: $cursor-hover, pointer;
+    transition: 0.5s;
+    &:hover {
+        background: $color-light-xl;
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    }
+    &:hover .learn-more-button {
+        border: 2px solid $color-primary-light;
+        background-color: $color-primary-light;
+    }
+}
+
+.pet-card-image {
+    width: 270px;
+    height: 270px;
+}
+
+.help {
+    padding: 80px 40px 100px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.help-heading {
+    max-width: 310px;
+    text-align: center;
+}
+
+.help-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 60px 27px 0 27px;
+    row-gap: 55px;
+}
+
+.pet-food,
+.transportation,
+.toys,
+.bowls-and-cups,
+.shampoos,
+.vitamins,
+.medicines,
+.collars-leashes,
+.sleeping-areas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 113px;
+}
+
+.pet-food {
+    width: 202px;
+}
+
+.transportation {
+    width: 270px;
+}
+
+.toys {
+    width: 180px;
+}
+
+.bowls-and-cups {
+    width: 273px;
+}
+
+.shampoos {
+    width: 221px;
+}
+
+.vitamins {
+    width: 209px;
+}
+
+.medicines {
+    width: 221px;
+}
+
+.collars-leashes {
+    width: 285px;
+}
+
+.sleeping-areas {
+    width: 263px;
+}
+
+.donation {
+    display: grid;
+    grid-template: auto / 58.47% 41.53%; 
+    padding: 80px 182px 100px 183px;
+}
+
+.donation-dog {
+    width: 94.39%;
+    align-self: center;
+}
+
+.donation-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 282px;
+}
+
+.donation-heading {
+    max-width: 300px;
+}

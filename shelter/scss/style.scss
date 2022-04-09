@@ -1,0 +1,16 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/normalize';
+@import 'base/typography';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/buttons';
+
+@import 'pages/main';
+@import 'pages/pets';

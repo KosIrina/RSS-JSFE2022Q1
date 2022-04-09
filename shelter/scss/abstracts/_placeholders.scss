@@ -1,0 +1,111 @@
+%h1-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    letter-spacing: 0.06em;
+}
+    
+%logo-subtitle {
+    font-family: $Arial;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+}
+
+%h2-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 57px;
+}
+
+%h3-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;  
+    line-height: 45px;
+    letter-spacing: 0.06em;
+}
+
+%h4-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+}
+
+%h5-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.06em;
+}
+
+%button-text-style {
+    font-family: $Georgia;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+}
+
+%paragraph-l {
+    font-family: $Arial;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+%paragraph-s {
+    font-family: $Arial-italic;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+%colored-button {
+    @extend %button-text-style;
+    text-align: center;
+    color: $color-dark-3xl;
+    @include style-button(15px 45px, 0, $color-primary, 100px, 0, $color-primary-light);
+}
+
+%bordered-button {
+    @extend %button-text-style;
+    text-align: center;
+    color: $color-dark-3xl;
+    @include style-button(13px 43px, 2px solid $color-primary, transparent, 100px, 2px solid $color-primary-light, $color-primary-light);
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+%circle-button {
+    @include style-button(21px 17px, 2px solid $color-primary, transparent, 100px, 2px solid $color-primary-light, $color-primary-light);
+}
+
+%circle-button-pets-page {
+    @extend %h4-style;
+    color: $color-dark-3xl;
+    text-align: center;
+    @include style-button(0, 2px solid $color-primary, transparent, 100px, 2px solid $color-primary-light, $color-primary-light);
+}
+
+%donation-bank-account {
+    @extend %h4-style;
+    color: $color-dark-l;
+    @include style-button(10px 15px 10px 60px, 0, $color-primary, 9px, 0, $color-primary-light);
+    &:hover {
+        transform: scale(1.02);
+    }
+}

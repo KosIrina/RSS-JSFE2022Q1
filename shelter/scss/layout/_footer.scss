@@ -1,0 +1,74 @@
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    background: $gradient-background;
+}
+
+.contacts,
+.location {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 234px;
+    padding-top: 16.5px;
+    box-sizing: content-box;
+}
+
+.contacts {
+    width: 23.2%;
+}
+
+.location {
+    width: 25%;
+}
+
+.footer-puppy {
+    width: 24.95%;
+}
+
+.contacts-heading, 
+.location-heading {
+    color: $color-light-xl;
+}
+
+.mail,
+.phone,
+.location1,
+.location2 {
+    position: relative; 
+    @extend %h4-style;
+    color: $color-primary;
+    transition: 0.5s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.mail,
+.phone {
+    padding-left: 60px;
+    line-height: 32px;
+}
+
+.location1,
+.location2 {
+    padding-left: 42px;
+    @include add-icon(22px, 32px, url('../../assets/icons/icon-location.svg'), 0);
+}
+
+.location1::before {
+    top: 7px;
+}
+
+.location2 {
+    line-height: 32px;
+}
+
+.mail {
+    @include add-icon(40px, 32px, url('../../assets/icons/icon-email.svg'), 0);
+}
+
+.phone {
+    @include add-icon(40px, 32px, url('../../assets/icons/icon-phone.svg'), 0);
+}

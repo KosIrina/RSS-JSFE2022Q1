@@ -1,0 +1,1144 @@
+.logo-title {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 0.06em;
+}
+
+.logo-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 57px;
+}
+
+h3 {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+}
+
+.mail,
+.phone,
+.location1,
+.location2, h4, .credit-card, .arrow-start-button,
+.arrow-end-button,
+.arrow-back-button.pets-page,
+.arrow-forward-button.pets-page,
+.current-page-button {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+}
+
+h5 {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+}
+
+.learn-more-button, .start-screen-button,
+.know-the-rest-button {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+}
+
+.navigation-link, p {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.donation-legal {
+  font-family: Arial-italic, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.start-screen-button,
+.know-the-rest-button {
+  text-align: center;
+  color: #292929;
+  padding: 15px 45px;
+  border: 0;
+  background-color: #F1CDB3;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.start-screen-button:hover,
+.know-the-rest-button:hover {
+  border: 0;
+  background-color: #FDDCC4;
+}
+.start-screen-button:active,
+.know-the-rest-button:active {
+  transform: scale(0.8);
+}
+
+.learn-more-button {
+  text-align: center;
+  color: #292929;
+  padding: 13px 43px;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.learn-more-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.learn-more-button:active {
+  transform: scale(0.8);
+}
+.learn-more-button:hover {
+  transform: scale(1.1);
+}
+
+.arrow-back-button,
+.arrow-forward-button {
+  padding: 21px 17px;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.arrow-back-button:hover,
+.arrow-forward-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.arrow-back-button:active,
+.arrow-forward-button:active {
+  transform: scale(0.8);
+}
+
+.arrow-start-button,
+.arrow-end-button,
+.arrow-back-button.pets-page,
+.arrow-forward-button.pets-page,
+.current-page-button {
+  color: #292929;
+  text-align: center;
+  padding: 0;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.arrow-start-button:hover,
+.arrow-end-button:hover,
+.arrow-back-button.pets-page:hover,
+.arrow-forward-button.pets-page:hover,
+.current-page-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.arrow-start-button:active,
+.arrow-end-button:active,
+.arrow-back-button.pets-page:active,
+.arrow-forward-button.pets-page:active,
+.current-page-button:active {
+  transform: scale(0.8);
+}
+
+.credit-card {
+  color: #545454;
+  padding: 10px 15px 10px 60px;
+  border: 0;
+  background-color: #F1CDB3;
+  border-radius: 9px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.credit-card:hover {
+  border: 0;
+  background-color: #FDDCC4;
+}
+.credit-card:active {
+  transform: scale(0.8);
+}
+.credit-card:hover {
+  transform: scale(1.02);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: url("../../assets/images/cursor-normal-light.png"), auto;
+}
+
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-section,
+.pets-section,
+.help,
+.donation {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pets-section,
+.donation {
+  background: #F6F6F6;
+}
+
+a {
+  text-decoration: none;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+}
+
+button {
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial-Regular.woff2") format("woff2"), url("../../assets/fonts/Arial-Regular.woff") format("woff"), url("../../assets/fonts/Arial-Regular.ttf") format("ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Arial-italic";
+  src: url("../../assets/fonts/Arial-Italic.woff2") format("woff2"), url("../../assets/fonts/Arial-Italic.woff") format("woff"), url("../../assets/fonts/Arial-Italic.ttf") format("ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia-Regular.woff2") format("woff2"), url("../../assets/fonts/Georgia-Regular.woff") format("woff"), url("../../assets/fonts/Georgia-Regular.ttf") format("ttf");
+  font-weight: 400;
+}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+h2 {
+  margin: 0;
+  color: #FFFFFF;
+}
+
+p {
+  margin: 0;
+  color: #CDCDCD;
+}
+
+h3 {
+  margin: 0;
+  color: #545454;
+}
+
+h4 {
+  margin: 0;
+  color: #545454;
+}
+
+h5 {
+  margin: 0;
+  color: #545454;
+}
+
+.donation-legal {
+  color: #B2B2B2;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+.logo:active {
+  transform: scale(0.5);
+}
+
+.logo-title {
+  margin: 0;
+  width: 185.7px;
+}
+
+.logo-subtitle {
+  text-align: center;
+  margin: 0 0 0 3px;
+  padding-top: 10px;
+}
+
+.navigation-list {
+  display: grid;
+  grid-template: 60px/repeat(4, auto);
+  grid-gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation-item {
+  padding: 16px 0 20px 0;
+}
+
+.navigation-link {
+  position: relative;
+  height: 24px;
+}
+
+.navigation-link.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 1px;
+  width: 100%;
+  height: 3px;
+  background-color: #F1CDB3;
+  transition: 0.5s;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(80% 170% at 0% 0%, #5B483A 0%, #262425 90%), #211F20;
+}
+
+.contacts,
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 234px;
+  padding-top: 16.5px;
+  box-sizing: content-box;
+}
+
+.contacts {
+  width: 23.2%;
+}
+
+.location {
+  width: 25%;
+}
+
+.footer-puppy {
+  width: 24.95%;
+}
+
+.contacts-heading,
+.location-heading {
+  color: #FFFFFF;
+}
+
+.mail,
+.phone,
+.location1,
+.location2 {
+  position: relative;
+  color: #F1CDB3;
+  transition: 0.5s;
+}
+.mail:hover,
+.phone:hover,
+.location1:hover,
+.location2:hover {
+  transform: scale(1.05);
+}
+
+.mail,
+.phone {
+  padding-left: 60px;
+  line-height: 32px;
+}
+
+.location1,
+.location2 {
+  padding-left: 42px;
+}
+.location1::before,
+.location2::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 0;
+  background-image: url("../../assets/icons/icon-location.svg");
+}
+
+.location1::before {
+  top: 7px;
+}
+
+.location2 {
+  line-height: 32px;
+}
+
+.mail::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 0;
+  background-image: url("../../assets/icons/icon-email.svg");
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 0;
+  background-image: url("../../assets/icons/icon-phone.svg");
+}
+
+.arrow-back-button,
+.arrow-forward-button {
+  line-height: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.arrow-reversed {
+  transform: rotate(-180deg);
+}
+
+.credit-card {
+  position: relative;
+  width: 350px;
+}
+.credit-card::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 23px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 15px;
+  background-image: url("../../assets/icons/credit-card.svg");
+}
+
+.pets-buttons > button {
+  width: 52px;
+  height: 52px;
+}
+
+.arrow-start-button.disabled,
+.arrow-end-button.disabled,
+.arrow-back-button.pets-page.disabled,
+.arrow-forward-button.pets-page.disabled,
+.current-page-button.disabled {
+  border: 2px solid #CDCDCD;
+  background-color: transparent;
+  color: #CDCDCD;
+  cursor: url("../../assets/images/cursor-normal-light.png"), auto;
+  transform: none;
+}
+
+.current-page-button.active {
+  border: 2px solid #F1CDB3;
+  background-color: #F1CDB3;
+  cursor: url("../../assets/images/cursor-normal-light.png"), auto;
+  transform: none;
+}
+
+.header-wrapper {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header-container {
+  margin: 61px auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: transparent;
+}
+
+.logo-title {
+  color: #F1CDB3;
+}
+
+.logo-subtitle {
+  color: #FFFFFF;
+}
+
+.navigation-link {
+  color: #CDCDCD;
+}
+.navigation-link:hover {
+  color: #FAFAFA;
+}
+
+.navigation-link.active {
+  color: #FAFAFA;
+}
+.navigation-link.active::after {
+  bottom: -6px;
+}
+
+.start-screen-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 180px;
+  height: 100%;
+  background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(80% 170% at 0% 0%, #5B483A 0%, #262425 90%), #211F20;
+}
+@media (max-width: 898px) {
+  .start-screen-container {
+    align-items: center;
+  }
+}
+
+.start-screen-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 13.58%;
+  width: 38.3%;
+  height: 322px;
+}
+@media (max-width: 898px) {
+  .start-screen-content {
+    margin: 0;
+    min-height: 322px;
+    height: auto;
+  }
+}
+
+.start-screen-heading {
+  max-width: 310px;
+}
+
+.start-screen-subheading {
+  padding: 15px 0;
+}
+
+.start-screen-puppy {
+  width: 58.2%;
+}
+
+.about-section {
+  display: grid;
+  grid-template: auto/49.41% 50.59%;
+  padding: 80px 215px 100px 215px;
+}
+
+.about-pets {
+  width: 71.43%;
+  align-self: center;
+}
+
+.about-content {
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-heading {
+  max-width: 370px;
+}
+
+.about-subheading-part1,
+.about-subheading-part2 {
+  color: #4C4C4C;
+}
+
+.pets-section {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pets-heading {
+  max-width: 400px;
+  text-align: center;
+}
+
+.pets-slider {
+  display: grid;
+  grid-template: auto/4.33% 82.5% 4.33%;
+  -moz-column-gap: 4.42%;
+       column-gap: 4.42%;
+  align-items: center;
+  width: 100%;
+}
+
+.pets-cards {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 270px;
+  height: 435px;
+  padding-bottom: 30px;
+  background: #FAFAFA;
+  border-radius: 9px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.pet-card:hover {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.pet-card:hover .learn-more-button {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+
+.pet-card-image {
+  width: 270px;
+  height: 270px;
+}
+
+.help {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.help-heading {
+  max-width: 310px;
+  text-align: center;
+}
+
+.help-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 60px 27px 0 27px;
+  row-gap: 55px;
+}
+
+.pet-food,
+.transportation,
+.toys,
+.bowls-and-cups,
+.shampoos,
+.vitamins,
+.medicines,
+.collars-leashes,
+.sleeping-areas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 113px;
+}
+
+.pet-food {
+  width: 202px;
+}
+
+.transportation {
+  width: 270px;
+}
+
+.toys {
+  width: 180px;
+}
+
+.bowls-and-cups {
+  width: 273px;
+}
+
+.shampoos {
+  width: 221px;
+}
+
+.vitamins {
+  width: 209px;
+}
+
+.medicines {
+  width: 221px;
+}
+
+.collars-leashes {
+  width: 285px;
+}
+
+.sleeping-areas {
+  width: 263px;
+}
+
+.donation {
+  display: grid;
+  grid-template: auto/58.47% 41.53%;
+  padding: 80px 182px 100px 183px;
+}
+
+.donation-dog {
+  width: 94.39%;
+  align-self: center;
+}
+
+.donation-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 282px;
+}
+
+.donation-heading {
+  max-width: 300px;
+}
+
+.header.pets-page {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.header-container.pets-page {
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  background: #FFFFFF;
+}
+
+.logo-title.pets-page {
+  margin-top: 1px;
+  color: #545454;
+}
+
+.logo-subtitle.pets-page {
+  color: #292929;
+}
+
+.navigation-link.pets-page {
+  color: #545454;
+}
+.navigation-link.pets-page:hover {
+  color: #292929;
+}
+
+.navigation-link.pets-page.active {
+  color: #292929;
+}
+.navigation-link.pets-page.active::after {
+  bottom: -7px;
+}
+
+.pets-slider.pets-page {
+  display: block;
+  max-width: 1280px;
+}
+
+.pets-cards.pets-page {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  max-width: 1280px;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.pets-buttons {
+  display: flex;
+  width: 340px;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */
