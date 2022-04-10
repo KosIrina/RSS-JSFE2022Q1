@@ -2,6 +2,15 @@ h2 {
     margin: 0;
     @extend %h2-style;
     color: $color-light-xl;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-family: $Georgia;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 32px;
+        letter-spacing: 0.06em;
+    }
 }
 
 p {
@@ -14,6 +23,16 @@ h3 {
     margin: 0;
     @extend %h3-style;
     color: $color-dark-l;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-family: $Georgia;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 32px;
+        letter-spacing: 0.06em;
+        text-align: center;
+    }
 }
 
 h4 {

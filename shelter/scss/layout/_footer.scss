@@ -11,6 +11,13 @@
         row-gap: 65px;
         max-width: 944px;
     }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding-top: 30px;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+    }
 }
 
 .contacts,
@@ -25,6 +32,10 @@
     @media (min-width: 768px) and (max-width: 1279px) {
         padding: 0;
     }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding: 0;
+    }
 }
 
 .contacts {
@@ -32,6 +43,11 @@
     @media (min-width: 768px) and (max-width: 1279px) {
         width: 279px;
         padding-left: 2px;
+    }
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 278px;
+        align-items: center;
+        height: 208px;
     }
 }
 
@@ -41,6 +57,11 @@
         width: 302px;
         padding-right: 1.5px;
     }
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 300px;
+        align-items: center;
+        height: 222px;
+    }
 }
 
 .footer-puppy {
@@ -48,11 +69,17 @@
     @media (min-width: 768px) and (max-width: 1279px) {
         width: 300px;
     }
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 260px;
+    }
 }
 
 .contacts-heading, 
 .location-heading {
     color: $color-light-xl;
+    @media (min-width: 320px) and (max-width: 767px) {
+        max-width: 250px;
+    }
 }
 
 .mail,
@@ -86,6 +113,9 @@
 
 .location2 {
     line-height: 32px;
+    @media (min-width: 320px) and (max-width: 767px) {
+        align-self: flex-start;
+    }
 }
 
 .mail {
