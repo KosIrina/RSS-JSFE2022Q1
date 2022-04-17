@@ -2,6 +2,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 .header-container.pets-page {
@@ -28,6 +29,10 @@
     }
 }
 
+.navigation-link.pets-page.open {
+    color: $color-dark-s;
+}
+
 .navigation-link.pets-page.active {
     color: $color-dark-3xl;
     &::after {
@@ -35,9 +40,23 @@
     }
 }
 
+.navigation-link.pets-page.active.open {
+    color: $color-light-s;
+}
+
+.pets-section.pets-page {
+    @media (min-width: 768px) and (max-width: 1279px) {
+        padding-bottom: 76px;
+    }
+}
+
 .pets-slider.pets-page {
     display: block;    
     max-width: 1280px;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        padding: 0 64px;
+    }
 }
 
 .pets-cards.pets-page {
@@ -48,10 +67,44 @@
     max-width: 1280px;
     width: 100%;
     padding: 60px 0;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        padding-top: 30px;
+        padding-bottom: 40px;
+        max-width: 678px;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.pet-card-4,
+.pet-card-5,
+.pet-card-6,
+.pet-card-7,
+.pet-card-8 {
+    @media (min-width: 320px) and (max-width: 767px) {
+        display: none;
+    }
+}
+
+.pet-card-7,
+.pet-card-8 {
+    @media (min-width: 768px) and (max-width: 1279px) {
+        display: none;
+    }
 }
 
 .pets-buttons {
     display: flex;
     width: 340px;
     justify-content: space-between;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 300px;
+    }
 }
