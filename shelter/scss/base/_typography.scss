@@ -51,3 +51,31 @@ h5 {
     @extend %paragraph-s;
     color: $color-dark-m;
 }
+
+.pet-name {
+    @extend %h3-style;
+    color: $color-black;
+}
+
+.pet-type-and-breed {
+    @extend %h4-style;
+    color: $color-black;
+}
+
+.pet-description, 
+.pet-characteristics {
+    @extend %h5-style;
+    color: $color-black;
+}
+
+.pet-description {
+    @media (max-width: 890px) {
+        font-size: 13px;
+        line-height: 14px;
+    }
+}
+
+.characteristic-title {
+    font-family: "Georgia-bold";
+    font-weight: 700;
+}
