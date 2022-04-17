@@ -851,7 +851,15 @@ h5 {
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 65px;
-    max-width: 944px;
+    max-width: 1280px;
+  }
+}
+@media (min-width: 944px) and (max-width: 1279px) {
+  .footer-container {
+    box-sizing: content-box;
+    max-width: 884px;
+    padding-left: calc((100vw - 884px) / 2);
+    padding-right: calc((100vw - 884px) / 2);
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -1065,7 +1073,7 @@ h5 {
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .credit-card {
-    width: 281px;
+    width: 282px;
     font-size: 15px;
   }
 }
