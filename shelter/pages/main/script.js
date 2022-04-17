@@ -81,3 +81,52 @@ function closePopup() {
 
 popupOverlay.addEventListener('click', closePopup);
 popupCloseButton.addEventListener('click', closePopup);
+
+// Slider
+const petTitles = document.querySelectorAll('.pet-card-title');
+const backButton = document.querySelector('.arrow-back-button');
+const forwardButton = document.querySelector('.arrow-forward-button');
+
+function changeSlide() {
+  let currentPetsOnPage = [];
+  let newPets = [];
+  let randomArray = [];
+  
+  petTitles.forEach((elem) => { currentPetsOnPage.push(elem.innerHTML); });  
+
+  pets.forEach((elem, index) => {
+    if (pets[index]["name"] !== currentPetsOnPage[0] && pets[index]["name"] !== currentPetsOnPage[1] && pets[index]["name"] !== currentPetsOnPage[2] ) {
+      newPets.push(elem);
+    }
+  })
+
+  for (let i = 0; randomArray.length < 3; i++) {
+    let randomEl = newPets[Math.floor(Math.random() * newPets.length)];
+    if (randomArray.includes(randomEl) === false) {
+      randomArray.push(randomEl);
+    }
+  }
+
+  let i = 0;
+  petCards.forEach((elem) => {
+    elem.querySelector('.pet-card-image').classList.add('animated');
+    elem.querySelector('.pet-card-image').src = `${randomArray[i]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[i]["name"]}`;
+    
+    i++;
+  })
+
+  setTimeout(() =>
+    petCards.forEach((elem) => {
+      elem.querySelector('.pet-card-image').classList.remove('animated');
+    }), 1500
+  );
+
+  
+  /* console.log(currentPetsOnPage);
+  console.log(newPets);
+  console.log(randomArray); */
+}
+
+backButton.addEventListener('click', changeSlide);
+forwardButton.addEventListener('click', changeSlide);

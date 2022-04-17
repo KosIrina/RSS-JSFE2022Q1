@@ -1505,8 +1505,37 @@ h5 {
 .pet-card-image {
   width: 270px;
   height: 270px;
+  transition: all 1s ease-in-out;
 }
 
+.pet-card-image.animated {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
   .pet-card-3.main-page {
     display: none;
