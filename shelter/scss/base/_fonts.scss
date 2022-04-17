@@ -21,3 +21,11 @@
          url("../../assets/fonts/Georgia-Regular.ttf") format("ttf");
     font-weight: 400;
 }
+
+@font-face {
+    font-family: "Georgia-bold";
+    src: url("../../assets/fonts/Georgia-Bold.woff2") format("woff2"),
+         url("../../assets/fonts/Georgia-Bold.woff") format("woff"),
+         url("../../assets/fonts/Georgia-Bold.ttf") format("ttf");
+    font-weight: 700;
+}

@@ -101,6 +101,10 @@
     @include style-button(0, 2px solid $color-primary, transparent, 100px, 2px solid $color-primary-light, $color-primary-light);
 }
 
+%circle-button-cross {
+    @include style-button(0, 2px solid $color-primary, transparent, 100px, 2px solid $color-primary-light, $color-primary-light);
+}
+
 %donation-bank-account {
     @extend %h4-style;
     color: $color-dark-l;

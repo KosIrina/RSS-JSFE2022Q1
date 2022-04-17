@@ -21,6 +21,13 @@
     height: 52px;
 }
 
+.cross-button {
+    @extend %circle-button-cross;
+    line-height: 0;
+    width: 52px;
+    height: 52px;
+}
+
 .arrow-forward-button.main-page {
     @media (min-width: 320px) and (max-width: 767px) {
         grid-area: 2 / 2 / 3 / 3;
@@ -48,7 +55,7 @@
     width: 350px;
 
     @media (min-width: 320px) and (max-width: 767px) {
-        width: 281px;
+        width: 282px;
         font-size: 15px;
     }
 }

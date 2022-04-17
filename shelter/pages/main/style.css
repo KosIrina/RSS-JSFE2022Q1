@@ -22,7 +22,7 @@ h2 {
   line-height: 57px;
 }
 
-h3 {
+.pet-name, h3 {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
@@ -34,7 +34,7 @@ h3 {
 .mail,
 .phone,
 .location1,
-.location2, h4, .credit-card, .arrow-start-button,
+.location2, .pet-type-and-breed, h4, .credit-card, .arrow-start-button,
 .arrow-end-button,
 .arrow-back-button.pets-page,
 .arrow-forward-button.pets-page,
@@ -47,7 +47,8 @@ h3 {
   letter-spacing: 0.06em;
 }
 
-h5 {
+.pet-description,
+.pet-characteristics, h5 {
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: 400;
@@ -172,6 +173,22 @@ h5 {
   transform: scale(0.8);
 }
 
+.cross-button {
+  padding: 0;
+  border: 2px solid #F1CDB3;
+  background-color: transparent;
+  border-radius: 100px;
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+  transition: 0.5s;
+}
+.cross-button:hover {
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.cross-button:active {
+  transform: scale(0.8);
+}
+
 .credit-card {
   color: #545454;
   padding: 10px 15px 10px 60px;
@@ -261,6 +278,11 @@ button {
   font-family: "Georgia";
   src: url("../../assets/fonts/Georgia-Regular.woff2") format("woff2"), url("../../assets/fonts/Georgia-Regular.woff") format("woff"), url("../../assets/fonts/Georgia-Regular.ttf") format("ttf");
   font-weight: 400;
+}
+@font-face {
+  font-family: "Georgia-bold";
+  src: url("../../assets/fonts/Georgia-Bold.woff2") format("woff2"), url("../../assets/fonts/Georgia-Bold.woff") format("woff"), url("../../assets/fonts/Georgia-Bold.ttf") format("ttf");
+  font-weight: 700;
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -652,6 +674,31 @@ h5 {
   color: #B2B2B2;
 }
 
+.pet-name {
+  color: #000000;
+}
+
+.pet-type-and-breed {
+  color: #000000;
+}
+
+.pet-description,
+.pet-characteristics {
+  color: #000000;
+}
+
+@media (max-width: 890px) {
+  .pet-description {
+    font-size: 13px;
+    line-height: 14px;
+  }
+}
+
+.characteristic-title {
+  font-family: "Georgia-bold";
+  font-weight: 700;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -1032,6 +1079,12 @@ h5 {
 
 .arrow-back-button,
 .arrow-forward-button {
+  line-height: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.cross-button {
   line-height: 0;
   width: 52px;
   height: 52px;
@@ -1452,8 +1505,37 @@ h5 {
 .pet-card-image {
   width: 270px;
   height: 270px;
+  transition: all 1s ease-in-out;
 }
 
+.pet-card-image.animated {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
   .pet-card-3.main-page {
     display: none;
@@ -1464,6 +1546,168 @@ h5 {
   .pet-card-2.main-page,
 .pet-card-3.main-page {
     display: none;
+  }
+}
+
+.modal-window-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 30px 0 30px;
+  z-index: 1100;
+  display: none;
+}
+
+.modal-window-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(41, 41, 41, 0.6);
+  transition: 0.5s;
+}
+.modal-window-overlay:hover {
+  cursor: url("../../assets/images/cursor-hover-light.png"), pointer;
+}
+.modal-window-overlay:hover ~ .modal-window-box > .cross-button {
+  border: #FDDCC4;
+  background-color: #FDDCC4;
+}
+
+.modal-window-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border-radius: 9px;
+  transform: translate(-50%, -50%);
+}
+
+.cross-button {
+  position: absolute;
+  top: -52px;
+  right: -42px;
+}
+@media (max-width: 767px) {
+  .cross-button {
+    right: -30px;
+  }
+}
+
+.modal-window {
+  max-width: 900px;
+  max-height: 500px;
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FAFAFA;
+  border-radius: 9px;
+}
+.modal-window:hover {
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+@media (max-width: 1065px) {
+  .modal-window {
+    width: 85vw;
+  }
+}
+@media (max-width: 800px) {
+  .modal-window {
+    min-height: 350px;
+    width: 82vw;
+  }
+}
+@media (max-width: 767px) {
+  .modal-window {
+    width: 75vw;
+  }
+}
+
+.modal-window-image {
+  width: 55.55%;
+  border-radius: 9px;
+}
+@media (min-width: 770px) and (max-width: 800px) {
+  .modal-window-image {
+    width: 53.35%;
+  }
+}
+@media (max-width: 767px) {
+  .modal-window-image {
+    display: none;
+  }
+}
+
+.modal-window-content {
+  width: 44.45%;
+  padding: 0 19.5px 0 29px;
+  align-self: flex-start;
+}
+@media (max-width: 800px) {
+  .modal-window-content {
+    padding: 0 8px 0 11px;
+  }
+}
+@media (max-width: 767px) {
+  .modal-window-content {
+    width: 100%;
+    padding: 0 10px 0 10px;
+  }
+}
+
+.pet-name {
+  padding: 14.28% 0 10px 0;
+}
+@media (max-width: 800px) {
+  .pet-name {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .pet-type-and-breed {
+    text-align: center;
+  }
+}
+
+.pet-description {
+  padding: 11.43% 0;
+}
+@media (max-width: 800px) {
+  .pet-description {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 767px) {
+  .pet-description {
+    text-align: justify;
+    padding-bottom: 24px;
+  }
+}
+
+.pet-characteristics {
+  margin: 0;
+  padding-bottom: 10%;
+  padding-left: 0;
+  list-style-type: none;
+}
+@media (max-width: 800px) {
+  .pet-characteristics {
+    padding-bottom: 10px;
+  }
+}
+
+.pet-characteristics > li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  background-image: url("../../assets/icons/dot.svg");
+  background-position: left 0 top 6.5px;
+  background-size: 4px 4px;
+  background-repeat: no-repeat;
+}
+@media (max-width: 800px) {
+  .pet-characteristics > li {
+    margin-bottom: 5px;
   }
 }
 
@@ -1804,6 +2048,11 @@ h5 {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .donation-legal {
+    max-width: 520px;
+  }
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .donation-legal {
     width: 280px;
