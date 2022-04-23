@@ -6,6 +6,7 @@ const logo = document.querySelector('.logo-link');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
 const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 const aboutLink = document.querySelector('.nav-about-item');
+const body = document.querySelector('body');
 
 function toggleMenu() {
   hamburger.classList.toggle('open');
@@ -42,6 +43,8 @@ const popupWrapper = document.querySelector('.modal-window-wrapper');
 const popupOverlay = document.querySelector('.modal-window-overlay');
 const popupCloseButton = document.querySelector('.cross-button');
 const petCards = document.querySelectorAll('.pet-card');
+const popupWindow = document.querySelector('.modal-window');
+const popupWindowContent = document.querySelector('.modal-window-content');
 
 function openPopup(event) {
   popupWrapper.style.display = 'block';
@@ -70,17 +73,37 @@ function openPopup(event) {
   petInoculations.textContent = `${currentPetInfo["inoculations"]}`;
   petDiseases.textContent = `${currentPetInfo["diseases"]}`;
   petParasites.textContent = `${currentPetInfo["parasites"]}`;
+  body.style.overflowY = 'hidden';
 }
 
 petCards.forEach((elem) => { elem.addEventListener('click', openPopup) }); 
+petCards.forEach((elem) => { elem.addEventListener('click', scrollPopup) });
 
 
 function closePopup() {
   popupWrapper.style.display = 'none';
+  body.style.overflowY = '';
 }
 
 popupOverlay.addEventListener('click', closePopup);
 popupCloseButton.addEventListener('click', closePopup);
+
+function scrollPopup() {
+  if ((document.documentElement.clientHeight - 55 * 2) !== popupWindow.offsetHeight && document.documentElement.clientHeight < (popupWindowContent.offsetHeight + 55*2) && document.documentElement.clientHeight > 220) {
+    popupWindow.style.minHeight = '0';
+    popupWindow.style.height = (document.documentElement.clientHeight - 55 * 2) + 'px';
+    popupWindow.style.overflowY = 'auto';
+   } else if ( (document.documentElement.clientHeight - 55*2) !== popupWindow.offsetHeight && document.documentElement.clientHeight <= 220) {
+    popupWindow.style.minHeight = '0';
+    popupWindow.style.height = '120px';
+    popupWindow.style.overflowY = 'auto';
+   } else if (document.documentElement.clientHeight >= (popupWindowContent.offsetHeight + 55*2) ) {
+    popupWindow.style.minHeight = '350px';
+    popupWindow.style.height = '';
+    popupWindow.style.overflowY = '';
+  }
+}
+window.addEventListener('resize', scrollPopup);
 
 // Slider
 const petTitles = document.querySelectorAll('.pet-card-title');

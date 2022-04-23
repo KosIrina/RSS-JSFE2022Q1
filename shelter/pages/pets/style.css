@@ -1623,9 +1623,26 @@ h5 {
   }
 }
 
+.modal-window::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal-window::-webkit-scrollbar-track {
+  box-shadow: 5px 5px 5px -5px rgba(159, 170, 179, 0.7) inset;
+  background-color: #FFFFFF;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+.modal-window::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #FDDCC4, #4C4C4C);
+}
+
 .modal-window-image {
   width: 55.55%;
   border-radius: 9px;
+  align-self: baseline;
 }
 @media (min-width: 770px) and (max-width: 800px) {
   .modal-window-image {
