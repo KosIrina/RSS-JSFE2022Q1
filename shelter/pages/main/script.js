@@ -1,3 +1,13 @@
+// images caching
+function preloadImages(name) {
+  for (let i = 1; i <= 8; i++) {
+    const img = new Image();
+    img.src = `../../assets/images/${name}.png`; 
+  }
+} 
+const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
+names.forEach((elem) => preloadImages(elem));
+
 // hamburger + menu (<768px)
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.navigation-list');

@@ -2185,6 +2185,7 @@ h5 {
 @media (min-width: 320px) and (max-width: 767px) {
   .pets-buttons {
     width: 300px;
+    z-index: 3;
   }
 }
 
