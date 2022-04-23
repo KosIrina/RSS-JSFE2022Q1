@@ -122,14 +122,21 @@ function scrollPopup() {
 window.addEventListener('resize', scrollPopup);
 
 // Slider
-const petTitles = document.querySelectorAll('.pet-card-title');
+const petTitles = document.querySelectorAll('.pet-card-title.active');
 const backButton = document.querySelector('.arrow-back-button');
 const forwardButton = document.querySelector('.arrow-forward-button');
+const petCardsLeft = document.querySelectorAll('.pet-card.left');
+const petCardsRight = document.querySelectorAll('.pet-card.right');
+const carousel = document.querySelector('.pets-cards-block');
+const petCardsCenter = document.querySelectorAll('.pet-card.active');
+let randomArray = [];
+let desktop = window.matchMedia('(min-width: 1280px)');
+let tablet = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
+let mobile = window.matchMedia('(min-width: 320px)  and (max-width: 767px)');
 
-function changeSlide() {
+function generateRandomCards() {
   let currentPetsOnPage = [];
   let newPets = [];
-  let randomArray = [];
   
   petTitles.forEach((elem) => { currentPetsOnPage.push(elem.innerHTML); });  
 
@@ -146,26 +153,89 @@ function changeSlide() {
     }
   }
 
-  let i = 0;
-  petCards.forEach((elem) => {
-    elem.querySelector('.pet-card-image').classList.add('animated');
-    elem.querySelector('.pet-card-image').src = `${randomArray[i]["img"]}`;    
-    elem.querySelector('.pet-card-title').textContent = `${randomArray[i]["name"]}`;
+  let a = 0;
+  let b = 0;
+  petCardsLeft.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[a]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[a]["name"]}`;
     
-    i++;
+    a++;
   })
 
-  setTimeout(() =>
-    petCards.forEach((elem) => {
-      elem.querySelector('.pet-card-image').classList.remove('animated');
-    }), 1500
-  );
-
-  
+  petCardsRight.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[b]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[b]["name"]}`;
+        
+    b++;
+  })
   /* console.log(currentPetsOnPage);
   console.log(newPets);
   console.log(randomArray); */
 }
 
-backButton.addEventListener('click', changeSlide);
-forwardButton.addEventListener('click', changeSlide);
+function slideLeft() {
+  generateRandomCards();
+
+  if (desktop.matches) {
+    carousel.classList.add('transition-left-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.add('transition-left-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.add('transition-left-mobile');
+  }
+
+  backButton.removeEventListener('click', slideLeft);
+  forwardButton.removeEventListener('click', slideRight);
+}
+
+function slideRight() {
+  generateRandomCards();
+
+  if (desktop.matches) {
+    carousel.classList.add('transition-right-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.add('transition-right-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.add('transition-right-mobile');
+  }
+  
+  backButton.removeEventListener('click', slideLeft);
+  forwardButton.removeEventListener('click', slideRight);
+} 
+
+backButton.addEventListener('click', slideLeft);
+forwardButton.addEventListener('click', slideRight);
+
+function doAfterAnimation() {
+  if (desktop.matches) {
+    carousel.classList.remove('transition-left-desktop');
+    carousel.classList.remove('transition-right-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.remove('transition-left-tablet');
+    carousel.classList.remove('transition-right-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.remove('transition-left-mobile');
+    carousel.classList.remove('transition-right-mobile');
+  }
+  
+  backButton.addEventListener('click', slideLeft);
+  forwardButton.addEventListener('click', slideRight);
+
+  let c = 0;
+  petCardsCenter.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[c]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[c]["name"]}`;
+        
+    c++;
+  })
+
+  randomArray = [];
+}
+
+carousel.addEventListener('animationend', doAfterAnimation);
