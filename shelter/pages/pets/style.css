@@ -226,6 +226,10 @@ body {
   justify-content: space-between;
 }
 
+body.noscroll {
+  overflow-y: hidden;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -876,10 +880,6 @@ h5 {
   height: 2px;
   background: #F1CDB3;
   z-index: 15;
-}
-
-.hamburger-line.open {
-  filter: brightness(0) saturate(100%) invert(82%) sepia(38%) saturate(272%) hue-rotate(333deg) brightness(99%) contrast(91%);
 }
 
 .hamburger-line.pets-page {
@@ -2101,6 +2101,10 @@ h5 {
   color: #292929;
 }
 
+.navigation-list.pets-page {
+  background: #FFFFFF;
+}
+
 .navigation-link.pets-page {
   color: #545454;
 }
@@ -2108,19 +2112,11 @@ h5 {
   color: #292929;
 }
 
-.navigation-link.pets-page.open {
-  color: #CDCDCD;
-}
-
 .navigation-link.pets-page.active {
   color: #292929;
 }
 .navigation-link.pets-page.active::after {
   bottom: -7px;
-}
-
-.navigation-link.pets-page.active.open {
-  color: #FAFAFA;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -2189,5 +2185,13 @@ h5 {
 @media (min-width: 320px) and (max-width: 767px) {
   .pets-buttons {
     width: 300px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .footer-container.pets-page {
+    border-top: 121px solid transparent;
+    margin-top: -121px;
+    background-clip: padding-box;
   }
 }/*# sourceMappingURL=style.css.map */

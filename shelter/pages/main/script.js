@@ -7,6 +7,8 @@ const hamburgerLines = document.querySelectorAll('.hamburger-line');
 const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 const aboutLink = document.querySelector('.nav-about-item');
 const body = document.querySelector('body');
+const helpLink = document.querySelector('.nav-help-item');
+const contactsLink = document.querySelector('.nav-contacts-item');
 
 function toggleMenu() {
   hamburger.classList.toggle('open');
@@ -14,6 +16,7 @@ function toggleMenu() {
   logo.classList.toggle('hidden');
   hamburgerLines.forEach((line) => { line.classList.toggle('open') });
   mobileMenuOverlay.classList.toggle('open');
+  body.classList.toggle('noscroll');
 }
 
 hamburger.addEventListener('click', toggleMenu);
@@ -24,9 +27,12 @@ function closeMenu() {
   logo.classList.remove('hidden');
   hamburgerLines.forEach((line) => { line.classList.remove('open') });
   mobileMenuOverlay.classList.remove('open');
+  body.classList.remove('noscroll');
 }
 
 mobileMenuOverlay.addEventListener('click', closeMenu);
+helpLink.addEventListener('click', closeMenu);
+contactsLink.addEventListener('click', closeMenu);
 
 function closeMenuAndScrollUp() {
   closeMenu();

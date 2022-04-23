@@ -13,7 +13,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+}
+
+body.noscroll {
+    overflow-y: hidden;
 }
 
 .container {
