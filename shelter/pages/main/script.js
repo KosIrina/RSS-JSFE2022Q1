@@ -1,3 +1,13 @@
+// images caching
+function preloadImages(name) {
+  for (let i = 1; i <= 8; i++) {
+    const img = new Image();
+    img.src = `../../assets/images/${name}.png`; 
+  }
+} 
+const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
+names.forEach((elem) => preloadImages(elem));
+
 // hamburger + menu (<768px)
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.navigation-list');
@@ -6,6 +16,9 @@ const logo = document.querySelector('.logo-link');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
 const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 const aboutLink = document.querySelector('.nav-about-item');
+const body = document.querySelector('body');
+const helpLink = document.querySelector('.nav-help-item');
+const contactsLink = document.querySelector('.nav-contacts-item');
 
 function toggleMenu() {
   hamburger.classList.toggle('open');
@@ -13,6 +26,7 @@ function toggleMenu() {
   logo.classList.toggle('hidden');
   hamburgerLines.forEach((line) => { line.classList.toggle('open') });
   mobileMenuOverlay.classList.toggle('open');
+  body.classList.toggle('noscroll');
 }
 
 hamburger.addEventListener('click', toggleMenu);
@@ -23,9 +37,12 @@ function closeMenu() {
   logo.classList.remove('hidden');
   hamburgerLines.forEach((line) => { line.classList.remove('open') });
   mobileMenuOverlay.classList.remove('open');
+  body.classList.remove('noscroll');
 }
 
 mobileMenuOverlay.addEventListener('click', closeMenu);
+helpLink.addEventListener('click', closeMenu);
+contactsLink.addEventListener('click', closeMenu);
 
 function closeMenuAndScrollUp() {
   closeMenu();
@@ -42,6 +59,8 @@ const popupWrapper = document.querySelector('.modal-window-wrapper');
 const popupOverlay = document.querySelector('.modal-window-overlay');
 const popupCloseButton = document.querySelector('.cross-button');
 const petCards = document.querySelectorAll('.pet-card');
+const popupWindow = document.querySelector('.modal-window');
+const popupWindowContent = document.querySelector('.modal-window-content');
 
 function openPopup(event) {
   popupWrapper.style.display = 'block';
@@ -70,27 +89,54 @@ function openPopup(event) {
   petInoculations.textContent = `${currentPetInfo["inoculations"]}`;
   petDiseases.textContent = `${currentPetInfo["diseases"]}`;
   petParasites.textContent = `${currentPetInfo["parasites"]}`;
+  body.style.overflowY = 'hidden';
 }
 
 petCards.forEach((elem) => { elem.addEventListener('click', openPopup) }); 
+petCards.forEach((elem) => { elem.addEventListener('click', scrollPopup) });
 
 
 function closePopup() {
   popupWrapper.style.display = 'none';
+  body.style.overflowY = '';
 }
 
 popupOverlay.addEventListener('click', closePopup);
 popupCloseButton.addEventListener('click', closePopup);
 
+function scrollPopup() {
+  if ((document.documentElement.clientHeight - 55 * 2) !== popupWindow.offsetHeight && document.documentElement.clientHeight < (popupWindowContent.offsetHeight + 55*2) && document.documentElement.clientHeight > 220) {
+    popupWindow.style.minHeight = '0';
+    popupWindow.style.height = (document.documentElement.clientHeight - 55 * 2) + 'px';
+    popupWindow.style.overflowY = 'auto';
+   } else if ( (document.documentElement.clientHeight - 55*2) !== popupWindow.offsetHeight && document.documentElement.clientHeight <= 220) {
+    popupWindow.style.minHeight = '0';
+    popupWindow.style.height = '120px';
+    popupWindow.style.overflowY = 'auto';
+   } else if (document.documentElement.clientHeight >= (popupWindowContent.offsetHeight + 55*2) ) {
+    popupWindow.style.minHeight = '350px';
+    popupWindow.style.height = '';
+    popupWindow.style.overflowY = '';
+  }
+}
+window.addEventListener('resize', scrollPopup);
+
 // Slider
-const petTitles = document.querySelectorAll('.pet-card-title');
+const petTitles = document.querySelectorAll('.pet-card-title.active');
 const backButton = document.querySelector('.arrow-back-button');
 const forwardButton = document.querySelector('.arrow-forward-button');
+const petCardsLeft = document.querySelectorAll('.pet-card.left');
+const petCardsRight = document.querySelectorAll('.pet-card.right');
+const carousel = document.querySelector('.pets-cards-block');
+const petCardsCenter = document.querySelectorAll('.pet-card.active');
+let randomArray = [];
+let desktop = window.matchMedia('(min-width: 1280px)');
+let tablet = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
+let mobile = window.matchMedia('(min-width: 320px)  and (max-width: 767px)');
 
-function changeSlide() {
+function generateRandomCards() {
   let currentPetsOnPage = [];
   let newPets = [];
-  let randomArray = [];
   
   petTitles.forEach((elem) => { currentPetsOnPage.push(elem.innerHTML); });  
 
@@ -107,26 +153,89 @@ function changeSlide() {
     }
   }
 
-  let i = 0;
-  petCards.forEach((elem) => {
-    elem.querySelector('.pet-card-image').classList.add('animated');
-    elem.querySelector('.pet-card-image').src = `${randomArray[i]["img"]}`;    
-    elem.querySelector('.pet-card-title').textContent = `${randomArray[i]["name"]}`;
+  let a = 0;
+  let b = 0;
+  petCardsLeft.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[a]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[a]["name"]}`;
     
-    i++;
+    a++;
   })
 
-  setTimeout(() =>
-    petCards.forEach((elem) => {
-      elem.querySelector('.pet-card-image').classList.remove('animated');
-    }), 1500
-  );
-
-  
+  petCardsRight.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[b]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[b]["name"]}`;
+        
+    b++;
+  })
   /* console.log(currentPetsOnPage);
   console.log(newPets);
   console.log(randomArray); */
 }
 
-backButton.addEventListener('click', changeSlide);
-forwardButton.addEventListener('click', changeSlide);
+function slideLeft() {
+  generateRandomCards();
+
+  if (desktop.matches) {
+    carousel.classList.add('transition-left-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.add('transition-left-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.add('transition-left-mobile');
+  }
+
+  backButton.removeEventListener('click', slideLeft);
+  forwardButton.removeEventListener('click', slideRight);
+}
+
+function slideRight() {
+  generateRandomCards();
+
+  if (desktop.matches) {
+    carousel.classList.add('transition-right-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.add('transition-right-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.add('transition-right-mobile');
+  }
+  
+  backButton.removeEventListener('click', slideLeft);
+  forwardButton.removeEventListener('click', slideRight);
+} 
+
+backButton.addEventListener('click', slideLeft);
+forwardButton.addEventListener('click', slideRight);
+
+function doAfterAnimation() {
+  if (desktop.matches) {
+    carousel.classList.remove('transition-left-desktop');
+    carousel.classList.remove('transition-right-desktop');
+  }
+  if (tablet.matches) {
+    carousel.classList.remove('transition-left-tablet');
+    carousel.classList.remove('transition-right-tablet');
+  }
+  if (mobile.matches) {
+    carousel.classList.remove('transition-left-mobile');
+    carousel.classList.remove('transition-right-mobile');
+  }
+  
+  backButton.addEventListener('click', slideLeft);
+  forwardButton.addEventListener('click', slideRight);
+
+  let c = 0;
+  petCardsCenter.forEach((elem) => {
+    elem.querySelector('.pet-card-image').src = `${randomArray[c]["img"]}`;    
+    elem.querySelector('.pet-card-title').textContent = `${randomArray[c]["name"]}`;
+        
+    c++;
+  })
+
+  randomArray = [];
+}
+
+carousel.addEventListener('animationend', doAfterAnimation);

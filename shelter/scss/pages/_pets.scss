@@ -22,6 +22,10 @@
     color: $color-dark-3xl;
 }
 
+.navigation-list.pets-page {
+    background: #FFFFFF;
+}
+
 .navigation-link.pets-page {
     color: $color-dark-l;
     &:hover {
@@ -29,19 +33,11 @@
     }
 }
 
-.navigation-link.pets-page.open {
-    color: $color-dark-s;
-}
-
 .navigation-link.pets-page.active {
     color: $color-dark-3xl;
     &::after {
         bottom: -7px;
     }
-}
-
-.navigation-link.pets-page.active.open {
-    color: $color-light-s;
 }
 
 .pets-section.pets-page {
@@ -106,5 +102,14 @@
 
     @media (min-width: 320px) and (max-width: 767px) {
         width: 300px;
+        z-index: 3;
+    }
+}
+
+.footer-container.pets-page {
+    @media (min-width: 320px) and (max-width: 767px) {
+        border-top: 121px solid transparent;
+        margin-top: -121px;
+        background-clip: padding-box;
     }
 }

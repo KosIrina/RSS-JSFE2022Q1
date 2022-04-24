@@ -275,19 +275,55 @@
     }
 }
 
+.pets-cards-wrapper {
+    max-width: 990px;
+    overflow: hidden;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        max-width: 75vw;
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        max-width: 84vw;
+        grid-area: 1 / 1 / 2 / 3;
+    }
+}
+
+.pets-cards-block {
+    display: flex;
+    position: relative;
+    left: -990px;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        left: -75vw;
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        left: -84vw;
+    }
+}
+
 .pets-cards {
     display: flex;
     justify-content: space-between;
-    padding: 60px 0;
+    padding: 60px 5px;
+    
+    @media (min-width: 1280px) {
+        min-width: 990px;
+    }
 
     @media (min-width: 812px) and (max-width: 1279px) {
         justify-content: space-evenly;
     }
 
+    @media (min-width: 768px) and (max-width: 1279px) {
+        min-width: 75vw;
+    }
+
     @media (min-width: 320px) and (max-width: 767px) {
-        grid-area: 1 / 1 / 2 / 3;
+        padding: 0 5px;
+        min-width: 84vw;
         justify-content: center;
-        padding: 0;
     }
 }
 
@@ -329,15 +365,80 @@
     100% { opacity: 1 }
 }
 
+@keyframes slide-right-desktop {
+    from {left: -990px};
+    to {left: -1980px};
+}
+  
+.transition-right-desktop {
+    animation-name: slide-right-desktop;
+    animation-duration: 3s;
+}
+  
+@keyframes slide-left-desktop {
+    from {left: -990px};
+    to {left: 0px};
+}
+  
+.transition-left-desktop {
+    animation-name: slide-left-desktop;
+    animation-duration: 3s;
+}
 
-.pet-card-3.main-page {
+@keyframes slide-right-tablet {
+    from {left: -75vw};
+    to {left: -150vw};
+}
+  
+.transition-right-tablet {
+    animation-name: slide-right-tablet;
+    animation-duration: 3s;
+}
+  
+@keyframes slide-left-tablet {
+    from {left: -75vw};
+    to {left: 0px};
+}
+  
+.transition-left-tablet {
+    animation-name: slide-left-tablet;
+    animation-duration: 3s;
+}
+
+@keyframes slide-right-mobile {
+    from {left: -84vw};
+    to {left: -168vw};
+}
+  
+.transition-right-mobile {
+    animation-name: slide-right-mobile;
+    animation-duration: 3s;
+}
+  
+@keyframes slide-left-mobile {
+    from {left: -84vw};
+    to {left: 0px};
+}
+  
+.transition-left-mobile {
+    animation-name: slide-left-mobile;
+    animation-duration: 3s;
+}
+
+.pet-card-3.main-page,
+.pet-card-left-3,
+.pet-card-right-3 {
     @media (min-width: 768px) and (max-width: 1279px) {
         display: none;
     }
 }
 
 .pet-card-2.main-page,
-.pet-card-3.main-page {
+.pet-card-3.main-page,
+.pet-card-left-2,
+.pet-card-right-2,
+.pet-card-left-3,
+.pet-card-right-3 {
     @media (min-width: 320px) and (max-width: 767px) {
         display: none;
     }
@@ -415,9 +516,26 @@
     }
 }
 
+.modal-window::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-window::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(159, 170, 179, 0.7) inset;
+    background-color: $color-light-xl;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.modal-window::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, $color-primary-light, $color-dark-xl);
+}
+
 .modal-window-image {
     width: 55.55%;
     border-radius: 9px;
+    align-self: baseline;
 
     @media (min-width: 770px) and (max-width: 800px) {
         width: 53.35%;
