@@ -6,7 +6,7 @@ export interface Everything {
 
 export interface Article {
     source: Pick<Source, 'id' | 'name'>;
-    author: string;
+    author: string | null;
     title: string;
     description: string;
     url: string;
