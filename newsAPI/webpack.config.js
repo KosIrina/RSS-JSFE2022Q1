@@ -19,6 +19,10 @@ const baseConfig = {
                 test: /\.ts$/i,
                 use: 'ts-loader',
             },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     resolve: {
@@ -32,6 +36,7 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+            favicon: './src/assets/favicon.ico',
         }),
         new CleanWebpackPlugin(),
         new ESLintPlugin({ extensions: 'ts' }),
