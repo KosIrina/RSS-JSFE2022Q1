@@ -3,8 +3,8 @@ import { ResponseErrors } from '../../types/types';
 
 class Loader {
     readonly baseLink: string;
-    readonly options: { [key: string]: string };
-    constructor(baseLink: string, options: { [key: string]: string }) {
+    readonly options?: { [key: string]: string };
+    constructor(baseLink: string, options?: { [key: string]: string }) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -28,11 +28,15 @@ class Loader {
     }
 
     private makeUrl(endpoint: EndPoint, options?: { [key: string]: string }): string {
-        let urlOptions: { [key: string]: string };
-        if (options !== undefined) {
+        let urlOptions: Partial<{ [key: string]: string }>;
+        if (options !== undefined && this.options !== undefined) {
             urlOptions = { ...this.options, ...options };
-        } else {
+        } else if (options === undefined && this.options !== undefined) {
             urlOptions = { ...this.options };
+        } else if (options !== undefined && this.options === undefined) {
+            urlOptions = { ...options };
+        } else {
+            urlOptions = {};
         }
         let url = `${this.baseLink}${endpoint}?`;
 
