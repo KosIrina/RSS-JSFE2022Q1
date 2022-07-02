@@ -10,6 +10,12 @@
     }
 }
 
+@media (max-width: 343px) {
+    body > header > h1 {
+         font-size: 35px;
+     }
+ }
+
 body {
     color: #fff;
     background: #17181c;
