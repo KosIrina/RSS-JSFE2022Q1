@@ -1,3 +1,15 @@
+@media (max-width: 530px) {
+    footer {
+        flex-direction: column;
+    }
+
+    .release-year,
+    .copyright,
+    .rss-link {
+        margin: 10px 0 0 0;
+    }
+}
+
 body {
     color: #fff;
     background: #17181c;
@@ -14,22 +26,63 @@ header h1 {
 }
 
 footer {
-    height: 100px;
+    height: fit-content;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
 }
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
-    color: #444;
+footer .copyright a,
+.release-year {
+    color: #333;
 }
 footer .copyright a:hover {
     color: #555;
 }
 footer .copyright:before {
     content: '©';
+}
+
+.github-link {
+    position: relative;
+    padding-left: 34px;
+    text-decoration: none;
+    color: #353535;
+    transition: 0.5s;
+  }
+    
+.github-link:before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 1px;
+    width: 30px;
+    height: 30px;
+    background-image: url("./assets/logo_github.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+      
+.rss-link {
+    width: 121px;
+    height: 45px;
+    background-image: url("./assets/logo_rs_school_js.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+    
+.github-link:hover,
+.rss-link:hover {
+    filter: invert(10%) sepia(20%) saturate(0%) hue-rotate(205deg) brightness(107%) contrast(82%);
+    transform: scale(1.05);
 }
