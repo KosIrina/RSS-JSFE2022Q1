@@ -3,7 +3,6 @@
         flex-direction: column;
     }
 
-    .release-year,
     .copyright,
     .rss-link {
         margin: 10px 0 0 0;
@@ -46,8 +45,7 @@ footer .copyright {
     color: #333;
     text-align: center;
 }
-footer .copyright a,
-.release-year {
+footer .copyright a {
     color: #333;
 }
 footer .copyright a:hover {
