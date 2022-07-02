@@ -31,3 +31,10 @@ export interface Source {
 }
 
 export type EndPoint = 'sources' | 'everything';
+
+export enum ResponseErrors {
+    apiKeyMissing = 401,
+    notFound = 404,
+}
+
+export type VoidCallback<T> = (data: T) => void;
