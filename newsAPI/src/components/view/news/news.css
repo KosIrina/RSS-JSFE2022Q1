@@ -60,6 +60,7 @@
     padding: 10px;
     width: 100%;
     font-size: 0.9rem;
+    box-sizing: border-box;
 }
 
 .news__item .news__description {
