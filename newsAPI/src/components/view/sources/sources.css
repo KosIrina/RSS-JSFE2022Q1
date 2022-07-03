@@ -78,7 +78,7 @@
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
     position: sticky;
-    top: 20px;
+    top: 0px;
 }
 
 .sources__heading {
