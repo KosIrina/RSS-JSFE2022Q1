@@ -14,6 +14,7 @@ class App {
             this.controller.getNews(e, (data) => this.view.drawNews(data))
         );
         this.controller.getSources((data) => this.view.drawSources(data));
+        this.controller.getInitialNews((data) => this.view.drawNews(data));
     }
 }
 
