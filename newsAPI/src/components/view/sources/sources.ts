@@ -19,7 +19,7 @@ class Sources {
             fragment.append(sourceClone);
         });
 
-        (<HTMLDivElement>document.querySelector('.sources')).append(fragment);
+        (<HTMLDivElement>document.querySelector('.sources__list')).append(fragment);
     }
 }
 
