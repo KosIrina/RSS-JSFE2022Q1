@@ -11,6 +11,11 @@
     top: 20px;
 }
 
+.sources__heading {
+    margin-left: 28px;
+    margin-right: auto;
+}
+
 .sources__list {
     margin-left: 20px;
     margin-right: auto;
