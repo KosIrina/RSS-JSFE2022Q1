@@ -16,6 +16,9 @@
  }
 
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
@@ -28,6 +31,12 @@ header {
 header h1 {
     font-size: 40px;
     font-weight: 800;
+}
+
+main {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
+    gap: 10px;
 }
 
 footer {
