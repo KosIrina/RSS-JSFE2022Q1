@@ -8,9 +8,9 @@ export interface Article {
     source: Pick<Source, 'id' | 'name'>;
     author: string | null;
     title: string;
-    description: string;
+    description: string | null;
     url: string;
-    urlToImage: string;
+    urlToImage: string | null;
     publishedAt: string;
     content: string;
 }
