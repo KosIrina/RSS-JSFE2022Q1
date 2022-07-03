@@ -15,6 +15,19 @@ class App {
         );
         this.controller.getSources((data) => this.view.drawSources(data));
         this.controller.getInitialNews((data) => this.view.drawNews(data));
+        (<HTMLHeadingElement>document.querySelector('.sources__heading')).addEventListener(
+            'click',
+            this.view.toggleMobileSources
+        );
+        (<HTMLDivElement>document.querySelector('.mobile-overlay')).addEventListener(
+            'click',
+            this.view.closeMobileSources
+        );
+        (<HTMLDivElement>document.querySelector('.sources__list')).addEventListener(
+            'click',
+            this.view.closeMobileSources
+        );
+        (<HTMLDivElement>document.querySelector('.sources__list')).addEventListener('click', this.view.scrollUp);
     }
 }
 
