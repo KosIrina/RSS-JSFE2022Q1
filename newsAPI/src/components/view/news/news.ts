@@ -34,8 +34,12 @@ class News {
             fragment.append(newsClone);
         });
 
-        (<HTMLDivElement>document.querySelector('.news')).innerHTML = '';
-        (<HTMLDivElement>document.querySelector('.news')).appendChild(fragment);
+        if (news.length === 0) {
+            (<HTMLDivElement>document.querySelector('.news__list')).innerText = 'Oops! No news found';
+        } else {
+            (<HTMLDivElement>document.querySelector('.news__list')).innerHTML = '';
+            (<HTMLDivElement>document.querySelector('.news__list')).appendChild(fragment);
+        }
     }
 }
 
