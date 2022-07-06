@@ -137,7 +137,7 @@
 }
 
 .news__item:hover .news__meta-details {
-    left: 0%;
+    left: 0;
 }
 
 @media (min-width: 640px) {
