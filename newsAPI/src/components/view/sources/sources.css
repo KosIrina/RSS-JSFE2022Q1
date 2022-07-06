@@ -55,8 +55,7 @@
     }
 
     .sources__list > .source__item {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0.5em auto;
         width: 202px;  
         background-color: rgba(0, 0, 0, 0.8);
     }
@@ -72,7 +71,6 @@
     grid-area: 1 / 1 / 2 / 2;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     width: 100%;
     height: calc(100vh - 130px - 30px);
     align-items: center;
@@ -82,13 +80,11 @@
 }
 
 .sources__heading {
-    margin-left: 28px;
-    margin-right: auto;
+    margin: 0.83em auto 0.83em 28px;
 }
 
 .sources__list {
-    margin-left: 20px;
-    margin-right: auto;
+    margin: 0 auto 0 20px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;

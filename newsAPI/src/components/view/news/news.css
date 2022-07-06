@@ -11,16 +11,14 @@
 
 .news__heading {
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.83em auto;
     text-align: center;
 }
 
 .news__item {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
-    margin-bottom: 1.6%;
+    margin: 1rem auto 1.6% auto;
     background: #FFF;
     color: #333;
     line-height: 1.4;
