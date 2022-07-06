@@ -6,7 +6,7 @@ class Sources {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemporary = document.querySelector('#sourceItemTemporary') as HTMLTemplateElement;
 
-        data.forEach((item: Readonly<ISource>) => {
+        data.forEach((item: Readonly<ISource>): void => {
             const sourceClone = sourceItemTemporary.content.cloneNode(true) as HTMLElement;
 
             (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;

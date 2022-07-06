@@ -10,11 +10,11 @@ class App {
     }
 
     public start(): void {
-        (document.querySelector('.sources') as HTMLElement).addEventListener('click', (event: Event) =>
-            this.controller.getNews(event, (data) => this.view.drawNews(data))
+        (document.querySelector('.sources') as HTMLElement).addEventListener('click', (event: Event): void =>
+            this.controller.getNews(event, (data): void => this.view.drawNews(data))
         );
-        this.controller.getSources((data) => this.view.drawSources(data));
-        this.controller.getInitialNews((data) => this.view.drawNews(data));
+        this.controller.getSources((data): void => this.view.drawSources(data));
+        this.controller.getInitialNews((data): void => this.view.drawNews(data));
         (document.querySelector('.sources__heading') as HTMLElement).addEventListener(
             'click',
             this.view.toggleMobileSources

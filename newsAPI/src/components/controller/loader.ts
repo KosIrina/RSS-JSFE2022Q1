@@ -11,7 +11,7 @@ class Loader {
 
     protected getResponse<T>(
         { endpoint, options = {} }: { endpoint: EndPoint; options?: { [key: string]: string } },
-        callback: VoidCallback<T> = () => {
+        callback: VoidCallback<T> = (): void => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -31,7 +31,7 @@ class Loader {
         const urlOptions: Partial<{ [key: string]: string }> = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
+        Object.keys(urlOptions).forEach((key: string): void => {
             url += `${key}=${urlOptions[key]}&`;
         });
         return url.slice(0, -1);
