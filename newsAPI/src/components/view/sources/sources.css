@@ -1,21 +1,21 @@
 @media (max-width: 840px) {
    main > .sources {
-        background-color: #17181C;    
+        top: 120px;
         z-index: 5;
         height: auto;
-        top: 120px;
+        background-color: #17181C;
    }
 
     .mobile-overlay {
-        width: 100%;
-        height: 100%;
         position: fixed;
         right: 0;
         top: -100%;
-        background-color: rgba(23, 24, 28, 0.9);
         z-index: 2;
-        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(23, 24, 28, 0.9);
         transition: 0.5s ease-in-out;
+        overflow-x: hidden;
     }
 
     .mobile-overlay.open {
@@ -41,11 +41,11 @@
         position: fixed;
         top: -100vh;
         z-index: 100;
-        height: calc(100vh - 130px - 68px - 10px);
-        width: 290px;
         margin: 198px auto 0 auto;
-        overflow-x: hidden;
+        width: 290px;
+        height: calc(100vh - 130px - 68px - 10px);
         transition: 0.5s ease-in-out;
+        overflow-x: hidden;
     }
 
     .sources > .sources__list.open {
@@ -66,15 +66,15 @@
 }
 
 .sources {
-    grid-area: 1 / 1 / 2 / 2;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: calc(100vh - 130px - 30px);
-    align-items: center;
-    font: 300 1em 'Fira Sans', sans-serif;
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%;
+    height: calc(100vh - 130px - 30px);
+    font: 300 1em 'Fira Sans', sans-serif;
 }
 
 .sources__heading {
@@ -83,10 +83,10 @@
 
 .sources__list {
     margin: 0 auto 0 20px;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 15px -4px rgba(255, 255, 255, 0.4);
+    overflow: auto;
 }
 
 .sources__list::-webkit-scrollbar {
@@ -99,19 +99,19 @@
 }
 
 .sources__list::-webkit-scrollbar-track {
-    box-shadow: 5px 5px 5px -5px rgb(129 200 255 / 70%) inset;
-    background-color: rgb(243, 242, 242, 0.1);
     border-radius: 5px;
+    background-color: rgb(243, 242, 242, 0.1);
+    box-shadow: 5px 5px 5px -5px rgb(129 200 255 / 70%) inset;
 }
 
 .source__item {
-    background: none;
-    border: 2px solid #30C5FF;
-    font: inherit;
-    line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
+    border: 2px solid #30C5FF;
+    background: none;
+    font: inherit;
     color: #70D6FF;
+    line-height: 1;
     transition: 0.25s;
     cursor: pointer;
 }
@@ -119,8 +119,8 @@
 .source__item:hover,
 .source__item:focus {
     border-color: #3FCC59;
-    color: #69DB7E;
     box-shadow: 0 0.5em 0.5em -0.4em #3FCC59;
+    color: #69DB7E;
     transform: translateY(-0.25em);
 }
 

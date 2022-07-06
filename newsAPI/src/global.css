@@ -38,8 +38,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #FFF;
     background: #17181C;
+    color: #FFF;
     font-family: sans-serif;
 }
 
@@ -59,14 +59,14 @@ main {
 }
 
 footer {
-    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: fit-content;
     margin-top: 10px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 footer .copyright {
     font-size: 14px;
