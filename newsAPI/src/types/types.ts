@@ -1,11 +1,11 @@
-export interface Everything {
+export interface IArticles {
     status: string;
     totalResults: number;
-    articles: Article[];
+    articles: IArticle[];
 }
 
-export interface Article {
-    source: Pick<Source, 'id' | 'name'>;
+export interface IArticle {
+    source: Pick<ISource, 'id' | 'name'>;
     author: string;
     title: string;
     description: string;
@@ -15,12 +15,12 @@ export interface Article {
     content: string;
 }
 
-export interface AllSources {
+export interface ISources {
     status: string;
-    sources: Source[];
+    sources: ISource[];
 }
 
-export interface Source {
+export interface ISource {
     id: string;
     name: string;
     description: string;

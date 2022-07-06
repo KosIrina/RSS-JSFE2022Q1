@@ -1,9 +1,9 @@
 import AppLoader from './appLoader';
-import { Everything, AllSources, VoidCallback } from '../../types/types';
+import { IArticles, ISources, VoidCallback } from '../../types/types';
 
 class AppController extends AppLoader {
-    public getSources(callback: VoidCallback<AllSources>): void {
-        super.getResponse<AllSources>(
+    public getSources(callback: VoidCallback<ISources>): void {
+        super.getResponse<ISources>(
             {
                 endpoint: 'sources',
             },
@@ -11,12 +11,12 @@ class AppController extends AppLoader {
         );
     }
 
-    public getInitialNews(callback: VoidCallback<Everything>): void {
+    public getInitialNews(callback: VoidCallback<IArticles>): void {
         const sourceId = 'abc-news';
         (<HTMLDivElement>document.querySelector('.sources')).setAttribute('data-source', sourceId);
         (<HTMLDivElement>document.querySelector('.news__heading')).innerText = 'News from ABC News';
 
-        super.getResponse<Everything>(
+        super.getResponse<IArticles>(
             {
                 endpoint: 'everything',
                 options: {
@@ -27,7 +27,7 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews(event: Event, callback: VoidCallback<Everything>): void {
+    public getNews(event: Event, callback: VoidCallback<IArticles>): void {
         let target = event.target as HTMLElement;
         const newsContainer = event.currentTarget as HTMLElement;
 
@@ -37,7 +37,7 @@ class AppController extends AppLoader {
                 const sourceId = target.getAttribute('data-source-id') as string;
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResponse<Everything>(
+                    super.getResponse<IArticles>(
                         {
                             endpoint: 'everything',
                             options: {

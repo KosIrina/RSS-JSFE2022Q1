@@ -1,6 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { Everything, AllSources } from '../../types/types';
+import { IArticles, ISources } from '../../types/types';
 
 export class AppView {
     readonly news: News;
@@ -10,13 +10,13 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    public drawNews(data: Readonly<Everything>): void {
-        const values: Everything['articles'] = data?.articles || [];
+    public drawNews(data: Readonly<IArticles>): void {
+        const values: IArticles['articles'] = data?.articles || [];
         this.news.draw(values);
     }
 
-    public drawSources(data: Readonly<AllSources>): void {
-        const values: AllSources['sources'] = data?.sources || [];
+    public drawSources(data: Readonly<ISources>): void {
+        const values: ISources['sources'] = data?.sources || [];
         this.sources.draw(values);
     }
 
