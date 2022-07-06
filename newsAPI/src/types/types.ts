@@ -6,11 +6,11 @@ export interface Everything {
 
 export interface Article {
     source: Pick<Source, 'id' | 'name'>;
-    author: string | null;
+    author: string;
     title: string;
-    description: string | null;
+    description: string;
     url: string;
-    urlToImage: string | null;
+    urlToImage: string;
     publishedAt: string;
     content: string;
 }
@@ -21,7 +21,7 @@ export interface AllSources {
 }
 
 export interface Source {
-    id: string | null;
+    id: string;
     name: string;
     description: string;
     url: string;
