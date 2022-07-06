@@ -28,16 +28,7 @@ class Loader {
     }
 
     private makeUrl(endpoint: EndPoint, options?: { [key: string]: string }): string {
-        let urlOptions: Partial<{ [key: string]: string }>;
-        if (options !== undefined && this.options !== undefined) {
-            urlOptions = { ...this.options, ...options };
-        } else if (options === undefined && this.options !== undefined) {
-            urlOptions = { ...this.options };
-        } else if (options !== undefined && this.options === undefined) {
-            urlOptions = { ...options };
-        } else {
-            urlOptions = {};
-        }
+        const urlOptions: Partial<{ [key: string]: string }> = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
