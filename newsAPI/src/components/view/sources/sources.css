@@ -1,6 +1,6 @@
 @media (max-width: 840px) {
    main > .sources {
-        background-color: #17181c;    
+        background-color: #17181C;    
         z-index: 5;
         height: auto;
         top: 120px;
@@ -101,7 +101,7 @@
 
 .sources__list::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: linear-gradient(180deg, #30c5ff, #0e0f52);
+    background: linear-gradient(180deg, #30C5FF, #0E0F52);
 }
 
 .sources__list::-webkit-scrollbar-track {
@@ -112,21 +112,21 @@
 
 .source__item {
     background: none;
-    border: 2px solid #30c5ff;
+    border: 2px solid #30C5FF;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    color: #70d6ff;
+    color: #70D6FF;
     transition: 0.25s;
     cursor: pointer;
 }
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    border-color: #3FCC59;
+    color: #69DB7E;
+    box-shadow: 0 0.5em 0.5em -0.4em #3FCC59;
     transform: translateY(-0.25em);
 }
 
