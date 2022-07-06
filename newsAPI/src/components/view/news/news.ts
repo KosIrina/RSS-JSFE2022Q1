@@ -34,12 +34,10 @@ class News {
             fragment.append(newsClone);
         });
 
-        if (news.length === 0) {
-            (<HTMLDivElement>document.querySelector('.news__list')).innerText = 'Oops! No news found';
-        } else {
-            (<HTMLDivElement>document.querySelector('.news__list')).innerHTML = '';
-            (<HTMLDivElement>document.querySelector('.news__list')).appendChild(fragment);
-        }
+        !news.length
+            ? ((<HTMLDivElement>document.querySelector('.news__list')).innerText = 'Oops! No news found')
+            : (((<HTMLDivElement>document.querySelector('.news__list')).innerHTML = ''),
+              (<HTMLDivElement>document.querySelector('.news__list')).appendChild(fragment));
     }
 }
 
