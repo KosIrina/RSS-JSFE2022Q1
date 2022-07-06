@@ -11,12 +11,12 @@ export class AppView {
     }
 
     public drawNews(data: Readonly<Everything>): void {
-        const values: Everything['articles'] = data?.articles ? data?.articles : [];
+        const values: Everything['articles'] = data?.articles || [];
         this.news.draw(values);
     }
 
     public drawSources(data: Readonly<AllSources>): void {
-        const values: AllSources['sources'] = data?.sources ? data?.sources : [];
+        const values: AllSources['sources'] = data?.sources || [];
         this.sources.draw(values);
     }
 
