@@ -10,11 +10,7 @@ class Sources {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
 
             (<HTMLSpanElement>sourceClone.querySelector('.source__item-name')).textContent = item.name;
-            if (typeof item.id === 'string') {
-                (<HTMLDivElement>sourceClone.querySelector('.source__item')).setAttribute('data-source-id', item.id);
-            } else {
-                (<HTMLDivElement>sourceClone.querySelector('.source__item')).setAttribute('data-source-id', 'no-id');
-            }
+            (<HTMLDivElement>sourceClone.querySelector('.source__item')).setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
         });
