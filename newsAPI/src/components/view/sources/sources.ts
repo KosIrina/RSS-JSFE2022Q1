@@ -4,10 +4,10 @@ import { AllSources, Source } from '../../../types/types';
 class Sources {
     public draw(data: AllSources['sources']): void {
         const fragment: DocumentFragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
+        const sourceItemTemporary = document.querySelector('#sourceItemTemporary') as HTMLTemplateElement;
 
         data.forEach((item: Readonly<Source>) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
+            const sourceClone = sourceItemTemporary.content.cloneNode(true) as HTMLElement;
 
             (<HTMLSpanElement>sourceClone.querySelector('.source__item-name')).textContent = item.name;
             (<HTMLDivElement>sourceClone.querySelector('.source__item')).setAttribute('data-source-id', item.id);

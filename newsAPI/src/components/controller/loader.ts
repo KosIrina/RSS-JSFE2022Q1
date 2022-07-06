@@ -9,7 +9,7 @@ class Loader {
         this.options = options;
     }
 
-    protected getResp<T>(
+    protected getResponse<T>(
         { endpoint, options = {} }: { endpoint: EndPoint; options?: { [key: string]: string } },
         callback: VoidCallback<T> = () => {
             console.error('No callback for GET response');
@@ -18,13 +18,13 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    private errorHandler(res: Response): Response {
-        if (!res.ok) {
-            if (res.status === ResponseErrors.apiKeyMissing || res.status === ResponseErrors.notFound)
-                console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
-            throw Error(res.statusText);
+    private errorHandler(response: Response): Response {
+        if (!response.ok) {
+            if (response.status === ResponseErrors.apiKeyMissing || response.status === ResponseErrors.notFound)
+                console.log(`Sorry, but there is ${response.status} error: ${response.statusText}`);
+            throw Error(response.statusText);
         }
-        return res;
+        return response;
     }
 
     private makeUrl(endpoint: EndPoint, options?: { [key: string]: string }): string {
@@ -45,9 +45,9 @@ class Loader {
     ): void {
         fetch(this.makeUrl(endpoint, options), { method })
             .then(this.errorHandler)
-            .then((res: Response) => res.json())
+            .then((response: Response) => response.json())
             .then((data: T) => callback(data))
-            .catch((err: Error) => console.error(err));
+            .catch((error: Error) => console.error(error));
     }
 }
 

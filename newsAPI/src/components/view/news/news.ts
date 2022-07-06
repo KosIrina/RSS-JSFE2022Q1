@@ -4,15 +4,15 @@ import { Everything, Article } from '../../../types/types';
 class News {
     public draw(data: Everything['articles']): void {
         const news: Article[] =
-            data.length >= 10 ? data.filter((_item: Readonly<Article>, idx: number) => idx < 10) : data;
+            data.length >= 10 ? data.filter((_item: Readonly<Article>, index: number) => index < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
-        const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
+        const newsItemTemporary = document.querySelector('#newsItemTemporary') as HTMLTemplateElement;
 
-        news.forEach((item: Readonly<Article>, idx: number) => {
-            const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
+        news.forEach((item: Readonly<Article>, index: number) => {
+            const newsClone = newsItemTemporary.content.cloneNode(true) as HTMLElement;
 
-            if (idx % 2) (<HTMLElement>newsClone.querySelector('.news__item')).classList.add('alt');
+            if (index % 2) (<HTMLElement>newsClone.querySelector('.news__item')).classList.add('alt');
 
             (<HTMLDivElement>newsClone.querySelector('.news__meta-photo')).style.backgroundImage = `url(${
                 item.urlToImage || 'news_placeholder.jpg'

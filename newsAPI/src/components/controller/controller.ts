@@ -3,7 +3,7 @@ import { Everything, AllSources, VoidCallback } from '../../types/types';
 
 class AppController extends AppLoader {
     public getSources(callback: VoidCallback<AllSources>): void {
-        super.getResp<AllSources>(
+        super.getResponse<AllSources>(
             {
                 endpoint: 'sources',
             },
@@ -16,7 +16,7 @@ class AppController extends AppLoader {
         (<HTMLDivElement>document.querySelector('.sources')).setAttribute('data-source', sourceId);
         (<HTMLDivElement>document.querySelector('.news__heading')).innerText = 'News from ABC News';
 
-        super.getResp<Everything>(
+        super.getResponse<Everything>(
             {
                 endpoint: 'everything',
                 options: {
@@ -27,9 +27,9 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews(e: Event, callback: VoidCallback<Everything>): void {
-        let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
+    public getNews(event: Event, callback: VoidCallback<Everything>): void {
+        let target = event.target as HTMLElement;
+        const newsContainer = event.currentTarget as HTMLElement;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
@@ -37,7 +37,7 @@ class AppController extends AppLoader {
                 const sourceId = target.getAttribute('data-source-id') as string;
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp<Everything>(
+                    super.getResponse<Everything>(
                         {
                             endpoint: 'everything',
                             options: {

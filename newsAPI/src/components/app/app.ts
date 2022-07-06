@@ -10,8 +10,8 @@ class App {
     }
 
     public start(): void {
-        (<HTMLDivElement>document.querySelector('.sources')).addEventListener('click', (e: Event) =>
-            this.controller.getNews(e, (data) => this.view.drawNews(data))
+        (<HTMLDivElement>document.querySelector('.sources')).addEventListener('click', (event: Event) =>
+            this.controller.getNews(event, (data) => this.view.drawNews(data))
         );
         this.controller.getSources((data) => this.view.drawSources(data));
         this.controller.getInitialNews((data) => this.view.drawNews(data));
