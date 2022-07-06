@@ -2,15 +2,6 @@
     .news {
         width: 95%;
         margin: 0 auto;
-        min-height: calc(100vh - 65px - 130px - 68px - 35px);
-    }
-}
-
-@media (max-width: 530px) {
-    .news {
-        width: 95%;
-        margin: 0 auto;
-        min-height: calc(100vh - 119px - 130px - 68px - 35px);
     }
 }
 
