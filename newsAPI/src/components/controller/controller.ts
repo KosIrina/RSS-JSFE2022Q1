@@ -13,8 +13,8 @@ class AppController extends AppLoader {
 
     public getInitialNews(callback: VoidCallback<IArticles>): void {
         const sourceId = 'abc-news';
-        (<HTMLDivElement>document.querySelector('.sources')).setAttribute('data-source', sourceId);
-        (<HTMLDivElement>document.querySelector('.news__heading')).innerText = 'News from ABC News';
+        (document.querySelector('.sources') as HTMLElement).setAttribute('data-source', sourceId);
+        (document.querySelector('.news__heading') as HTMLElement).innerText = 'News from ABC News';
 
         super.getResponse<IArticles>(
             {
@@ -33,7 +33,7 @@ class AppController extends AppLoader {
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                (<HTMLDivElement>document.querySelector('.news__heading')).innerText = `News from ${target.innerText}`;
+                (document.querySelector('.news__heading') as HTMLElement).innerText = `News from ${target.innerText}`;
                 const sourceId = target.getAttribute('data-source-id') as string;
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);

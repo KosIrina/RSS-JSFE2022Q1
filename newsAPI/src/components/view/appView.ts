@@ -21,15 +21,15 @@ export class AppView {
     }
 
     public toggleMobileSources(): void {
-        (<HTMLDivElement>document.querySelector('.sources__list')).classList.toggle('open');
-        (<HTMLDivElement>document.querySelector('.mobile-overlay')).classList.toggle('open');
-        (<HTMLBodyElement>document.querySelector('body')).classList.toggle('noscroll');
+        (document.querySelector('.sources__list') as HTMLElement).classList.toggle('open');
+        (document.querySelector('.mobile-overlay') as HTMLElement).classList.toggle('open');
+        (document.querySelector('body') as HTMLElement).classList.toggle('noscroll');
     }
 
     public closeMobileSources(): void {
-        (<HTMLDivElement>document.querySelector('.sources__list')).classList.remove('open');
-        (<HTMLDivElement>document.querySelector('.mobile-overlay')).classList.remove('open');
-        (<HTMLBodyElement>document.querySelector('body')).classList.remove('noscroll');
+        (document.querySelector('.sources__list') as HTMLElement).classList.remove('open');
+        (document.querySelector('.mobile-overlay') as HTMLElement).classList.remove('open');
+        (document.querySelector('body') as HTMLElement).classList.remove('noscroll');
     }
 
     public scrollUp(): void {

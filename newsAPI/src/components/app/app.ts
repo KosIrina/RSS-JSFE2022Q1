@@ -10,24 +10,24 @@ class App {
     }
 
     public start(): void {
-        (<HTMLDivElement>document.querySelector('.sources')).addEventListener('click', (event: Event) =>
+        (document.querySelector('.sources') as HTMLElement).addEventListener('click', (event: Event) =>
             this.controller.getNews(event, (data) => this.view.drawNews(data))
         );
         this.controller.getSources((data) => this.view.drawSources(data));
         this.controller.getInitialNews((data) => this.view.drawNews(data));
-        (<HTMLHeadingElement>document.querySelector('.sources__heading')).addEventListener(
+        (document.querySelector('.sources__heading') as HTMLElement).addEventListener(
             'click',
             this.view.toggleMobileSources
         );
-        (<HTMLDivElement>document.querySelector('.mobile-overlay')).addEventListener(
+        (document.querySelector('.mobile-overlay') as HTMLElement).addEventListener(
             'click',
             this.view.closeMobileSources
         );
-        (<HTMLDivElement>document.querySelector('.sources__list')).addEventListener(
+        (document.querySelector('.sources__list') as HTMLElement).addEventListener(
             'click',
             this.view.closeMobileSources
         );
-        (<HTMLDivElement>document.querySelector('.sources__list')).addEventListener('click', this.view.scrollUp);
+        (document.querySelector('.sources__list') as HTMLElement).addEventListener('click', this.view.scrollUp);
     }
 }
 
