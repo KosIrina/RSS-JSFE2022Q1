@@ -43,7 +43,7 @@
         z-index: 100;
         margin: 198px auto 0 auto;
         width: 290px;
-        height: calc(100vh - 130px - 68px - 10px);
+        height: calc(100vh - 208px);
         transition: 0.5s ease-in-out;
         overflow-x: hidden;
     }
@@ -73,7 +73,7 @@
     align-items: center;
     grid-area: 1 / 1 / 2 / 2;
     width: 100%;
-    height: calc(100vh - 130px - 30px);
+    height: calc(100vh - 160px);
     font: 300 1em 'Fira Sans', sans-serif;
 }
 
