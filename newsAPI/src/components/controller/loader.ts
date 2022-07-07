@@ -1,5 +1,6 @@
 import type { EndPoint, VoidCallback } from '../../types/types';
 import { ResponseErrors } from '../../types/types';
+import { Numbers } from '../../constants/constants';
 
 class Loader {
     readonly baseLink: string;
@@ -34,7 +35,7 @@ class Loader {
         Object.keys(urlOptions).forEach((key: string): void => {
             url += `${key}=${urlOptions[key]}&`;
         });
-        return url.slice(0, -1);
+        return url.slice(Numbers.zero, Numbers.negativeOne);
     }
 
     private load<T>(

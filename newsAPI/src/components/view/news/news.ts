@@ -1,10 +1,13 @@
 import './news.css';
 import { IArticles, IArticle } from '../../../types/types';
+import { Numbers } from '../../../constants/constants';
 
 class News {
     public draw(data: IArticles['articles']): void {
         const news: IArticle[] =
-            data.length >= 10 ? data.filter((_item: Readonly<IArticle>, index: number): boolean => index < 10) : data;
+            data.length >= Numbers.articlesPerPage
+                ? data.filter((_item: Readonly<IArticle>, index: number): boolean => index < Numbers.articlesPerPage)
+                : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemporary = document.querySelector('#newsItemTemporary') as HTMLTemplateElement;
@@ -12,7 +15,7 @@ class News {
         news.forEach((item: Readonly<IArticle>, index: number): void => {
             const newsClone = newsItemTemporary.content.cloneNode(true) as HTMLElement;
 
-            if (index % 2) (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
+            if (index % Numbers.two) (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
 
             (newsClone.querySelector('.news__meta-photo') as HTMLElement).style.backgroundImage = `url(${
                 item.urlToImage || 'news_placeholder.jpg'
@@ -20,7 +23,7 @@ class News {
             (newsClone.querySelector('.news__meta-author') as HTMLElement).textContent =
                 item.author || item.source.name;
             (newsClone.querySelector('.news__meta-date') as HTMLElement).textContent = item.publishedAt
-                .slice(0, 10)
+                .slice(Numbers.zero, Numbers.characterAfterDateEnd)
                 .split('-')
                 .reverse()
                 .join('-');

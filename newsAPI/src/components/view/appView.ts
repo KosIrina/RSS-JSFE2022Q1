@@ -1,6 +1,7 @@
 import News from './news/news';
 import Sources from './sources/sources';
 import { IArticles, ISources } from '../../types/types';
+import { Numbers } from '../../constants/constants';
 
 export class AppView {
     readonly news: News;
@@ -33,7 +34,7 @@ export class AppView {
     }
 
     public scrollUp(): void {
-        window.scrollTo(0, 0);
+        window.scrollTo(Numbers.zero, Numbers.zero);
     }
 }
 
