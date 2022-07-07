@@ -38,7 +38,7 @@ class Loader {
     Object.keys(urlOptions).forEach((key: string): void => {
       url += `${key}=${urlOptions[key]}&`;
     });
-    return url.slice(Numbers.zero, Numbers.negativeOne);
+    return url.slice(Numbers.zero, -Numbers.one);
   }
 
   private load<T>(

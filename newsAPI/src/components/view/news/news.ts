@@ -1,13 +1,13 @@
 import './news.css';
 import { IArticles, IArticle } from '../../../types/types';
-import { Numbers } from '../../../constants/constants';
+import { Numbers, ARTICLES_PER_PAGE, CHARACTER_AFTER_DATE_END } from '../../../constants/constants';
 
 class News {
   public draw(data: IArticles['articles']): void {
     const news: IArticle[] =
-      data.length >= Numbers.articlesPerPage
+      data.length >= ARTICLES_PER_PAGE
         ? data.filter(
-            (_item: Readonly<IArticle>, index: number): boolean => index < Numbers.articlesPerPage
+            (_item: Readonly<IArticle>, index: number): boolean => index < ARTICLES_PER_PAGE
           )
         : data;
 
@@ -28,7 +28,7 @@ class News {
       (newsClone.querySelector(
         '.news__meta-date'
       ) as HTMLElement).textContent = item.publishedAt
-        .slice(Numbers.zero, Numbers.characterAfterDateEnd)
+        .slice(Numbers.zero, CHARACTER_AFTER_DATE_END)
         .split('-')
         .reverse()
         .join('-');
