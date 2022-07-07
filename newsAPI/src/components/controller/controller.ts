@@ -1,11 +1,12 @@
 import AppLoader from './appLoader';
-import { IArticles, ISources, VoidCallback } from '../../types/types';
+import { EndPoint, IArticles, ISources, VoidCallback } from '../../types/types';
+import { ENDPOINTS } from '../../constants/constants';
 
 class AppController extends AppLoader {
     public getSources(callback: VoidCallback<ISources>): void {
         super.getResponse<ISources>(
             {
-                endpoint: 'sources',
+                endpoint: ENDPOINTS.sources as EndPoint,
             },
             callback
         );
@@ -18,7 +19,7 @@ class AppController extends AppLoader {
 
         super.getResponse<IArticles>(
             {
-                endpoint: 'everything',
+                endpoint: ENDPOINTS.articles as EndPoint,
                 options: {
                     sources: sourceId,
                 },
@@ -39,7 +40,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResponse<IArticles>(
                         {
-                            endpoint: 'everything',
+                            endpoint: ENDPOINTS.articles as EndPoint,
                             options: {
                                 sources: sourceId,
                             },

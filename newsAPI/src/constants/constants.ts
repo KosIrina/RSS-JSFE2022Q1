@@ -8,3 +8,7 @@ export enum Numbers {
     articlesPerPage = 10,
     characterAfterDateEnd = 10,
 }
+export const ENDPOINTS = {
+    articles: 'everything',
+    sources: 'sources',
+};
