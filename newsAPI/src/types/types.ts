@@ -30,7 +30,7 @@ export interface ISource {
   country: string;
 }
 
-export type EndPoint = 'sources' | 'everything';
+export type Endpoint = 'sources' | 'everything';
 
 export enum ResponseErrors {
   apiKeyMissing = 401,

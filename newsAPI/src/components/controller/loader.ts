@@ -1,4 +1,4 @@
-import type { EndPoint, VoidCallback } from '../../types/types';
+import type { Endpoint, VoidCallback } from '../../types/types';
 import { ResponseErrors } from '../../types/types';
 import { Numbers } from '../../constants/constants';
 
@@ -11,7 +11,7 @@ class Loader {
   }
 
   protected getResponse<T>(
-    { endpoint, options = {} }: { endpoint: EndPoint; options?: { [key: string]: string } },
+    { endpoint, options = {} }: { endpoint: Endpoint; options?: { [key: string]: string } },
     callback: VoidCallback<T> = (): void => {
       console.error('No callback for GET response');
     }
@@ -31,7 +31,7 @@ class Loader {
     return response;
   }
 
-  private makeUrl(endpoint: EndPoint, options?: { [key: string]: string }): string {
+  private makeUrl(endpoint: Endpoint, options?: { [key: string]: string }): string {
     const urlOptions: Partial<{ [key: string]: string }> = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
@@ -43,7 +43,7 @@ class Loader {
 
   private load<T>(
     method: string,
-    endpoint: EndPoint,
+    endpoint: Endpoint,
     callback: VoidCallback<T>,
     options: { [key: string]: string } = {}
   ): void {
