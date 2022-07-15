@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Book Store</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="container header-container">
+        <h1 class="header__logo">Online Book Store</h1>
+        <div class="header__search-and-cart">
+          <form class="header__search-form">
+            <input
+              type="search"
+              class="header__search-input"
+              placeholder="Поиск по названию"
+              autofocus
+              autocomplete="off"
+            />
+          </form>
+          <div class="header__cart-icon">
+            <span class="books-in-cart">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container main-container">
+        <section class="settings">
+          <button class="settings__settings-reset">СБРОСИТЬ НАСТРОЙКИ</button>
+          <label class="settings__sort"
+            >Сортировка
+            <select name="sort" class="settings__sort-options">
+              <option value="sort-option1" class="settings__sort-option">по умолчанию</option>
+              <option value="sort-option2" class="settings__sort-option">
+                по названию, от А до Я
+              </option>
+              <option value="sort-option3" class="settings__sort-option">
+                по названию, от Я до А
+              </option>
+              <option value="sort-option4" class="settings__sort-option">
+                по количеству, по возрастанию
+              </option>
+              <option value="sort-option5" class="settings__sort-option">
+                по количеству, по убыванию
+              </option>
+            </select></label
+          >
+          <div class="settings__filters">
+            <p class="settings__filters-heading">Фильтры</p>
+            <div class="settings__filters-options">
+              <button class="settings__filters-close">ЗАКРЫТЬ</button>
+              <div class="settings__filter-by-year">
+                <p class="filter-heading">ГОД ИЗДАНИЯ</p>
+                <div class="filter-by-year-slider" id="year-slider"></div>
+                <div class="filter-slider-values">
+                  <span class="year-value-start"></span>
+                  <span class="year-value-end"></span>
+                </div>
+              </div>
+              <div class="settings__filter-by-quantity">
+                <p class="filter-heading">КОЛИЧЕСТВО</p>
+                <div class="filter-by-quantity-slider" id="quantity-slider"></div>
+                <div class="filter-slider-values">
+                  <span class="quantity-value-start"></span>
+                  <span class="quantity-value-end"></span>
+                </div>
+              </div>
+              <div class="settings__filter-by-category">
+                <p class="filter-heading">КАТЕГОРИИ</p>
+                <ul class="filter-by-category filter">
+                  <li class="filter-item">
+                    <input type="checkbox" id="biography" name="category" value="biography" />
+                    <label for="biography">Биография</label>
+                  </li>
+                  <li class="filter-item">
+                    <input
+                      type="checkbox"
+                      id="criminalistics"
+                      name="category"
+                      value="criminalistics"
+                    />
+                    <label for="criminalistics">Криминалистика</label>
+                  </li>
+                  <li class="filter-item">
+                    <input
+                      type="checkbox"
+                      id="mystic-fiction"
+                      name="category"
+                      value="mystic-fiction"
+                    />
+                    <label for="mystic-fiction">Мистика</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="nonfiction" name="category" value="nonfiction" />
+                    <label for="nonfiction">Научно-популярная литература</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="poetry" name="category" value="poetry" />
+                    <label for="poetry">Поэзия</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="psychology" name="category" value="psychology" />
+                    <label for="psychology">Психология</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="novel" name="category" value="novel" />
+                    <label for="novel">Роман</label>
+                  </li>
+                  <li class="filter-item">
+                    <input
+                      type="checkbox"
+                      id="self-enhancement"
+                      name="category"
+                      value="self-enhancement"
+                    />
+                    <label for="self-enhancement">Саморазвитие</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="fairy-tale" name="category" value="fairy-tale" />
+                    <label for="fairy-tale">Сказка</label>
+                  </li>
+                  <li class="filter-item">
+                    <input
+                      type="checkbox"
+                      id="fantastic-fiction"
+                      name="fantastic-fiction"
+                      value="nonfiction"
+                    />
+                    <label for="fantastic-fiction">Фантастика</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="settings__filter-by-publisher">
+                <p class="filter-heading">ИЗДАТЕЛЬСТВО</p>
+                <ul class="filter-by-publisher filter">
+                  <li class="filter-item">
+                    <input type="checkbox" id="azbyka" name="publisher" value="azbyka" />
+                    <label for="azbyka">Азбука</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="alpina" name="publisher" value="alpina" />
+                    <label for="alpina">Альпина Нон-фикшн</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="ast" name="publisher" value="ast" />
+                    <label for="ast">АСТ</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="kacheli" name="publisher" value="kacheli" />
+                    <label for="kacheli">Качели</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="kolibri" name="publisher" value="kolibri" />
+                    <label for="kolibri">КоЛибри</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="mahaon" name="publisher" value="mahaon" />
+                    <label for="mahaon">Махаон</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="rosman" name="publisher" value="rosman" />
+                    <label for="rosman">РОСМЭН</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="sindbad" name="publisher" value="sindbad" />
+                    <label for="sindbad">Синдбад</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="eksmo" name="publisher" value="eksmo" />
+                    <label for="eksmo">Эксмо</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="settings__filter-by-cover">
+                <p class="filter-heading">ОБЛОЖКА</p>
+                <ul class="filter-by-cover filter">
+                  <li class="filter-item">
+                    <input type="checkbox" id="paperback" name="cover" value="paperback" />
+                    <label for="paperback">Мягкая</label>
+                  </li>
+                  <li class="filter-item">
+                    <input type="checkbox" id="hardcover" name="cover" value="hardcover" />
+                    <label for="hardcover">Твёрдая</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="settings__filter-by-popularity">
+                <p class="filter-heading">ТОЛЬКО БЕСТСЕЛЛЕРЫ</p>
+                <ul class="filter-by-popularity filter">
+                  <li class="filter-item">
+                    <input type="checkbox" id="bestseller" name="popularity" value="bestseller" />
+                  </li>
+                </ul>
+              </div>
+              <button class="settings__filters-reset">СБРОСИТЬ ФИЛЬТРЫ</button>
+            </div>
+          </div>
+        </section>
+        <section class="books"></section>
+      </div>
+      <div class="modal-window-wrapper">
+        <div class="modal-window-overlay"></div>
+        <div class="modal-window">
+          <button class="modal-window__close-button">+</button>
+          <div class="modal-window__content">
+            Извините, все слоты заполнены. Максимальное количество товаров, которые могут быть
+            помещены в корзину - 20 единиц.
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer-container">
+        <a class="footer__github-link" href="https://github.com/KosIrina">KosIrina</a>
+        <p class="footer__copyright">Copyright | 2022</p>
+        <a class="footer__rss-link" href="https://rs.school/js/"></a>
+      </div>
+    </footer>
+  </body>
+</html>
