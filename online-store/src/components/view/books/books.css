@@ -12,7 +12,7 @@
 }
 
 .book.added {
-  box-shadow: 0 0 8px 2px rgba(243, 207, 196, 0.6);
+  box-shadow: 0 0 8px 2px rgba(243, 207, 196, 1);
 }
 
 .book__cover-and-properties {
@@ -72,6 +72,7 @@
   color: #fff;
   cursor: pointer;
   transition: 0.5s;
+  user-select: none;
 }
 
 .book__cart-interaction-icon:hover {

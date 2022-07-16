@@ -15,10 +15,6 @@
 }
 
 @media (max-width: 952px) {
-  .body.noscroll {
-    overflow-y: hidden;
-  }
-  
   .container.main-container {
     flex-direction: column;
     justify-content: flex-start;
@@ -125,6 +121,10 @@ html {
   color: #202020;
 }
 
+.body.noscroll {
+  overflow-y: hidden;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 60px;
@@ -203,13 +203,14 @@ html {
 
 .books-in-cart {
   position: absolute;
-  top: -2px;
+  top: -5px;
   left: 20px;
   display: inline-block;
-  width: 19px;
-  height: 19px;
+  width: 24px;
+  height: 23px;
   background-color: #e2bcaf;
   text-align: center;
+  line-height: 23px;
   border-radius: 50%;
   font-weight: 600;
   color: #fff;
