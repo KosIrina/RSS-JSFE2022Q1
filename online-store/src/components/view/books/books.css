@@ -1,0 +1,94 @@
+.no-books-found {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+}
+
+.book {
+  width: 250px;
+  height: fit-content;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.book.added {
+  box-shadow: 0 0 8px 2px rgba(243, 207, 196, 0.6);
+}
+
+.book__cover-and-properties {
+  position: relative;
+  height: 325px;
+  overflow: hidden;
+}
+
+.book__cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.book__information {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(100%);
+  overflow-y: auto;
+  padding: 5px;
+  transition: transform 0.5s ease-in 0s;
+}
+
+.book__cover-and-properties:hover .book__information {
+  transform: translateY(0);
+}
+
+.book__main-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 92px;
+  padding: 10px 3px;
+}
+
+.book__title-and-author {
+  width: 214px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.book__cart-interaction-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #e2bcaf;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.book__cart-interaction-icon:hover {
+  background-color: #f3cfc4;
+}
+
+.book__cart-interaction-icon:active {
+  transform: scale(0.8);
+  transition: 0s;
+}
+
+.book__category,
+.book__publisher,
+.book__published,
+.book__cover,
+.book__quantity,
+.book__bestseller {
+  margin: 3px 0;
+  text-align: center;
+}
