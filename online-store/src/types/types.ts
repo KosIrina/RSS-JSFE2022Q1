@@ -12,4 +12,20 @@ export interface IBook {
 
 export type ListOfBooks = IBook[];
 
+export interface IOptions {
+  booksInCart: string[];
+  searchContent: string;
+  sortOption: string;
+  filters: IFilters;
+}
+
+export interface IFilters {
+  coverType: string[];
+  publisher: string[];
+  published: number[];
+  quantityInStock: number[];
+  bestseller: boolean;
+  categories: string[];
+}
+
 export type VoidCallback<T> = (data: T) => void;
