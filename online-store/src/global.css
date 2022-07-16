@@ -306,58 +306,6 @@ html {
   padding-bottom: 15px;
 }
 
-#year-slider,
-#quantity-slider {
-  margin: 0 7px;
-  height: 4px;
-  border-radius: 2px;
-  border: none;
-  background: rgba(32, 32, 32, 0.2);
-  box-shadow: none;
-  cursor: pointer;
-}
-
-#year-slider .noUi-connect,
-#quantity-slider .noUi-connect {
-  background: rgba(32, 32, 32, 0.5);
-}
-
-#year-slider .noUi-handle,
-#quantity-slider .noUi-handle {
-  top: -5px;
-  right: -7px;
-  width: 14px;
-  height: 14px;
-  border-radius: 9px;
-  border: none;
-  background: #202020;
-  box-shadow: none;
-  cursor: pointer;
-}
-
-#year-slider .noUi-handle::before,
-#quantity-slider .noUi-handle::before,
-#year-slider .noUi-handle::after,
-#quantity-slider .noUi-handle::after {
-  content: none;
-}
-
-#year-slider .noUi-tooltip,
-#quantity-slider .noUi-tooltip {
-  display: none;
-  border: none;
-  border-radius: 5px;
-  background: rgba(32, 32, 32, 0.5);
-  color: #fff;
-  padding: 2px;
-  font-size: 13px;
-}
-
-#year-slider .noUi-active .noUi-tooltip,
-#quantity-slider .noUi-active .noUi-tooltip {
-  display: block;
-}
-
 .filter-slider-values {
   display: flex;
   justify-content: space-between;
