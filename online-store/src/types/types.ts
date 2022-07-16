@@ -10,6 +10,6 @@ export interface IBook {
   categories: string[];
 }
 
-export type AllBooks = IBook[];
+export type ListOfBooks = IBook[];
 
 export type VoidCallback<T> = (data: T) => void;
