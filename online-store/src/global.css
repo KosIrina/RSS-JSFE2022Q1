@@ -80,6 +80,7 @@
 
   .main-container > .books {
     width: 100%;
+    padding: 0;
   }
 }
 
@@ -433,7 +434,9 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  column-gap: 15px;
   width: 80%;
+  padding-left: 20px;
 }
 
 .modal-window-wrapper {
