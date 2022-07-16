@@ -29,3 +29,7 @@ export const AllOptions: IOptions = {
     categories: [],
   },
 };
+
+export const LINE_BREAK = '\n';
+
+export const MAXIMUM_BOOKS_IN_CART = 20;
