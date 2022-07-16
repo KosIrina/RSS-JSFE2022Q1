@@ -29,6 +29,11 @@ export class AppView {
     (document.querySelector('.settings__filters-close') as HTMLElement).classList.remove('open');
     (document.querySelector('body') as HTMLElement).classList.remove('noscroll');
   }
+
+  public closeOverlay(): void {
+    (document.querySelector('.modal-window-wrapper') as HTMLElement).style.display = 'none';
+    (document.querySelector('body') as HTMLElement).classList.remove('noscroll');
+  }
 }
 
 export default AppView;
