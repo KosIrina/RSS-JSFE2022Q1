@@ -1,3 +1,5 @@
+import { IOptions } from '../types/types';
+
 export enum Numbers {
   zero = 0,
   one = 1,
@@ -13,3 +15,17 @@ export enum BookQuantity {
   minimum = 1,
   maximum = 9,
 }
+
+export const AllOptions: IOptions = {
+  booksInCart: [],
+  searchContent: '',
+  sortOption: '',
+  filters: {
+    coverType: [],
+    publisher: [],
+    published: [],
+    quantityInStock: [],
+    bestseller: false,
+    categories: [],
+  },
+};
