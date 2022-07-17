@@ -64,7 +64,7 @@ export class AppController {
       .length}`;
     const booksOnPage = document.querySelectorAll('.book') as NodeListOf<HTMLElement>;
     booksOnPage.forEach((el: HTMLElement): void => {
-      for (let index = 0; index < AllOptions.booksInCart.length; index++) {
+      for (let index = Numbers.zero; index < AllOptions.booksInCart.length; index++) {
         if (el.innerHTML.toString().includes(AllOptions.booksInCart[index])) {
           el.classList.add('added');
           (el.querySelector('.book__cart-interaction-icon') as HTMLElement).style.transform =
