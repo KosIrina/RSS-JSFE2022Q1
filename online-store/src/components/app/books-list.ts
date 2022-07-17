@@ -46,7 +46,7 @@ const books: ListOfBooks = [
     categories: ['фантастика'],
   },
   {
-    title: 'Sapiens. Краткая история человечества',
+    title: 'Краткая история человечества',
     author: 'Юваль Харари',
     coverImage: './images/sapiens.jpg',
     coverType: 'Мягкая обложка',
