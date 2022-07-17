@@ -33,3 +33,11 @@ export const AllOptions: IOptions = {
 export const LINE_BREAK = '\n';
 
 export const MAXIMUM_BOOKS_IN_CART = 20;
+
+export const SORT_OPTIONS = {
+  byDefault: 'по умолчанию',
+  alphabetically: 'по названию, от А до Я',
+  alphabeticallyReversed: 'по названию, от Я до А',
+  publicationYearAscending: 'по году издания, по возрастанию',
+  publicationYearDescending: 'по году издания, по убыванию',
+};
