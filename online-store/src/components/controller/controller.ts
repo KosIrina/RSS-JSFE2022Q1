@@ -13,6 +13,7 @@ export class AppController {
     data = [...books];
     this.selection.sort(data);
     data = this.selection.search(data);
+    data = this.selection.filter(data);
     return data;
   }
 
@@ -29,7 +30,44 @@ export class AppController {
     (document.querySelector('.header__search-input') as HTMLInputElement).value =
       AllOptions.searchContent;
 
+    const allCheckboxes = document.querySelectorAll(
+      '.filter-checkbox'
+    ) as NodeListOf<HTMLInputElement>;
+
+    allCheckboxes.forEach((element: HTMLInputElement): void => {
+      const label = element.nextElementSibling as HTMLLabelElement;
+      let filterName = '';
+      if (label) {
+        filterName = label.textContent as string;
+      }
+      if (
+        AllOptions.filters.categories.includes(filterName) ||
+        AllOptions.filters.publisher.includes(filterName) ||
+        AllOptions.filters.coverType.includes(filterName) ||
+        (!filterName && AllOptions.filters.bestseller)
+      ) {
+        element.checked = true;
+      }
+    });
+
     return this.getBooks(data);
+  }
+
+  public clearFiltersSettings(): void {
+    AllOptions.filters.categories = [];
+    AllOptions.filters.publisher = [];
+    AllOptions.filters.coverType = [];
+    AllOptions.filters.bestseller = false;
+    AllOptions.filters.published = [];
+    AllOptions.filters.quantityInStock = [];
+  }
+
+  public clearFiltersChecks(): void {
+    (document.querySelectorAll('.filter-checkbox') as NodeListOf<HTMLInputElement>).forEach(
+      (element: HTMLInputElement): void => {
+        element.checked = false;
+      }
+    );
   }
 
   public addBookToCart(event: Event): void {
