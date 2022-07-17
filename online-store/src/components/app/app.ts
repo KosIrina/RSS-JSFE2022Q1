@@ -56,6 +56,39 @@ class App {
       }
     );
 
+    (document.querySelectorAll('.filter-checkbox') as NodeListOf<HTMLInputElement>).forEach(
+      (element: HTMLInputElement): void =>
+        element.addEventListener('click', (): void => {
+          this.controller.clearFiltersSettings();
+          this.view.drawBooks(this.controller.getBooks(books));
+          (
+            document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
+          ).forEach((element: HTMLElement): void =>
+            element.addEventListener('click', (event: Event): void =>
+              this.controller.addBookToCart(event)
+            )
+          );
+          this.controller.addBooksToCartFromLocalStorage();
+        })
+    );
+
+    (document.querySelector('.settings__filters-reset') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        this.controller.clearFiltersSettings();
+        this.controller.clearFiltersChecks();
+        this.view.drawBooks(this.controller.getBooks(books));
+        (
+          document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
+        ).forEach((element: HTMLElement): void =>
+          element.addEventListener('click', (event: Event): void =>
+            this.controller.addBookToCart(event)
+          )
+        );
+        this.controller.addBooksToCartFromLocalStorage();
+      }
+    );
+
     (document.querySelector('.settings__filters-tablet') as HTMLElement).addEventListener(
       'click',
       this.view.openMobileFilters
