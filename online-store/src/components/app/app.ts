@@ -24,8 +24,10 @@ class App {
       this.view.drawBooks(this.controller.getBooksFromLocalStorage(books));
       (
         document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-      ).forEach((el: HTMLElement): void =>
-        el.addEventListener('click', (event: Event): void => this.controller.addBookToCart(event))
+      ).forEach((element: HTMLElement): void =>
+        element.addEventListener('click', (event: Event): void =>
+          this.controller.addBookToCart(event)
+        )
       );
       this.controller.addBooksToCartFromLocalStorage();
     });
@@ -36,8 +38,10 @@ class App {
         this.view.drawBooks(this.controller.getBooks(books));
         (
           document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-        ).forEach((el: HTMLElement): void =>
-          el.addEventListener('click', (event: Event): void => this.controller.addBookToCart(event))
+        ).forEach((element: HTMLElement): void =>
+          element.addEventListener('click', (event: Event): void =>
+            this.controller.addBookToCart(event)
+          )
         );
         this.controller.addBooksToCartFromLocalStorage();
       }
@@ -49,8 +53,10 @@ class App {
         this.view.drawBooks(this.controller.getBooks(books));
         (
           document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-        ).forEach((el: HTMLElement): void =>
-          el.addEventListener('click', (event: Event): void => this.controller.addBookToCart(event))
+        ).forEach((element: HTMLElement): void =>
+          element.addEventListener('click', (event: Event): void =>
+            this.controller.addBookToCart(event)
+          )
         );
         this.controller.addBooksToCartFromLocalStorage();
       }

@@ -105,11 +105,11 @@ export class AppController {
     (document.querySelector('.books-in-cart') as HTMLElement).innerText = `${+AllOptions.booksInCart
       .length}`;
     const booksOnPage = document.querySelectorAll('.book') as NodeListOf<HTMLElement>;
-    booksOnPage.forEach((el: HTMLElement): void => {
+    booksOnPage.forEach((element: HTMLElement): void => {
       for (let index = Numbers.zero; index < AllOptions.booksInCart.length; index++) {
-        if (el.innerHTML.toString().includes(AllOptions.booksInCart[index])) {
-          el.classList.add('added');
-          (el.querySelector('.book__cart-interaction-icon') as HTMLElement).style.transform =
+        if (element.innerHTML.toString().includes(AllOptions.booksInCart[index])) {
+          element.classList.add('added');
+          (element.querySelector('.book__cart-interaction-icon') as HTMLElement).style.transform =
             'rotate(45deg)';
           break;
         }
