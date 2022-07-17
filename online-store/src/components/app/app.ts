@@ -42,6 +42,20 @@ class App {
         this.controller.addBooksToCartFromLocalStorage();
       }
     );
+
+    (document.querySelector('.header__search-input') as HTMLSelectElement).addEventListener(
+      'input',
+      (): void => {
+        this.view.drawBooks(this.controller.getBooks(books));
+        (
+          document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
+        ).forEach((el: HTMLElement): void =>
+          el.addEventListener('click', (event: Event): void => this.controller.addBookToCart(event))
+        );
+        this.controller.addBooksToCartFromLocalStorage();
+      }
+    );
+
     (document.querySelector('.settings__filters-tablet') as HTMLElement).addEventListener(
       'click',
       this.view.openMobileFilters
