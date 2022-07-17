@@ -34,4 +34,14 @@ export class Selection {
         break;
     }
   }
+
+  public search(dataToSearchIn: ListOfBooks): ListOfBooks {
+    const searchValue: string = (
+      document.querySelector('.header__search-input') as HTMLInputElement
+    ).value;
+    searchValue ? (AllOptions.searchContent = searchValue) : (AllOptions.searchContent = '');
+    return dataToSearchIn.filter((element: IBook): boolean =>
+      element.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  }
 }
