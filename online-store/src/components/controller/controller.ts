@@ -1,6 +1,33 @@
 import { AllOptions, Numbers, LINE_BREAK, MAXIMUM_BOOKS_IN_CART } from '../../constants/constants';
+import { ListOfBooks } from '../../types/types';
+import { Selection } from './selection';
+import books from '../app/books-list';
 
 export class AppController {
+  readonly selection: Selection;
+  constructor() {
+    this.selection = new Selection();
+  }
+
+  public getBooks(data: ListOfBooks): ListOfBooks {
+    data = [...books];
+    this.selection.sort(data);
+    return data;
+  }
+
+  public getBooksFromLocalStorage(data: ListOfBooks): ListOfBooks {
+    const sortOptions = document.querySelectorAll(
+      '.settings__sort-option'
+    ) as NodeListOf<HTMLOptionElement>;
+    for (let index = Numbers.zero; index < sortOptions.length; index++) {
+      if (sortOptions[index].text === AllOptions.sortOption) {
+        sortOptions[index].selected = true;
+      }
+    }
+
+    return this.getBooks(data);
+  }
+
   public addBookToCart(event: Event): void {
     const target = event.target as HTMLElement;
     const bookToCart = target.closest('.book') as HTMLElement;
