@@ -12,6 +12,7 @@ export class AppController {
   public getBooks(data: ListOfBooks): ListOfBooks {
     data = [...books];
     this.selection.sort(data);
+    data = this.selection.search(data);
     return data;
   }
 
@@ -24,6 +25,9 @@ export class AppController {
         sortOptions[index].selected = true;
       }
     }
+
+    (document.querySelector('.header__search-input') as HTMLInputElement).value =
+      AllOptions.searchContent;
 
     return this.getBooks(data);
   }
