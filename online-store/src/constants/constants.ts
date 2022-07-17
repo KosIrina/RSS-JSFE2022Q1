@@ -41,3 +41,10 @@ export const SORT_OPTIONS = {
   publicationYearAscending: 'по году издания, по возрастанию',
   publicationYearDescending: 'по году издания, по убыванию',
 };
+
+export const CHECKBOX_FILTERS = {
+  category: 'category',
+  publisher: 'publisher',
+  cover: 'cover',
+  popularity: 'popularity',
+};
