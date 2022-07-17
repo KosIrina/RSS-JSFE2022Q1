@@ -1,5 +1,5 @@
 import { ListOfBooks, IBook } from '../../types/types';
-import { AllOptions, Numbers, SORT_OPTIONS } from '../../constants/constants';
+import { AllOptions, Numbers, SORT_OPTIONS, CHECKBOX_FILTERS } from '../../constants/constants';
 
 export class Selection {
   public sort(dataToSort: ListOfBooks): void {
@@ -43,5 +43,84 @@ export class Selection {
     return dataToSearchIn.filter((element: IBook): boolean =>
       element.title.toLowerCase().includes(searchValue.toLowerCase())
     );
+  }
+
+  public filter(dataToSearchIn: ListOfBooks): ListOfBooks {
+    const allFilterOptions = document.querySelectorAll(
+      '.filter-checkbox'
+    ) as NodeListOf<HTMLInputElement>;
+    const allCheckedOptions: HTMLInputElement[] = [];
+    allFilterOptions.forEach((element: HTMLInputElement): void => {
+      if (element.checked) allCheckedOptions.push(element);
+    });
+
+    allCheckedOptions.forEach((element: HTMLInputElement): void => {
+      const label = element.nextElementSibling as HTMLLabelElement;
+      let filterName = '';
+      if (element.name !== CHECKBOX_FILTERS.popularity) {
+        filterName = label.textContent as string;
+      }
+      switch (element.name) {
+        case CHECKBOX_FILTERS.category:
+          if (!AllOptions.filters.categories.includes(filterName)) {
+            AllOptions.filters.categories.push(filterName);
+          }
+          break;
+        case CHECKBOX_FILTERS.publisher:
+          if (!AllOptions.filters.publisher.includes(filterName)) {
+            AllOptions.filters.publisher.push(filterName);
+          }
+          break;
+        case CHECKBOX_FILTERS.cover:
+          if (!AllOptions.filters.coverType.includes(filterName)) {
+            AllOptions.filters.coverType.push(filterName);
+          }
+          break;
+        case CHECKBOX_FILTERS.popularity:
+          AllOptions.filters.bestseller = true;
+          break;
+      }
+    });
+
+    const namesOfBooksFiltered: string[] = [];
+    dataToSearchIn.forEach((element: IBook): void => {
+      namesOfBooksFiltered.push(element.title);
+    });
+
+    dataToSearchIn.forEach((element: IBook): void => {
+      if (
+        (AllOptions.filters.categories.length &&
+          !element.categories.filter((category) =>
+            AllOptions.filters.categories.includes(
+              `${category.charAt(0).toUpperCase()}${category.slice(1)}`
+            )
+          ).length) ||
+        (AllOptions.filters.publisher.length &&
+          !AllOptions.filters.publisher.includes(element.publisher)) ||
+        (AllOptions.filters.coverType.length &&
+          !AllOptions.filters.coverType.includes(element.coverType.split(' ')[Numbers.zero])) ||
+        (AllOptions.filters.bestseller && !element.bestseller)
+      ) {
+        namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), 1);
+      }
+    });
+
+    const booksFiltered: ListOfBooks = [];
+    dataToSearchIn.forEach((element: IBook): void => {
+      if (namesOfBooksFiltered.includes(element.title)) booksFiltered.push(element);
+    });
+
+    if (
+      AllOptions.filters.categories.length ||
+      AllOptions.filters.publisher.length ||
+      AllOptions.filters.coverType.length ||
+      AllOptions.filters.bestseller ||
+      AllOptions.filters.published.length ||
+      AllOptions.filters.quantityInStock.length
+    ) {
+      return booksFiltered;
+    } else {
+      return dataToSearchIn;
+    }
   }
 }
