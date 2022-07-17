@@ -354,7 +354,7 @@ html {
   list-style: none;
 }
 
-.filter-item > input[type='checkbox'] {
+.filter-item > .filter-checkbox {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -369,15 +369,15 @@ html {
   transition: 0.5s;
 }
 
-.filter-item > input[type='checkbox']:hover {
+.filter-item > .filter-checkbox:hover {
   border: 1px solid #f3cfc4;
 }
 
-.filter-item > input[type='checkbox']:checked {
+.filter-item >.filter-checkbox:checked {
   background-color: #e2bcaf;
 }
 
-.filter-item > input[type='checkbox']:checked::before {
+.filter-item > .filter-checkbox:checked::before {
   content: '\2713';
   position: absolute;
   top: -3px;
