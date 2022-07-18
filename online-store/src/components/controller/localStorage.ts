@@ -17,23 +17,30 @@ class LocalStorage {
   }
 
   public getLocalStorage(): void {
-    const cartFromLocalStorage: string[] = JSON.parse(
-      localStorage.getItem('KosIrina_store_cart') as string
-    );
-    const filtersFromLocalStorage: IFilters = JSON.parse(
-      localStorage.getItem('KosIrina_store_filtersSettings') as string
-    );
-    const sortFromLocalStorage: string = JSON.parse(
-      localStorage.getItem('KosIrina_store_sortSetings') as string
-    );
-    const searchFromLocalStorage: string = JSON.parse(
-      localStorage.getItem('KosIrina_store_searchSetings') as string
-    );
+    if (
+      localStorage.getItem('KosIrina_store_cart') &&
+      localStorage.getItem('KosIrina_store_filtersSettings') &&
+      localStorage.getItem('KosIrina_store_sortSetings') &&
+      localStorage.getItem('KosIrina_store_searchSetings')
+    ) {
+      const cartFromLocalStorage: string[] = JSON.parse(
+        localStorage.getItem('KosIrina_store_cart') as string
+      );
+      const filtersFromLocalStorage: IFilters = JSON.parse(
+        localStorage.getItem('KosIrina_store_filtersSettings') as string
+      );
+      const sortFromLocalStorage: string = JSON.parse(
+        localStorage.getItem('KosIrina_store_sortSetings') as string
+      );
+      const searchFromLocalStorage: string = JSON.parse(
+        localStorage.getItem('KosIrina_store_searchSetings') as string
+      );
 
-    AllOptions.booksInCart = [...cartFromLocalStorage];
-    AllOptions.searchContent = searchFromLocalStorage;
-    AllOptions.sortOption = sortFromLocalStorage;
-    AllOptions.filters = Object.assign({}, filtersFromLocalStorage);
+      AllOptions.booksInCart = [...cartFromLocalStorage];
+      AllOptions.searchContent = searchFromLocalStorage;
+      AllOptions.sortOption = sortFromLocalStorage;
+      AllOptions.filters = Object.assign({}, filtersFromLocalStorage);
+    }
   }
 
   public clearLocalStorage(): void {
