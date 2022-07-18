@@ -58,8 +58,6 @@ export class AppController {
     AllOptions.filters.publisher = [];
     AllOptions.filters.coverType = [];
     AllOptions.filters.bestseller = false;
-    AllOptions.filters.published = [];
-    AllOptions.filters.quantityInStock = [];
   }
 
   public clearFiltersChecks(): void {
