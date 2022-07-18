@@ -2,15 +2,18 @@ import { AppController } from '../controller/controller';
 import { AppView } from '../view/appView';
 import LocalStorage from '../controller/localStorage';
 import books from './books-list';
+import TaskCheck from '../taskCheck/taskCheck';
 
 class App {
   readonly controller: AppController;
   readonly view: AppView;
   readonly memory: LocalStorage;
+  readonly check: TaskCheck;
   constructor() {
     this.controller = new AppController();
     this.view = new AppView();
     this.memory = new LocalStorage();
+    this.check = new TaskCheck();
   }
 
   public addToCart(): void {
@@ -24,6 +27,7 @@ class App {
   }
 
   public start(): void {
+    this.check.getTaskCheck();
     this.view.drawSliders();
 
     window.addEventListener('beforeunload', this.memory.setLocalStorage);
