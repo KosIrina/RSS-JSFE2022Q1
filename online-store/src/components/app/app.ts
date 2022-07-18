@@ -25,7 +25,6 @@ class App {
 
   public start(): void {
     this.view.drawSliders();
-    /* this.view.drawBooks(books); */
 
     window.addEventListener('beforeunload', this.memory.setLocalStorage);
 
