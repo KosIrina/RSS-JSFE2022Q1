@@ -374,7 +374,7 @@ html {
   border: 1px solid #f3cfc4;
 }
 
-.filter-item >.filter-checkbox:checked {
+.filter-item > .filter-checkbox:checked {
   background-color: #e2bcaf;
 }
 
