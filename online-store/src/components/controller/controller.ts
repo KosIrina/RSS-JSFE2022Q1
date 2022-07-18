@@ -70,6 +70,11 @@ export class AppController {
     );
   }
 
+  public clearSearch(): void {
+    AllOptions.searchContent = '';
+    (document.querySelector('.header__search-input') as HTMLInputElement).value = '';
+  }
+
   public addBookToCart(event: Event): void {
     const target = event.target as HTMLElement;
     const bookToCart = target.closest('.book') as HTMLElement;

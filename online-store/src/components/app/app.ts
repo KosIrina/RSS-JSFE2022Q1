@@ -64,6 +64,7 @@ class App {
       (): void => {
         this.controller.clearFiltersSettings();
         this.controller.clearFiltersChecks();
+        this.controller.clearSearch();
         this.view.drawBooks(this.controller.getBooks(books));
         this.addToCart();
       }
