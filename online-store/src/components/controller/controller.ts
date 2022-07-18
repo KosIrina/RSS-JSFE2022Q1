@@ -97,8 +97,6 @@ export class AppController {
       bookToCart.classList.remove('added');
       target.style.transform = 'rotate(0)';
     }
-
-    console.log(AllOptions.booksInCart);
   }
 
   public addBooksToCartFromLocalStorage(): void {
