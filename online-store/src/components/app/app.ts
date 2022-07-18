@@ -13,6 +13,16 @@ class App {
     this.memory = new LocalStorage();
   }
 
+  public addToCart(): void {
+    (document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>).forEach(
+      (element: HTMLElement): void =>
+        element.addEventListener('click', (event: Event): void =>
+          this.controller.addBookToCart(event)
+        )
+    );
+    this.controller.addBooksToCartFromLocalStorage();
+  }
+
   public start(): void {
     this.view.drawSliders();
     /* this.view.drawBooks(books); */
@@ -22,28 +32,14 @@ class App {
     window.addEventListener('load', (): void => {
       this.memory.getLocalStorage();
       this.view.drawBooks(this.controller.getBooksFromLocalStorage(books));
-      (
-        document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-      ).forEach((element: HTMLElement): void =>
-        element.addEventListener('click', (event: Event): void =>
-          this.controller.addBookToCart(event)
-        )
-      );
-      this.controller.addBooksToCartFromLocalStorage();
+      this.addToCart();
     });
 
     (document.querySelector('.settings__sort-options') as HTMLSelectElement).addEventListener(
       'change',
       (): void => {
         this.view.drawBooks(this.controller.getBooks(books));
-        (
-          document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-        ).forEach((element: HTMLElement): void =>
-          element.addEventListener('click', (event: Event): void =>
-            this.controller.addBookToCart(event)
-          )
-        );
-        this.controller.addBooksToCartFromLocalStorage();
+        this.addToCart();
       }
     );
 
@@ -51,14 +47,7 @@ class App {
       'input',
       (): void => {
         this.view.drawBooks(this.controller.getBooks(books));
-        (
-          document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-        ).forEach((element: HTMLElement): void =>
-          element.addEventListener('click', (event: Event): void =>
-            this.controller.addBookToCart(event)
-          )
-        );
-        this.controller.addBooksToCartFromLocalStorage();
+        this.addToCart();
       }
     );
 
@@ -67,14 +56,7 @@ class App {
         element.addEventListener('click', (): void => {
           this.controller.clearFiltersSettings();
           this.view.drawBooks(this.controller.getBooks(books));
-          (
-            document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-          ).forEach((element: HTMLElement): void =>
-            element.addEventListener('click', (event: Event): void =>
-              this.controller.addBookToCart(event)
-            )
-          );
-          this.controller.addBooksToCartFromLocalStorage();
+          this.addToCart();
         })
     );
 
@@ -84,14 +66,7 @@ class App {
         this.controller.clearFiltersSettings();
         this.controller.clearFiltersChecks();
         this.view.drawBooks(this.controller.getBooks(books));
-        (
-          document.querySelectorAll('.book__cart-interaction-icon') as NodeListOf<HTMLElement>
-        ).forEach((element: HTMLElement): void =>
-          element.addEventListener('click', (event: Event): void =>
-            this.controller.addBookToCart(event)
-          )
-        );
-        this.controller.addBooksToCartFromLocalStorage();
+        this.addToCart();
       }
     );
 
