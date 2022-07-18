@@ -99,7 +99,13 @@ export class Selection {
           !AllOptions.filters.publisher.includes(element.publisher)) ||
         (AllOptions.filters.coverType.length &&
           !AllOptions.filters.coverType.includes(element.coverType.split(' ')[Numbers.zero])) ||
-        (AllOptions.filters.bestseller && !element.bestseller)
+        (AllOptions.filters.bestseller && !element.bestseller) ||
+        (AllOptions.filters.published.length &&
+          (element.published < AllOptions.filters.published[0] ||
+            element.published > AllOptions.filters.published[1])) ||
+        (AllOptions.filters.quantityInStock.length &&
+          (element.quantityInStock < AllOptions.filters.quantityInStock[0] ||
+            element.quantityInStock > AllOptions.filters.quantityInStock[1]))
       ) {
         namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), 1);
       }
