@@ -28,4 +28,4 @@ export interface IFilters {
   categories: string[];
 }
 
-export type VoidCallback<T> = (data: T) => void;
+export type WorkWithBooks<T> = (data: T) => T;
