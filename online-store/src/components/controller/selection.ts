@@ -1,4 +1,4 @@
-import { ListOfBooks, IBook } from '../../types/types';
+import { ListOfBooks, IBook, WorkWithBooks } from '../../types/types';
 import { AllOptions, Numbers, SORT_OPTIONS, CHECKBOX_FILTERS } from '../../constants/constants';
 
 export class Selection {
@@ -35,7 +35,7 @@ export class Selection {
     }
   }
 
-  public search(dataToSearchIn: ListOfBooks): ListOfBooks {
+  public search: WorkWithBooks<ListOfBooks> = (dataToSearchIn: ListOfBooks): ListOfBooks => {
     const searchValue: string = (
       document.querySelector('.header__search-input') as HTMLInputElement
     ).value;
@@ -43,9 +43,9 @@ export class Selection {
     return dataToSearchIn.filter((element: IBook): boolean =>
       element.title.toLowerCase().includes(searchValue.toLowerCase())
     );
-  }
+  };
 
-  public filter(dataToSearchIn: ListOfBooks): ListOfBooks {
+  public filter: WorkWithBooks<ListOfBooks> = (dataToSearchIn: ListOfBooks): ListOfBooks => {
     const allFilterOptions = document.querySelectorAll(
       '.filter-checkbox'
     ) as NodeListOf<HTMLInputElement>;
@@ -128,5 +128,5 @@ export class Selection {
     } else {
       return dataToSearchIn;
     }
-  }
+  };
 }

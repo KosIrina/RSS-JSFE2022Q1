@@ -1,5 +1,5 @@
 import { AllOptions, Numbers, LINE_BREAK, MAXIMUM_BOOKS_IN_CART } from '../../constants/constants';
-import { ListOfBooks } from '../../types/types';
+import { ListOfBooks, WorkWithBooks } from '../../types/types';
 import { Selection } from './selection';
 import books from '../app/books-list';
 
@@ -9,15 +9,17 @@ export class AppController {
     this.selection = new Selection();
   }
 
-  public getBooks(data: ListOfBooks): ListOfBooks {
+  public getBooks: WorkWithBooks<ListOfBooks> = (data: ListOfBooks): ListOfBooks => {
     data = [...books];
     this.selection.sort(data);
     data = this.selection.search(data);
     data = this.selection.filter(data);
     return data;
-  }
+  };
 
-  public getBooksFromLocalStorage(data: ListOfBooks): ListOfBooks {
+  public getBooksFromLocalStorage: WorkWithBooks<ListOfBooks> = (
+    data: ListOfBooks
+  ): ListOfBooks => {
     const sortOptions = document.querySelectorAll(
       '.settings__sort-option'
     ) as NodeListOf<HTMLOptionElement>;
@@ -51,7 +53,7 @@ export class AppController {
     });
 
     return this.getBooks(data);
-  }
+  };
 
   public clearFiltersSettings(): void {
     AllOptions.filters.categories = [];
