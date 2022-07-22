@@ -116,17 +116,6 @@ export class Selection {
       if (namesOfBooksFiltered.includes(element.title)) booksFiltered.push(element);
     });
 
-    if (
-      AllOptions.filters.categories.length ||
-      AllOptions.filters.publisher.length ||
-      AllOptions.filters.coverType.length ||
-      AllOptions.filters.bestseller ||
-      AllOptions.filters.published.length ||
-      AllOptions.filters.quantityInStock.length
-    ) {
-      return booksFiltered;
-    } else {
-      return dataToSearchIn;
-    }
+    return booksFiltered;
   };
 }
