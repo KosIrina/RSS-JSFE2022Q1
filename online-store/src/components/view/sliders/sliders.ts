@@ -10,7 +10,7 @@ import {
 import LocalStorage from '../../controller/localStorage';
 import { AppController } from '../../controller/controller';
 import { AppView } from '../appView';
-import books from '../../app/books-list';
+import books from '../../../data/books-list';
 
 class Sliders {
   readonly memory: LocalStorage;

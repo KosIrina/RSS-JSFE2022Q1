@@ -1,5 +1,5 @@
 import { Selection } from '../components/controller/selection';
-import books from '../components/app/books-list';
+import books from '../data/books-list';
 
 describe('Selection', () => {
   const selection = new Selection();

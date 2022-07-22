@@ -1,7 +1,7 @@
 import { AppController } from '../controller/controller';
 import { AppView } from '../view/appView';
 import LocalStorage from '../controller/localStorage';
-import books from './books-list';
+import books from '../../data/books-list';
 import TaskCheck from '../taskCheck/taskCheck';
 
 class App {
