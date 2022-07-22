@@ -92,7 +92,7 @@ export class Selection {
         (AllOptions.filters.categories.length &&
           !element.categories.filter((category) =>
             AllOptions.filters.categories.includes(
-              `${category.charAt(0).toUpperCase()}${category.slice(1)}`
+              `${category.charAt(Numbers.zero).toUpperCase()}${category.slice(Numbers.one)}`
             )
           ).length) ||
         (AllOptions.filters.publisher.length &&
@@ -101,13 +101,13 @@ export class Selection {
           !AllOptions.filters.coverType.includes(element.coverType.split(' ')[Numbers.zero])) ||
         (AllOptions.filters.bestseller && !element.bestseller) ||
         (AllOptions.filters.published.length &&
-          (element.published < AllOptions.filters.published[0] ||
-            element.published > AllOptions.filters.published[1])) ||
+          (element.published < AllOptions.filters.published[Numbers.zero] ||
+            element.published > AllOptions.filters.published[Numbers.one])) ||
         (AllOptions.filters.quantityInStock.length &&
-          (element.quantityInStock < AllOptions.filters.quantityInStock[0] ||
-            element.quantityInStock > AllOptions.filters.quantityInStock[1]))
+          (element.quantityInStock < AllOptions.filters.quantityInStock[Numbers.zero] ||
+            element.quantityInStock > AllOptions.filters.quantityInStock[Numbers.one]))
       ) {
-        namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), 1);
+        namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), Numbers.one);
       }
     });
 
