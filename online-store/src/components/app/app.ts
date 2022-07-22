@@ -2,7 +2,7 @@ import { AppController } from '../controller/controller';
 import { AppView } from '../view/appView';
 import LocalStorage from '../controller/localStorage';
 import books from '../../data/books-list';
-import TaskCheck from '../taskCheck/taskCheck';
+import TaskCheck from '../../utils/taskCheck';
 
 class App {
   readonly controller: AppController;
