@@ -62,8 +62,8 @@ export class Selection {
       }
       switch (element.name) {
         case CHECKBOX_FILTERS.category:
-          if (!AllOptions.filters.categories.includes(filterName)) {
-            AllOptions.filters.categories.push(filterName);
+          if (!AllOptions.filters.categories.includes(filterName.toLowerCase())) {
+            AllOptions.filters.categories.push(filterName.toLowerCase());
           }
           break;
         case CHECKBOX_FILTERS.publisher:
@@ -88,26 +88,22 @@ export class Selection {
     });
 
     dataToSearchIn.forEach((element: IBook): void => {
-      if (
-        (AllOptions.filters.categories.length &&
-          !element.categories.filter((category) =>
-            AllOptions.filters.categories.includes(
-              `${category.charAt(Numbers.zero).toUpperCase()}${category.slice(Numbers.one)}`
-            )
-          ).length) ||
-        (AllOptions.filters.publisher.length &&
-          !AllOptions.filters.publisher.includes(element.publisher)) ||
-        (AllOptions.filters.coverType.length &&
-          !AllOptions.filters.coverType.includes(element.coverType.split(' ')[Numbers.zero])) ||
-        (AllOptions.filters.bestseller && !element.bestseller) ||
-        (AllOptions.filters.published.length &&
+      switch (true) {
+        case AllOptions.filters.categories.length &&
+          !element.categories.filter((category) => AllOptions.filters.categories.includes(category))
+            .length:
+        case AllOptions.filters.publisher.length &&
+          !AllOptions.filters.publisher.includes(element.publisher):
+        case AllOptions.filters.coverType.length &&
+          !AllOptions.filters.coverType.includes(element.coverType.split(' ')[Numbers.zero]):
+        case AllOptions.filters.bestseller && !element.bestseller:
+        case AllOptions.filters.published.length &&
           (element.published < AllOptions.filters.published[Numbers.zero] ||
-            element.published > AllOptions.filters.published[Numbers.one])) ||
-        (AllOptions.filters.quantityInStock.length &&
+            element.published > AllOptions.filters.published[Numbers.one]):
+        case AllOptions.filters.quantityInStock.length &&
           (element.quantityInStock < AllOptions.filters.quantityInStock[Numbers.zero] ||
-            element.quantityInStock > AllOptions.filters.quantityInStock[Numbers.one]))
-      ) {
-        namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), Numbers.one);
+            element.quantityInStock > AllOptions.filters.quantityInStock[Numbers.one]):
+          namesOfBooksFiltered.splice(namesOfBooksFiltered.indexOf(element.title), Numbers.one);
       }
     });
 

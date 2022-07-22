@@ -41,7 +41,7 @@ export class AppController {
         filterName = label.textContent as string;
       }
       if (
-        AllOptions.filters.categories.includes(filterName) ||
+        AllOptions.filters.categories.includes(filterName.toLowerCase()) ||
         AllOptions.filters.publisher.includes(filterName) ||
         AllOptions.filters.coverType.includes(filterName) ||
         (!filterName && AllOptions.filters.bestseller)
