@@ -1,4 +1,4 @@
-import { IOptions } from '../types/types';
+import { IOptions } from '../types';
 
 export enum Numbers {
   zero = 0,

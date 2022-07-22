@@ -1,4 +1,4 @@
-import { ListOfBooks, IBook, WorkWithBooks } from '../../types/types';
+import { ListOfBooks, IBook, WorkWithBooks } from '../../types';
 import { AllOptions, Numbers, SORT_OPTIONS, CHECKBOX_FILTERS } from '../../constants/constants';
 
 export class Selection {

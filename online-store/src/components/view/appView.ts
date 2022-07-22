@@ -1,6 +1,6 @@
 import Books from './books/books';
 import Sliders from './sliders/sliders';
-import { ListOfBooks } from '../../types/types';
+import { ListOfBooks } from '../../types';
 
 export class AppView {
   readonly books: Books;

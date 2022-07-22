@@ -1,5 +1,5 @@
 import './books.css';
-import { ListOfBooks, IBook } from '../../../types/types';
+import { ListOfBooks, IBook } from '../../../types';
 import {
   FILTERS,
   NO_MATCHES_FOUND,

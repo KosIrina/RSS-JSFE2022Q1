@@ -1,5 +1,5 @@
 import { AllOptions } from '../../constants/constants';
-import { IFilters } from '../../types/types';
+import { IFilters } from '../../types';
 
 class LocalStorage {
   public setLocalStorage(): void {

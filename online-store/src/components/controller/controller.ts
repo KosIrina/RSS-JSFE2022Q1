@@ -1,5 +1,5 @@
 import { AllOptions, Numbers, LINE_BREAK, MAXIMUM_BOOKS_IN_CART } from '../../constants/constants';
-import { ListOfBooks, WorkWithBooks } from '../../types/types';
+import { ListOfBooks, WorkWithBooks } from '../../types';
 import { Selection } from './selection';
 
 export class AppController {

@@ -1,4 +1,4 @@
-import { ListOfBooks } from '../types/types';
+import { ListOfBooks } from '../types';
 
 const books: ListOfBooks = [
   {
