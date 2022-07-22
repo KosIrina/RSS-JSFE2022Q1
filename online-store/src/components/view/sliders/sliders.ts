@@ -43,9 +43,7 @@ class Sliders {
       },
       step: Numbers.one,
       tooltips: {
-        to: function (numericValue) {
-          return numericValue.toFixed();
-        },
+        to: (numericValue) => numericValue.toFixed(),
       },
     });
 
@@ -58,9 +56,7 @@ class Sliders {
       },
       step: Numbers.one,
       tooltips: {
-        to: function (numericValue) {
-          return numericValue.toFixed();
-        },
+        to: (numericValue) => numericValue.toFixed(),
       },
     });
 
