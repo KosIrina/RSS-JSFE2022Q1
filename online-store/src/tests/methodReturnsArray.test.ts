@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { Selection } from '../components/controller/selection';
 import books from '../components/app/books-list';
 

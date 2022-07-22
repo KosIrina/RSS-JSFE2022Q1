@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import LocalStorage from '../components/controller/localStorage';
 
 describe('LocalStorage', () => {

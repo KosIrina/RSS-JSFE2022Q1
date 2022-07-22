@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { AppController } from '../components/controller/controller';
 
 describe('AppController', () => {
