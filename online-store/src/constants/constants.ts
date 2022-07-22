@@ -48,3 +48,17 @@ export const CHECKBOX_FILTERS = {
   cover: 'cover',
   popularity: 'popularity',
 };
+
+export const FILTERS = {
+  categories: 'Категории:',
+  publisher: 'Издательство:',
+  published: 'Год издания:',
+  quantityInStock: 'Количество на складе:',
+  bestseller: 'Бестселлер',
+};
+
+export const NO_MATCHES_FOUND = 'Извините, совпадений не обнаружено';
+
+export const IMAGE_ALT_ATTRIBUTE = 'Book cover';
+
+export const PLUS_SYMBOL_STRING = '+';

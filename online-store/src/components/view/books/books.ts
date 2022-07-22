@@ -1,5 +1,11 @@
 import './books.css';
 import { ListOfBooks, IBook } from '../../../types/types';
+import {
+  FILTERS,
+  NO_MATCHES_FOUND,
+  IMAGE_ALT_ATTRIBUTE,
+  PLUS_SYMBOL_STRING,
+} from '../../../constants/constants';
 
 class Books {
   public draw(data: ListOfBooks): void {
@@ -10,7 +16,7 @@ class Books {
     if (!books.length) {
       const noBooks: HTMLDivElement = document.createElement('div');
       noBooks.classList.add('no-books-found');
-      noBooks.innerText = 'Извините, совпадений не обнаружено';
+      noBooks.innerText = NO_MATCHES_FOUND;
       booksContainer.append(noBooks);
     }
 
@@ -26,7 +32,7 @@ class Books {
       const bookCover: HTMLImageElement = document.createElement('img');
       bookCover.classList.add('book__cover-image');
       bookCover.src = `${item['coverImage']}`;
-      bookCover.alt = 'Book cover';
+      bookCover.alt = IMAGE_ALT_ATTRIBUTE;
       bookProperties.append(bookCover);
 
       const bookInfo: HTMLDivElement = document.createElement('div');
@@ -35,17 +41,17 @@ class Books {
 
       const bookCategory: HTMLParagraphElement = document.createElement('p');
       bookCategory.classList.add('book__category');
-      bookCategory.innerHTML = `<b>Категории:</b> ${item['categories']}`;
+      bookCategory.innerHTML = `<b>${FILTERS.categories}</b> ${item['categories']}`;
       bookInfo.append(bookCategory);
 
       const bookPublisher: HTMLParagraphElement = document.createElement('p');
       bookPublisher.classList.add('book__publisher');
-      bookPublisher.innerHTML = `<b>Издательство:</b> ${item['publisher']}`;
+      bookPublisher.innerHTML = `<b>${FILTERS.publisher}</b> ${item['publisher']}`;
       bookInfo.append(bookPublisher);
 
       const bookPublished: HTMLParagraphElement = document.createElement('p');
       bookPublished.classList.add('book__published');
-      bookPublished.innerHTML = `<b>Год издания:</b> ${item['published']}`;
+      bookPublished.innerHTML = `<b>${FILTERS.published}</b> ${item['published']}`;
       bookInfo.append(bookPublished);
 
       const bookCoverType: HTMLParagraphElement = document.createElement('p');
@@ -55,13 +61,13 @@ class Books {
 
       const bookQuantity: HTMLParagraphElement = document.createElement('p');
       bookQuantity.classList.add('book__quantity');
-      bookQuantity.innerHTML = `<b>Количество на складе:</b> ${item['quantityInStock']}`;
+      bookQuantity.innerHTML = `<b>${FILTERS.quantityInStock}</b> ${item['quantityInStock']}`;
       bookInfo.append(bookQuantity);
 
       if (item['bestseller']) {
         const bookBestseller: HTMLParagraphElement = document.createElement('p');
         bookBestseller.classList.add('book__bestseller');
-        bookBestseller.innerHTML = '<b>Бестселлер</b>';
+        bookBestseller.innerHTML = `<b>${FILTERS.bestseller}</b>`;
         bookInfo.append(bookBestseller);
       }
 
@@ -76,7 +82,7 @@ class Books {
 
       const bookCartIcon: HTMLDivElement = document.createElement('div');
       bookCartIcon.classList.add('book__cart-interaction-icon');
-      bookCartIcon.innerText = '+';
+      bookCartIcon.innerText = PLUS_SYMBOL_STRING;
       bookMain.append(bookCartIcon);
     });
   }
