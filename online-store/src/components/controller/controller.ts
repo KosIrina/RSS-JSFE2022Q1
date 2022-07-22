@@ -1,7 +1,6 @@
 import { AllOptions, Numbers, LINE_BREAK, MAXIMUM_BOOKS_IN_CART } from '../../constants/constants';
 import { ListOfBooks, WorkWithBooks } from '../../types/types';
 import { Selection } from './selection';
-import books from '../app/books-list';
 
 export class AppController {
   readonly selection: Selection;
@@ -10,11 +9,10 @@ export class AppController {
   }
 
   public getBooks: WorkWithBooks<ListOfBooks> = (data: ListOfBooks): ListOfBooks => {
-    data = [...books];
     this.selection.sort(data);
-    data = this.selection.search(data);
-    data = this.selection.filter(data);
-    return data;
+    const sortedAndSearchedBooks = this.selection.search(data);
+    const sortedSearchedAndFilteredBooks = this.selection.filter(sortedAndSearchedBooks);
+    return sortedSearchedAndFilteredBooks;
   };
 
   public getBooksFromLocalStorage: WorkWithBooks<ListOfBooks> = (
