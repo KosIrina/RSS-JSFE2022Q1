@@ -1,4 +1,4 @@
-import LocalStorage from '../components/controller/localStorage';
+import LocalStorage from '../pages/localStorage';
 
 describe('LocalStorage', () => {
   const localStorage = new LocalStorage();

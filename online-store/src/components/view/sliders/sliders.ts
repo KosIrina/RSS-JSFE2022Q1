@@ -7,7 +7,7 @@ import {
   BookQuantity,
   AllOptions,
 } from '../../../constants/constants';
-import LocalStorage from '../../controller/localStorage';
+import LocalStorage from '../../../pages/localStorage';
 import { AppController } from '../../controller/controller';
 import { AppView } from '../appView';
 import books from '../../../data/books-list';
