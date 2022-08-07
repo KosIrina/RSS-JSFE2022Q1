@@ -1,10 +1,11 @@
 import './garage.css';
-import { APP_TEXT_CONTENT } from '../../../constants';
+import { APP_TEXT_CONTENT, Numbers } from '../../../constants';
 import CommonView from '../../common/view/common';
 import WinnersView from '../../winners/view/winners';
 import API from '../../../api';
 import GarageController from '../controller/garage';
 import WinnersController from '../../winners/controller/winners';
+import CommonController from '../../common/controller/common';
 import carImage from '../../../assets/images/car.svg';
 import flagImage from '../../../assets/images/flag.png';
 
@@ -19,12 +20,15 @@ export default class GarageView {
 
   readonly winnersController: WinnersController;
 
+  readonly appController: CommonController;
+
   constructor() {
     this.common = new CommonView();
     this.winners = new WinnersView();
     this.api = new API();
     this.garageController = new GarageController();
     this.winnersController = new WinnersController();
+    this.appController = new CommonController();
   }
 
   private createInput(className: string, idName: string, inputType: string): HTMLElement {
@@ -118,9 +122,8 @@ export default class GarageView {
       'garage__car-select-button',
       APP_TEXT_CONTENT.select
     );
-    selectButton.addEventListener('click', async (event: Event): Promise<void> => {
-      const button = event.target as HTMLElement;
-      const car = button.closest('.garage__car') as HTMLElement;
+    selectButton.addEventListener('click', async (): Promise<void> => {
+      const car = selectButton.closest('.garage__car') as HTMLElement;
       const carId = car.getAttribute('data-car-id') as string;
       const carInfo = await this.api.garage.getCar(+carId);
       this.garageController.editCar(carInfo.name, carInfo.color, carInfo.id);
@@ -130,10 +133,13 @@ export default class GarageView {
       'garage__car-remove-button',
       APP_TEXT_CONTENT.remove
     );
-    removeButton.addEventListener('click', async (event: Event): Promise<void> => {
-      const button = event.target as HTMLElement;
-      const car = button.closest('.garage__car') as HTMLElement;
+    removeButton.addEventListener('click', async (): Promise<void> => {
+      const car = removeButton.closest('.garage__car') as HTMLElement;
       const carId = car.getAttribute('data-car-id') as string;
+      const nextPage = await this.appController.getNextPage(APP_TEXT_CONTENT.garage.toLowerCase());
+      if (nextPage.data.length) {
+        this.drawNewCar(nextPage.data[Numbers.zero].id);
+      }
       await this.api.garage.deleteCar(+carId);
       this.garageController.removeCar(carId);
       this.winnersController.removeCar(carId);
@@ -142,7 +148,6 @@ export default class GarageView {
     const carName: HTMLElement = document.createElement('span');
     carName.classList.add('garage__car-name');
     carName.textContent = `${name}`;
-
     carEditButtonsAndName.append(selectButton, removeButton, carName);
     return carEditButtonsAndName;
   }
