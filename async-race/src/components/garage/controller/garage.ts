@@ -1,11 +1,15 @@
 import API from '../../../api';
-import { COLOR } from '../../../constants';
+import CommonController from '../../common/controller/common';
+import { COLOR, APP_TEXT_CONTENT } from '../../../constants';
 
 export default class GarageController {
   readonly api: API;
 
+  readonly appController: CommonController;
+
   constructor() {
     this.api = new API();
+    this.appController = new CommonController();
   }
 
   public editCar(name: string, color: string, id: number): void {
@@ -36,5 +40,6 @@ export default class GarageController {
   public removeCar(id: string): void {
     const carInGarage = document.querySelector(`.garage__car[data-car-id="${id}"]`) as HTMLElement;
     carInGarage.remove();
+    this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
   }
 }
