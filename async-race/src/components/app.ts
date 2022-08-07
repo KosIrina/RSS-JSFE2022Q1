@@ -3,7 +3,7 @@ import GarageView from './garage/view/garage';
 import GarageController from './garage/controller/garage';
 import WinnersView from './winners/view/winners';
 import API from '../api';
-import { Numbers, CarsPerPage, APP_TEXT_CONTENT } from '../constants';
+import { Numbers, CarsPerPage, APP_TEXT_CONTENT, COLOR } from '../constants';
 
 export default class App {
   readonly appView: CommonView;
@@ -74,7 +74,7 @@ export default class App {
 
         const pageHeader = (document.querySelector('.garage__page-number') as HTMLElement)
           .textContent as string;
-        const currentPage: number = +pageHeader.split('#')[Numbers.one];
+        const currentPage: number = +pageHeader.split(COLOR.hash)[Numbers.one];
 
         const carsContainerHeading = document.querySelector('.garage__heading') as HTMLElement;
         const cars = await this.api.garage.getCars(currentPage);

@@ -1,4 +1,5 @@
 import API from '../../../api';
+import { COLOR } from '../../../constants';
 
 export default class GarageController {
   readonly api: API;
@@ -28,7 +29,7 @@ export default class GarageController {
     nameInput.setAttribute('disabled', '');
     nameInput.value = '';
     colorInput.setAttribute('disabled', '');
-    colorInput.value = '#000000';
+    colorInput.value = COLOR.black;
     updateButton.setAttribute('disabled', '');
   }
 

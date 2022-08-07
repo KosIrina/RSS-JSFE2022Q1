@@ -1,6 +1,6 @@
 import API from '../../../api';
 import WinnersView from '../view/winners';
-import { Numbers } from '../../../constants';
+import { Numbers, COLOR } from '../../../constants';
 
 export default class WinnersController {
   readonly api: API;
@@ -17,7 +17,7 @@ export default class WinnersController {
     if (carInWinners) {
       const pageHeader = (document.querySelector('.winners__page-number') as HTMLElement)
         .textContent as string;
-      const currentPage: number = +pageHeader.split('#')[Numbers.one];
+      const currentPage: number = +pageHeader.split(COLOR.hash)[Numbers.one];
       await this.api.winners.deleteWinner(+id);
       const winners = document.querySelector('.main__winners') as HTMLElement;
       winners.innerHTML = '';
