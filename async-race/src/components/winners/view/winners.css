@@ -1,0 +1,36 @@
+.main__winners {
+  display: none;
+}
+
+.cell-heading,
+.cell-content {
+  padding: 5px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.cell-heading {
+  background-color: rgba(184, 210, 212, 0.6);
+  font-weight: 400;
+}
+
+.cell-content {
+  background-color: rgba(184, 210, 212, 0.1);
+}
+
+.winners__page-number-change {
+  margin-top: 20px;
+}
+
+.table-heading__car-image {
+  width: 55px;
+}
+
+.table-heading__car-name {
+  min-width: 100px;
+}
+
+.winners__car-image .car-image {
+  width: 50px;
+  height: 18px;
+}
