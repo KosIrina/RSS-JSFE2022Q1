@@ -1,0 +1,108 @@
+.header,
+.main,
+.footer {
+  padding: 0 30px;
+}
+
+.header__logo {
+  margin: 15px 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: calc(100vh - 127px);
+}
+
+.main__page-change,
+.garage__page-number-change,
+.winners__page-number-change {
+  width: 180px;
+}
+
+.button {
+  width: 76px;
+  height: 25px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(249, 249, 249, 0.9);
+  font: inherit;
+  color: #202020;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.button:disabled{
+  background-color: rgba(249, 249, 249, 0.3);
+  cursor: inherit;
+}
+
+.button:hover {
+  box-shadow: inset -3em 0 0 0 #b8d2d4, inset 3em 0 0 0 #b8d2d4;
+}
+
+.button:disabled:hover {
+  box-shadow: none;
+}
+
+.button:active {
+  transform: scale(0.9);
+  transition: 0;
+}
+
+.button:disabled:active {
+  transform: none;
+}
+
+.footer {
+  display: flex;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+}
+
+.footer__copyright::before {
+  content: '©';
+}
+
+.footer__github-link {
+  position: relative;
+  padding-left: 34px;
+  line-height: 50px;
+  color: #f9f9f9;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.footer__github-link::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 1px;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../../assets/images/logo_github.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(92%) sepia(100%) saturate(0%) hue-rotate(202deg) brightness(106%) contrast(106%);
+  transition: 0.5s;
+}
+
+.footer__rss-link {
+  width: 121px;
+  height: 45px;
+  background-image: url('../../../assets/images/logo_rs_school_js.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(92%) sepia(100%) saturate(0%) hue-rotate(202deg) brightness(106%) contrast(106%);
+  transition: 0.5s;
+}
+
+.footer__github-link:hover,
+.footer__rss-link:hover {
+  transform: scale(1.05);
+}
