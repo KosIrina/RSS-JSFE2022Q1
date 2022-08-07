@@ -5,7 +5,7 @@ import CommonController from './common/controller/common';
 import WinnersView from './winners/view/winners';
 import API from '../api';
 import RandomGenerator from '../utils/randomGenerator';
-import { Numbers, CarsPerPage, APP_TEXT_CONTENT, COLOR } from '../constants';
+import { Numbers, CarsPerPage, APP_TEXT_CONTENT } from '../constants';
 import { ICarParameters, ICar } from '../types';
 
 export default class App {
@@ -81,15 +81,7 @@ export default class App {
         ).value;
         const newCar = await this.api.garage.createCar({ name: carName, color: carColor });
 
-        const pageHeader = (document.querySelector('.garage__page-number') as HTMLElement)
-          .textContent as string;
-        const currentPage: number = +pageHeader.split(COLOR.hash)[Numbers.one];
-
-        const carsContainerHeading = document.querySelector('.garage__heading') as HTMLElement;
-        const cars = await this.api.garage.getCars(currentPage);
-        carsContainerHeading.innerHTML = `${
-          this.appView.createViewName(APP_TEXT_CONTENT.garage, cars.carsTotal).innerHTML
-        }`;
+        this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
 
         const carsOnCurrentPage: number = (
           document.querySelectorAll('.garage__car') as NodeListOf<HTMLInputElement>
