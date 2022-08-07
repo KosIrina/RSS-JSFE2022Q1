@@ -1,9 +1,12 @@
 import CommonView from './common/view/common';
 import GarageView from './garage/view/garage';
 import GarageController from './garage/controller/garage';
+import CommonController from './common/controller/common';
 import WinnersView from './winners/view/winners';
 import API from '../api';
+import RandomGenerator from '../utils/randomGenerator';
 import { Numbers, CarsPerPage, APP_TEXT_CONTENT, COLOR } from '../constants';
+import { ICarParameters, ICar } from '../types';
 
 export default class App {
   readonly appView: CommonView;
@@ -12,16 +15,22 @@ export default class App {
 
   readonly garageController: GarageController;
 
+  readonly appController: CommonController;
+
   readonly winnersView: WinnersView;
 
   readonly api: API;
+
+  readonly randomizer: RandomGenerator;
 
   constructor() {
     this.appView = new CommonView();
     this.garageView = new GarageView();
     this.garageController = new GarageController();
+    this.appController = new CommonController();
     this.winnersView = new WinnersView();
     this.api = new API();
+    this.randomizer = new RandomGenerator();
   }
 
   private drawMainElements(): void {
@@ -120,6 +129,32 @@ export default class App {
             'fill',
             `${newColor}`
           );
+        }
+      }
+    );
+
+    (document.querySelector('.controller-buttons__generate-cars') as HTMLElement).addEventListener(
+      'click',
+      async (): Promise<void> => {
+        const randomCars = this.randomizer.generateRandomCars();
+        const newCars: ICar[] = await Promise.all(
+          randomCars.map(
+            async (item: ICarParameters): Promise<ICar> => ({
+              ...(await this.api.garage.createCar(item)),
+            })
+          )
+        );
+        newCars.sort((currentItem: ICar, nextItem: ICar) => currentItem.id - nextItem.id);
+
+        this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
+        const carsOnCurrentPage: number = (
+          document.querySelectorAll('.garage__car') as NodeListOf<HTMLInputElement>
+        ).length;
+        if (carsOnCurrentPage < CarsPerPage.seven) {
+          const carAmountToFillWholePage: number = CarsPerPage.seven - carsOnCurrentPage;
+          for (let iteration = 0; iteration < carAmountToFillWholePage; iteration += 1) {
+            this.garageView.drawNewCar(newCars[iteration].id);
+          }
         }
       }
     );
