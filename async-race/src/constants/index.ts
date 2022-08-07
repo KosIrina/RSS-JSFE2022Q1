@@ -36,6 +36,8 @@ export enum Numbers {
   two = 2,
   three = 3,
   four = 4,
+  six = 6,
+  hundred = 100,
 }
 
 export const HTTP_METHOD = {
@@ -82,4 +84,10 @@ export const APP_TEXT_CONTENT = {
 export const ADDITIONAL_LINKS = {
   githubLink: 'https://github.com/KosIrina',
   rssLink: 'https://rs.school/js/',
+};
+
+export const COLOR = {
+  hash: '#',
+  possibleSymbols: '0123456789abcdef',
+  black: '#000000',
 };
