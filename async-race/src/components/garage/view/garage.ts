@@ -80,6 +80,7 @@ export default class GarageView {
       'controller-buttons__reset',
       APP_TEXT_CONTENT.reset
     );
+    resetButton.setAttribute('disabled', '');
     const generateCarsButton = this.common.createButton(
       'controller-buttons__generate-cars',
       APP_TEXT_CONTENT.generateRandomCars
