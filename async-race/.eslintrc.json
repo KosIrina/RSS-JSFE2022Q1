@@ -24,9 +24,12 @@
     "class-methods-use-this": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/comma-dangle": "off",
-    "object-curly-newline": ["error", { 
-      "ImportDeclaration": { "consistent": true },
-      "ExportDeclaration": { "consistent": true }
-    }]
+    "object-curly-newline": [
+      "error",
+      {
+        "ImportDeclaration": { "consistent": true },
+        "ExportDeclaration": { "consistent": true }
+      }
+    ]
   }
 }

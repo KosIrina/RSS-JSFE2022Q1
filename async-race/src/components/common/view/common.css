@@ -70,7 +70,7 @@
   transition: 0.5s;
 }
 
-.button:disabled{
+.button:disabled {
   background-color: rgba(249, 249, 249, 0.3);
   cursor: inherit;
 }
