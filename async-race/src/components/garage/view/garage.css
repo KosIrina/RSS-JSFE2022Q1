@@ -78,6 +78,14 @@
   margin-bottom: 10px;
 }
 
+.garage__drive-buttons-and-car .garage__car-start-engine-button {
+  color: #0ca70c;
+}
+
+.garage__drive-buttons-and-car .garage__car-stop-engine-button {
+  color: #ff0000;
+}
+
 .garage__car-image .car-image {
   width: 65px;
   height: 28px;
