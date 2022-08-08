@@ -2,6 +2,7 @@ import CommonView from './common/view/common';
 import GarageView from './garage/view/garage';
 import GarageController from './garage/controller/garage';
 import CommonController from './common/controller/common';
+import WinnersController from './winners/controller/winners';
 import WinnersView from './winners/view/winners';
 import API from '../api';
 import RandomGenerator from '../utils/randomGenerator';
@@ -18,6 +19,8 @@ export default class App {
 
   readonly appController: CommonController;
 
+  readonly winnersController: WinnersController;
+
   readonly winnersView: WinnersView;
 
   readonly api: API;
@@ -29,6 +32,7 @@ export default class App {
     this.garageView = new GarageView();
     this.garageController = new GarageController();
     this.appController = new CommonController();
+    this.winnersController = new WinnersController();
     this.winnersView = new WinnersView();
     this.api = new API();
     this.randomizer = new RandomGenerator();
@@ -206,11 +210,12 @@ export default class App {
         store.winnerTime = Numbers.zero;
         const storeInfo = await this.garageController.activateRaceButton();
         const winner = storeInfo.winner as ICar;
-        this.api.winners.addWinnerInfo(winner.id, storeInfo.winnerTime / Numbers.thousand);
+        await this.api.winners.addWinnerInfo(winner.id, storeInfo.winnerTime / Numbers.thousand);
         (document.querySelector('.winner-message') as HTMLElement).style.display = 'flex';
         (document.querySelector('.winner-message__text') as HTMLElement).textContent = `${
           winner.name
         } went first (${storeInfo.winnerTime / Numbers.thousand} seconds)!`;
+        this.winnersController.updateWinnersPage();
       }
     );
 
