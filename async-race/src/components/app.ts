@@ -42,35 +42,39 @@ export default class App {
     this.winnersView.drawMainWinners();
   }
 
-  private switchToWinners(): void {
-    (document.querySelector('.main__winners') as HTMLElement).style.display = 'block';
-    (document.querySelector('.main__garage') as HTMLElement).style.display = 'none';
-    (document.querySelector('.main__winners-button') as HTMLElement).setAttribute('disabled', '');
-    (document.querySelector('.main__garage-button') as HTMLElement).removeAttribute('disabled');
-  }
-
-  private switchToGarage(): void {
-    (document.querySelector('.main__winners') as HTMLElement).style.display = 'none';
-    (document.querySelector('.main__garage') as HTMLElement).style.display = 'block';
-    (document.querySelector('.main__garage-button') as HTMLElement).setAttribute('disabled', '');
-    (document.querySelector('.main__winners-button') as HTMLElement).removeAttribute('disabled');
-  }
-
-  public start(): void {
-    this.drawMainElements();
-    this.garageView.drawGarageContainer(Numbers.one);
-    this.winnersView.drawWinnersContainer(Numbers.one);
-
+  private activateSwitchToWinners(): void {
     (document.querySelector('.main__winners-button') as HTMLElement).addEventListener(
       'click',
-      this.switchToWinners
+      (): void => {
+        (document.querySelector('.main__winners') as HTMLElement).style.display = 'block';
+        (document.querySelector('.main__garage') as HTMLElement).style.display = 'none';
+        (document.querySelector('.main__winners-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+        (document.querySelector('.main__garage-button') as HTMLElement).removeAttribute('disabled');
+      }
     );
+  }
 
+  private activateSwitchToGarage(): void {
     (document.querySelector('.main__garage-button') as HTMLElement).addEventListener(
       'click',
-      this.switchToGarage
+      (): void => {
+        (document.querySelector('.main__winners') as HTMLElement).style.display = 'none';
+        (document.querySelector('.main__garage') as HTMLElement).style.display = 'block';
+        (document.querySelector('.main__garage-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+        (document.querySelector('.main__winners-button') as HTMLElement).removeAttribute(
+          'disabled'
+        );
+      }
     );
+  }
 
+  private activateCarCreation(): void {
     (document.querySelector('.car-creation__button') as HTMLElement).addEventListener(
       'click',
       async (): Promise<void> => {
@@ -95,7 +99,9 @@ export default class App {
         this.appController.enableNextButton(APP_TEXT_CONTENT.garage);
       }
     );
+  }
 
+  private activateCarUpdate(): void {
     (document.querySelector('.car-update__button') as HTMLElement).addEventListener(
       'click',
       async (event: Event): Promise<void> => {
@@ -128,7 +134,9 @@ export default class App {
         }
       }
     );
+  }
 
+  private activateRandomCarsGeneration(): void {
     (document.querySelector('.controller-buttons__generate-cars') as HTMLElement).addEventListener(
       'click',
       async (): Promise<void> => {
@@ -162,7 +170,9 @@ export default class App {
         this.appController.enableNextButton(APP_TEXT_CONTENT.garage);
       }
     );
+  }
 
+  private activateGaragePageSwitch(): void {
     (document.querySelector('.garage__next-page-button') as HTMLElement).addEventListener(
       'click',
       (): void => {
@@ -184,5 +194,17 @@ export default class App {
         this.garageView.drawGarageContainer(currentPage - Numbers.one);
       }
     );
+  }
+
+  public start(): void {
+    this.drawMainElements();
+    this.garageView.drawGarageContainer(Numbers.one);
+    this.winnersView.drawWinnersContainer(Numbers.one);
+    this.activateSwitchToGarage();
+    this.activateSwitchToWinners();
+    this.activateCarCreation();
+    this.activateCarUpdate();
+    this.activateRandomCarsGeneration();
+    this.activateGaragePageSwitch();
   }
 }
