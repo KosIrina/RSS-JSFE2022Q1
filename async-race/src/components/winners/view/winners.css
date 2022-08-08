@@ -30,6 +30,11 @@
   min-width: 100px;
 }
 
+.table-heading__wins-amount,
+.table-heading__best-time {
+  cursor: pointer;
+}
+
 .winners__car-image .car-image {
   width: 50px;
   height: 18px;
