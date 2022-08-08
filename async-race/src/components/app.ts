@@ -7,6 +7,7 @@ import API from '../api';
 import RandomGenerator from '../utils/randomGenerator';
 import { Numbers, CarsPerPage, APP_TEXT_CONTENT } from '../constants';
 import { ICarParameters, ICar } from '../types';
+import store from '../store';
 
 export default class App {
   readonly appView: CommonView;
@@ -196,6 +197,27 @@ export default class App {
     );
   }
 
+  private activateRaceAndReset(): void {
+    (document.querySelector('.controller-buttons__race') as HTMLElement).addEventListener(
+      'click',
+      async (): Promise<void> => {
+        store.winner = '';
+        store.hasWinner = false;
+        store.winnerTime = Numbers.zero;
+        const storeInfo = await this.garageController.activateRaceButton();
+        const winner = storeInfo.winner as ICar;
+        this.api.winners.addWinnerInfo(winner.id, storeInfo.winnerTime / Numbers.thousand);
+      }
+    );
+
+    (document.querySelector('.controller-buttons__reset') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        this.garageController.activateResetButton();
+      }
+    );
+  }
+
   public start(): void {
     this.drawMainElements();
     this.garageView.drawGarageContainer(Numbers.one);
@@ -206,5 +228,6 @@ export default class App {
     this.activateCarUpdate();
     this.activateRandomCarsGeneration();
     this.activateGaragePageSwitch();
+    this.activateRaceAndReset();
   }
 }
