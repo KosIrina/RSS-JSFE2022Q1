@@ -1,16 +1,12 @@
 import API from '../../../api';
-import { Numbers, COLOR } from '../../../constants';
-import { ICarsData } from '../../../types';
-import CommonView from '../view/common';
+import { Numbers, COLOR, APP_TEXT_CONTENT } from '../../../constants';
+import { ICarsData, IWinnersData } from '../../../types';
 
 export default class CommonController {
   readonly api: API;
 
-  readonly appView: CommonView;
-
   constructor() {
     this.api = new API();
-    this.appView = new CommonView();
   }
 
   public getCurrentPage(pageName: string): number {
@@ -26,11 +22,86 @@ export default class CommonController {
     return nextPage;
   }
 
-  public async updateTotalCars(pageName: string): Promise<void> {
+  public async updateTotalCars(
+    pageName: string
+  ): Promise<{ headingElement: HTMLElement; totalCars: string }> {
     const currentPage = this.getCurrentPage(pageName.toLowerCase());
-
     const pageHeading = document.querySelector('.garage__heading') as HTMLElement;
     const cars = await this.api.garage.getCars(currentPage);
-    pageHeading.innerHTML = `${this.appView.createViewName(pageName, cars.carsTotal).innerHTML}`;
+    return { headingElement: pageHeading, totalCars: cars.carsTotal };
+  }
+
+  public async enableNextButton(pageName: string): Promise<void> {
+    const currentPage = this.getCurrentPage(pageName.toLowerCase());
+    let carsNextPage: ICarsData | IWinnersData;
+    if (pageName === APP_TEXT_CONTENT.garage) {
+      carsNextPage = await this.api.garage.getCars(currentPage + Numbers.one);
+      if (carsNextPage.data.length) {
+        (document.querySelector('.garage__next-page-button') as HTMLElement).removeAttribute(
+          'disabled'
+        );
+      }
+    } else {
+      carsNextPage = await this.api.winners.getWinners(currentPage + Numbers.one);
+      if (carsNextPage.fullData.length) {
+        (document.querySelector('.winners__next-page-button') as HTMLElement).removeAttribute(
+          'disabled'
+        );
+      }
+    }
+  }
+
+  public async disableNextButton(pageName: string): Promise<void> {
+    const currentPage = this.getCurrentPage(pageName.toLowerCase());
+    let carsNextPage: ICarsData | IWinnersData;
+    if (pageName === APP_TEXT_CONTENT.garage) {
+      carsNextPage = await this.api.garage.getCars(currentPage + Numbers.one);
+      if (!carsNextPage.data.length) {
+        (document.querySelector('.garage__next-page-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+      }
+    } else {
+      carsNextPage = await this.api.winners.getWinners(currentPage + Numbers.one);
+      if (!carsNextPage.fullData.length) {
+        (document.querySelector('.winners__next-page-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+      }
+    }
+  }
+
+  public enablePreviousButton(pageName: string): void {
+    const currentPage = this.getCurrentPage(pageName.toLowerCase());
+    if (currentPage !== Numbers.one) {
+      if (pageName === APP_TEXT_CONTENT.garage) {
+        (document.querySelector('.garage__previous-page-button') as HTMLElement).removeAttribute(
+          'disabled'
+        );
+      } else {
+        (document.querySelector('.winners__previous-page-button') as HTMLElement).removeAttribute(
+          'disabled'
+        );
+      }
+    }
+  }
+
+  public disablePreviousButton(pageName: string): void {
+    const currentPage = this.getCurrentPage(pageName.toLowerCase());
+    if (currentPage === Numbers.one) {
+      if (pageName === APP_TEXT_CONTENT.garage) {
+        (document.querySelector('.garage__previous-page-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+      } else {
+        (document.querySelector('.winners__previous-page-button') as HTMLElement).setAttribute(
+          'disabled',
+          ''
+        );
+      }
+    }
   }
 }
