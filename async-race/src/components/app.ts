@@ -81,7 +81,10 @@ export default class App {
         ).value;
         const newCar = await this.api.garage.createCar({ name: carName, color: carColor });
 
-        this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
+        const update = await this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
+        update.headingElement.innerHTML = `${
+          this.appView.createViewName(APP_TEXT_CONTENT.garage, update.totalCars).innerHTML
+        }`;
 
         const carsOnCurrentPage: number = (
           document.querySelectorAll('.garage__car') as NodeListOf<HTMLInputElement>
@@ -89,6 +92,7 @@ export default class App {
         if (carsOnCurrentPage < CarsPerPage.seven) {
           this.garageView.drawNewCar(newCar.id);
         }
+        this.appController.enableNextButton(APP_TEXT_CONTENT.garage);
       }
     );
 
@@ -138,16 +142,46 @@ export default class App {
         );
         newCars.sort((currentItem: ICar, nextItem: ICar) => currentItem.id - nextItem.id);
 
-        this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
+        const update = await this.appController.updateTotalCars(APP_TEXT_CONTENT.garage);
+        update.headingElement.innerHTML = `${
+          this.appView.createViewName(APP_TEXT_CONTENT.garage, update.totalCars).innerHTML
+        }`;
         const carsOnCurrentPage: number = (
           document.querySelectorAll('.garage__car') as NodeListOf<HTMLInputElement>
         ).length;
         if (carsOnCurrentPage < CarsPerPage.seven) {
           const carAmountToFillWholePage: number = CarsPerPage.seven - carsOnCurrentPage;
-          for (let iteration = 0; iteration < carAmountToFillWholePage; iteration += 1) {
+          for (
+            let iteration = Numbers.zero;
+            iteration < carAmountToFillWholePage;
+            iteration += Numbers.one
+          ) {
             this.garageView.drawNewCar(newCars[iteration].id);
           }
         }
+        this.appController.enableNextButton(APP_TEXT_CONTENT.garage);
+      }
+    );
+
+    (document.querySelector('.garage__next-page-button') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        const currentPage = this.appController.getCurrentPage(
+          APP_TEXT_CONTENT.garage.toLowerCase()
+        );
+        (document.querySelector('.garage__container') as HTMLElement).outerHTML = '';
+        this.garageView.drawGarageContainer(currentPage + Numbers.one);
+      }
+    );
+
+    (document.querySelector('.garage__previous-page-button') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        const currentPage = this.appController.getCurrentPage(
+          APP_TEXT_CONTENT.garage.toLowerCase()
+        );
+        (document.querySelector('.garage__container') as HTMLElement).outerHTML = '';
+        this.garageView.drawGarageContainer(currentPage - Numbers.one);
       }
     );
   }

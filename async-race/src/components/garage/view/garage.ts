@@ -37,7 +37,7 @@ export default class GarageView {
     input.setAttribute('id', idName);
     input.setAttribute('type', inputType);
 
-    input.addEventListener('keydown', (event) => {
+    input.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.code === 'Enter') {
         event.preventDefault();
       }
@@ -143,6 +143,7 @@ export default class GarageView {
       await this.api.garage.deleteCar(+carId);
       this.garageController.removeCar(carId);
       this.winnersController.removeCar(carId);
+      this.appController.disableNextButton(APP_TEXT_CONTENT.garage);
     });
 
     const carName: HTMLElement = document.createElement('span');
@@ -211,6 +212,11 @@ export default class GarageView {
 
     garageContainer.append(containerHeading, pageNumber, carsContainer);
     garageController.after(garageContainer);
+
+    this.appController.disableNextButton(APP_TEXT_CONTENT.garage);
+    this.appController.enableNextButton(APP_TEXT_CONTENT.garage);
+    this.appController.disablePreviousButton(APP_TEXT_CONTENT.garage);
+    this.appController.enablePreviousButton(APP_TEXT_CONTENT.garage);
   }
 
   public async drawNewCar(dataId: number): Promise<void> {
