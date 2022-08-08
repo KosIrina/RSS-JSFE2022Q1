@@ -39,6 +39,7 @@ export enum Numbers {
   six = 6,
   thirty = 30,
   hundred = 100,
+  thousand = 1000,
 }
 
 export const HTTP_METHOD = {
