@@ -51,4 +51,7 @@ export interface IWinnerParameters {
 
 export interface Store {
   animationId: Record<string, number>;
+  winner: ICar | string;
+  hasWinner: boolean;
+  winnerTime: number;
 }
