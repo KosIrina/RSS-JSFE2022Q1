@@ -48,3 +48,7 @@ export interface IWinnerParameters {
   wins: number;
   time: number;
 }
+
+export interface Store {
+  animationId: Record<string, number>;
+}
