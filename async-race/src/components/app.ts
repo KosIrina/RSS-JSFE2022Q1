@@ -9,6 +9,7 @@ import RandomGenerator from '../utils/randomGenerator';
 import { Numbers, CarsPerPage, APP_TEXT_CONTENT } from '../constants';
 import { ICarParameters, ICar } from '../types';
 import store from '../store';
+import TaskCheck from '../utils/taskCheck';
 import Sort from '../utils/checkSort';
 
 export default class App {
@@ -28,6 +29,8 @@ export default class App {
 
   readonly randomizer: RandomGenerator;
 
+  readonly taskCheck: TaskCheck;
+
   readonly sort: Sort;
 
   constructor() {
@@ -39,6 +42,7 @@ export default class App {
     this.winnersView = new WinnersView();
     this.api = new API();
     this.randomizer = new RandomGenerator();
+    this.taskCheck = new TaskCheck();
     this.sort = new Sort();
   }
 
@@ -233,6 +237,7 @@ export default class App {
   }
 
   public start(): void {
+    this.taskCheck.getTaskCheck();
     this.drawMainElements();
     this.garageView.drawGarageContainer(Numbers.one);
     this.winnersView.drawWinnersContainer(Numbers.one);
