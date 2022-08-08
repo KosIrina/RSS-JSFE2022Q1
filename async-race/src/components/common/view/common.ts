@@ -17,6 +17,22 @@ export default class CommonView {
     const footer: HTMLElement = document.createElement('footer');
     footer.classList.add('footer');
     body.append(footer);
+
+    const winnerMessageContainer: HTMLElement = document.createElement('div');
+    winnerMessageContainer.classList.add('winner-message');
+    const winnerMessage: HTMLElement = document.createElement('p');
+    winnerMessage.classList.add('winner-message__text');
+    const closeWinnerMessage: HTMLElement = document.createElement('button');
+    closeWinnerMessage.classList.add('winner-message__button');
+    closeWinnerMessage.innerHTML = APP_TEXT_CONTENT.closeButton;
+    winnerMessageContainer.append(winnerMessage, closeWinnerMessage);
+
+    closeWinnerMessage.addEventListener('click', (): void => {
+      winnerMessage.textContent = '';
+      winnerMessageContainer.style.display = 'none';
+    });
+
+    body.append(winnerMessageContainer);
   }
 
   public drawHeader(): void {
