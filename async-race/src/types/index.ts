@@ -54,4 +54,6 @@ export interface Store {
   winner: ICar | string;
   hasWinner: boolean;
   winnerTime: number;
+  sortType: string;
+  sortOrder: string;
 }
