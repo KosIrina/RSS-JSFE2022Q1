@@ -8,6 +8,7 @@ import WinnersController from '../../winners/controller/winners';
 import CommonController from '../../common/controller/common';
 import carImage from '../../../assets/images/car.svg';
 import flagImage from '../../../assets/images/flag.png';
+import store from '../../../store';
 
 export default class GarageView {
   readonly common: CommonView;
@@ -142,7 +143,7 @@ export default class GarageView {
       }
       await this.api.garage.deleteCar(+carId);
       this.garageController.removeCar(carId);
-      this.winnersController.removeCar(carId);
+      this.winnersController.removeCar(carId, store.sortType, store.sortOrder);
       this.appController.disableNextButton(APP_TEXT_CONTENT.garage);
     });
 

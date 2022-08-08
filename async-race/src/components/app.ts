@@ -9,6 +9,7 @@ import RandomGenerator from '../utils/randomGenerator';
 import { Numbers, CarsPerPage, APP_TEXT_CONTENT } from '../constants';
 import { ICarParameters, ICar } from '../types';
 import store from '../store';
+import Sort from '../utils/checkSort';
 
 export default class App {
   readonly appView: CommonView;
@@ -27,6 +28,8 @@ export default class App {
 
   readonly randomizer: RandomGenerator;
 
+  readonly sort: Sort;
+
   constructor() {
     this.appView = new CommonView();
     this.garageView = new GarageView();
@@ -36,6 +39,7 @@ export default class App {
     this.winnersView = new WinnersView();
     this.api = new API();
     this.randomizer = new RandomGenerator();
+    this.sort = new Sort();
   }
 
   private drawMainElements(): void {
@@ -215,7 +219,8 @@ export default class App {
         (document.querySelector('.winner-message__text') as HTMLElement).textContent = `${
           winner.name
         } went first (${storeInfo.winnerTime / Numbers.thousand} seconds)!`;
-        this.winnersController.updateWinnersPage();
+        this.winnersController.updateWinnersPage(store.sortType, store.sortOrder);
+        this.sort.check();
       }
     );
 
