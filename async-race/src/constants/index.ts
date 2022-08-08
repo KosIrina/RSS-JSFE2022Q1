@@ -81,6 +81,7 @@ export const APP_TEXT_CONTENT = {
   winnerName: 'Name',
   winnerWins: 'Wins',
   winnerBestTime: 'Best time (in seconds)',
+  closeButton: 'Close',
 };
 
 export const ADDITIONAL_LINKS = {
