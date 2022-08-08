@@ -2,8 +2,6 @@ import {
   BASE_LINK,
   PAGE_URL,
   TOTAL_COUNT_HEADER,
-  WINNERS_ORDER,
-  WINNERS_SORT,
   ResponseCodes,
   Numbers,
   HTTP_METHOD,
@@ -28,9 +26,9 @@ export default class WinnersAPI {
 
   public async getWinners(
     page: number,
-    sort: string = WINNERS_SORT.byId,
-    order: string = WINNERS_ORDER.ascending,
-    limit = CarsPerPage.ten
+    sort = '',
+    order = '',
+    limit: number = CarsPerPage.ten
   ): Promise<IWinnersData> {
     const response = await fetch(
       `${BASE_LINK}/${PAGE_URL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`
