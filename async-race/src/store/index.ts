@@ -6,6 +6,8 @@ const store: Store = {
   winner: '',
   hasWinner: false,
   winnerTime: Numbers.zero,
+  sortType: '',
+  sortOrder: '',
 };
 
 export default store;
