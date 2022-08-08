@@ -207,6 +207,10 @@ export default class App {
         const storeInfo = await this.garageController.activateRaceButton();
         const winner = storeInfo.winner as ICar;
         this.api.winners.addWinnerInfo(winner.id, storeInfo.winnerTime / Numbers.thousand);
+        (document.querySelector('.winner-message') as HTMLElement).style.display = 'flex';
+        (document.querySelector('.winner-message__text') as HTMLElement).textContent = `${
+          winner.name
+        } went first (${storeInfo.winnerTime / Numbers.thousand} seconds)!`;
       }
     );
 
