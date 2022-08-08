@@ -1,17 +1,51 @@
 import './winners.css';
 import { APP_TEXT_CONTENT, Numbers, CarsPerPage } from '../../../constants';
 import Common from '../../common/view/common';
+import CommonController from '../../common/controller/common';
 import API from '../../../api';
 import carImage from '../../../assets/images/car.svg';
 
 export default class WinnersView {
   readonly common: Common;
 
+  readonly commonController: CommonController;
+
   readonly api: API;
 
   constructor() {
     this.common = new Common();
+    this.commonController = new CommonController();
     this.api = new API();
+  }
+
+  private activateWinnersNextPageButton(): void {
+    (document.querySelector('.winners__next-page-button') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        const currentPage = this.commonController.getCurrentPage(
+          APP_TEXT_CONTENT.winners.toLowerCase()
+        );
+        (document.querySelector('.winners__heading') as HTMLElement).outerHTML = '';
+        (document.querySelector('.winners__page-number') as HTMLElement).outerHTML = '';
+        (document.querySelector('.winners__table-body') as HTMLElement).innerHTML = '';
+        this.drawWinnersContainer(currentPage + Numbers.one);
+      }
+    );
+  }
+
+  private activateWinnersPreviousPageButton(): void {
+    (document.querySelector('.winners__previous-page-button') as HTMLElement).addEventListener(
+      'click',
+      (): void => {
+        const currentPage = this.commonController.getCurrentPage(
+          APP_TEXT_CONTENT.winners.toLowerCase()
+        );
+        (document.querySelector('.winners__heading') as HTMLElement).outerHTML = '';
+        (document.querySelector('.winners__page-number') as HTMLElement).outerHTML = '';
+        (document.querySelector('.winners__table-body') as HTMLElement).innerHTML = '';
+        this.drawWinnersContainer(currentPage - Numbers.one);
+      }
+    );
   }
 
   public drawMainWinners(): void {
@@ -19,6 +53,8 @@ export default class WinnersView {
     const pagination = this.common.drawPagination(APP_TEXT_CONTENT.winners.toLowerCase());
     const winnersTable = this.createWinnersTableHeadingsAndBody();
     winners.append(winnersTable, pagination);
+    this.activateWinnersNextPageButton();
+    this.activateWinnersPreviousPageButton();
   }
 
   private createWinnersTableHeadingsAndBody(): HTMLElement {
@@ -127,5 +163,9 @@ export default class WinnersView {
     });
 
     winners.prepend(containerHeading, pageNumber);
+    this.commonController.enableNextButton(APP_TEXT_CONTENT.winners);
+    this.commonController.disableNextButton(APP_TEXT_CONTENT.winners);
+    this.commonController.disablePreviousButton(APP_TEXT_CONTENT.winners);
+    this.commonController.enablePreviousButton(APP_TEXT_CONTENT.winners);
   }
 }
