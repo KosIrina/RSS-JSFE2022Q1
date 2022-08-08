@@ -208,6 +208,18 @@ export default class GarageView {
     cars.data.forEach((item) => {
       const car = this.createCarContainer(item.id, item.name, item.color);
       carsContainer.append(car);
+      (car.querySelector('.garage__car-start-engine-button') as HTMLElement).addEventListener(
+        'click',
+        () => {
+          this.garageController.activateStartCarButton(item.id);
+        }
+      );
+      (car.querySelector('.garage__car-stop-engine-button') as HTMLElement).addEventListener(
+        'click',
+        () => {
+          this.garageController.activateStopCarButton(item.id);
+        }
+      );
     });
 
     garageContainer.append(containerHeading, pageNumber, carsContainer);
@@ -221,7 +233,20 @@ export default class GarageView {
 
   public async drawNewCar(dataId: number): Promise<void> {
     const carsContainer = document.querySelector('.garage__cars') as HTMLElement;
-    const car = await this.api.garage.getCar(dataId);
-    carsContainer.append(this.createCarContainer(car.id, car.name, car.color));
+    const carData = await this.api.garage.getCar(dataId);
+    const car = this.createCarContainer(carData.id, carData.name, carData.color);
+    carsContainer.append(car);
+    (car.querySelector('.garage__car-start-engine-button') as HTMLElement).addEventListener(
+      'click',
+      () => {
+        this.garageController.activateStartCarButton(carData.id);
+      }
+    );
+    (car.querySelector('.garage__car-stop-engine-button') as HTMLElement).addEventListener(
+      'click',
+      () => {
+        this.garageController.activateStopCarButton(carData.id);
+      }
+    );
   }
 }
