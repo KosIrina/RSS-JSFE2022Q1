@@ -37,6 +37,7 @@ export enum Numbers {
   three = 3,
   four = 4,
   six = 6,
+  thirty = 30,
   hundred = 100,
 }
 
