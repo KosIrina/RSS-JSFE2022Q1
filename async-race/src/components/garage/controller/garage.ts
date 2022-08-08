@@ -2,7 +2,7 @@ import API from '../../../api';
 import CommonController from '../../common/controller/common';
 import CommonView from '../../common/view/common';
 import { COLOR, APP_TEXT_CONTENT, Numbers, ENGINE_STATUS } from '../../../constants';
-import { IRaceParameters } from '../../../types';
+import { IRaceParameters, ICar, Store } from '../../../types';
 import Animation from '../../../utils/animation';
 import store from '../../../store';
 
@@ -154,5 +154,66 @@ export default class GarageController {
     car.style.transform = `translateX(${Numbers.zero})`;
 
     this.updateButtonsStatesAfterStop(id);
+  }
+
+  public async activateRaceButton(): Promise<Store> {
+    const pageHeader = (document.querySelector('.garage__page-number') as HTMLElement)
+      .textContent as string;
+    const carsOnPage = await this.api.garage.getCars(+pageHeader.split(COLOR.hash)[Numbers.one]);
+    await Promise.all(
+      carsOnPage.data.map(async (car: ICar): Promise<void> => {
+        const { velocity, distance } = (await this.api.engine.operateEngine(
+          car.id,
+          ENGINE_STATUS.started
+        )) as IRaceParameters;
+        const time: number = Math.round(distance / velocity);
+        const carContainer = document.querySelector(
+          `.garage__car[data-car-id="${car.id}"]`
+        ) as HTMLElement;
+        const currentCar = carContainer.querySelector('.garage__car-image') as HTMLElement;
+        const flag = carContainer.querySelector('.garage__flag-image') as HTMLElement;
+        const distanceBetween = Math.floor(
+          this.animation.getDistanceBetweenElements(currentCar, flag)
+        );
+        const distanceBetweenPlusHalfCar = distanceBetween + Numbers.thirty;
+        this.updateButtonsStatesDuringRace(car.id);
+        this.animation.animateCar(currentCar, distanceBetweenPlusHalfCar, time);
+        const { success } = (await this.api.engine.operateEngine(car.id, ENGINE_STATUS.drive)) as {
+          success: boolean;
+        };
+        if (!success) {
+          window.cancelAnimationFrame(+store.animationId[car.id]);
+        }
+        if (success && !store.hasWinner) {
+          store.winner = await this.api.garage.getCar(car.id);
+          store.hasWinner = true;
+          store.winnerTime += time;
+        }
+      })
+    );
+    const resetButton = document.querySelector('.controller-buttons__reset') as HTMLElement;
+    resetButton.removeAttribute('disabled');
+    return store;
+  }
+
+  public async activateResetButton(): Promise<void> {
+    const pageHeader = (document.querySelector('.garage__page-number') as HTMLElement)
+      .textContent as string;
+    const currentPage: number = +pageHeader.split(COLOR.hash)[Numbers.one];
+    const carsOnPage = await this.api.garage.getCars(currentPage);
+
+    carsOnPage.data.forEach(async (car: ICar): Promise<void> => {
+      await this.api.engine.operateEngine(car.id, ENGINE_STATUS.stopped);
+      const carContainer = document.querySelector(
+        `.garage__car[data-car-id="${car.id}"]`
+      ) as HTMLElement;
+      const currentCar = carContainer.querySelector('.garage__car-image') as HTMLElement;
+      currentCar.style.transform = `translateX(${Numbers.zero})`;
+      this.updateButtonsStatesAfterStop(car.id);
+    });
+    (document.querySelector('.controller-buttons__reset') as HTMLElement).setAttribute(
+      'disabled',
+      ''
+    );
   }
 }
