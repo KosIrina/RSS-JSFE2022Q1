@@ -79,8 +79,8 @@ export const APP_TEXT_CONTENT = {
   winnerNumber: 'Number',
   winnerCar: 'Car',
   winnerName: 'Name',
-  winnerWins: 'Wins',
-  winnerBestTime: 'Best time (in seconds)',
+  winnerWins: 'Wins ·',
+  winnerBestTime: 'Best time (in seconds) ·',
   closeButton: 'Close',
 };
 
@@ -93,4 +93,10 @@ export const COLOR = {
   hash: '#',
   possibleSymbols: '0123456789abcdef',
   black: '#000000',
+};
+
+export const SORT_SYMBOLS = {
+  none: '·',
+  ascending: '↑',
+  descending: '↓',
 };
