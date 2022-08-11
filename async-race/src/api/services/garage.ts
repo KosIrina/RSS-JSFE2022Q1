@@ -10,7 +10,8 @@ import { ICar, CarsInGarage, ICarsData, ICarParameters } from '../../types';
 
 export default class GarageAPI {
   public async getCars(page: number, limit = CarsPerPage.seven): Promise<ICarsData> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.garage}?_page=${page}&_limit=${limit}`);
+    const url = `${BASE_LINK}/${PAGE_URL.garage}?_page=${page}&_limit=${limit}`;
+    const response = await fetch(url);
     const data: CarsInGarage = await response.json();
     const carsTotal = response.headers.get(TOTAL_COUNT_HEADER) as string;
     return {
@@ -20,13 +21,15 @@ export default class GarageAPI {
   }
 
   public async getCar(id: number): Promise<ICar> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.garage}/${id}`);
+    const url = `${BASE_LINK}/${PAGE_URL.garage}/${id}`;
+    const response = await fetch(url);
     const data: ICar = await response.json();
     return data;
   }
 
   public async createCar(parameters: ICarParameters): Promise<ICar> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.garage}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.garage}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.post,
       body: JSON.stringify(parameters),
       headers: HTTP_HEADER.content,
@@ -36,7 +39,8 @@ export default class GarageAPI {
   }
 
   public async deleteCar(id: number): Promise<Record<string, never>> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.garage}/${id}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.garage}/${id}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.delete,
     });
     const data: Record<string, never> = await response.json();
@@ -44,7 +48,8 @@ export default class GarageAPI {
   }
 
   public async updateCar(id: number, parameters: ICarParameters): Promise<ICar> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.garage}/${id}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.garage}/${id}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.put,
       body: JSON.stringify(parameters),
       headers: HTTP_HEADER.content,

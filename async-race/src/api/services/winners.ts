@@ -30,9 +30,8 @@ export default class WinnersAPI {
     order = '',
     limit: number = CarsPerPage.ten
   ): Promise<IWinnersData> {
-    const response = await fetch(
-      `${BASE_LINK}/${PAGE_URL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`
-    );
+    const url = `${BASE_LINK}/${PAGE_URL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`;
+    const response = await fetch(url);
     const data: WinningCars = await response.json();
     const fullData: WinningCarsFullInfo = await Promise.all(
       data.map(async (item: IWinner) => ({ ...item, ...(await this.garage.getCar(item.id)) }))
@@ -45,13 +44,15 @@ export default class WinnersAPI {
   }
 
   public async getWinner(id: number) {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.winners}/${id}`);
+    const url = `${BASE_LINK}/${PAGE_URL.winners}/${id}`;
+    const response = await fetch(url);
     const data: IWinner = await response.json();
     return data;
   }
 
   public async createWinner(parameters: IWinner): Promise<IWinner> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.winners}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.winners}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.post,
       body: JSON.stringify(parameters),
       headers: HTTP_HEADER.content,
@@ -61,7 +62,8 @@ export default class WinnersAPI {
   }
 
   public async deleteWinner(id: number): Promise<Record<string, never>> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.winners}/${id}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.winners}/${id}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.delete,
     });
     const data: Record<string, never> = await response.json();
@@ -69,7 +71,8 @@ export default class WinnersAPI {
   }
 
   public async updateWinner(id: number, parameters: IWinnerParameters): Promise<IWinner> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.winners}/${id}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.winners}/${id}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.put,
       body: JSON.stringify(parameters),
       headers: HTTP_HEADER.content,
@@ -79,7 +82,8 @@ export default class WinnersAPI {
   }
 
   public async getWinnerStatus(id: number): Promise<number> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.winners}/${id}`);
+    const url = `${BASE_LINK}/${PAGE_URL.winners}/${id}`;
+    const response = await fetch(url);
     return response.status;
   }
 
