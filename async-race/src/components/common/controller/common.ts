@@ -41,7 +41,8 @@ export default class CommonController {
           'disabled'
         );
       }
-    } else {
+    }
+    if (pageName === APP_TEXT_CONTENT.winners) {
       carsNextPage = await this.api.winners.getWinners(currentPage + Numbers.one);
       if (carsNextPage.fullData.length) {
         (document.querySelector('.winners__next-page-button') as HTMLElement).removeAttribute(
@@ -62,7 +63,8 @@ export default class CommonController {
           ''
         );
       }
-    } else {
+    }
+    if (pageName === APP_TEXT_CONTENT.winners) {
       carsNextPage = await this.api.winners.getWinners(currentPage + Numbers.one);
       if (!carsNextPage.fullData.length) {
         (document.querySelector('.winners__next-page-button') as HTMLElement).setAttribute(
@@ -76,32 +78,18 @@ export default class CommonController {
   public enablePreviousButton(pageName: string): void {
     const currentPage = this.getCurrentPage(pageName.toLowerCase());
     if (currentPage !== Numbers.one) {
-      if (pageName === APP_TEXT_CONTENT.garage) {
-        (document.querySelector('.garage__previous-page-button') as HTMLElement).removeAttribute(
-          'disabled'
-        );
-      } else {
-        (document.querySelector('.winners__previous-page-button') as HTMLElement).removeAttribute(
-          'disabled'
-        );
-      }
+      (
+        document.querySelector(`.${pageName.toLowerCase()}__previous-page-button`) as HTMLElement
+      ).removeAttribute('disabled');
     }
   }
 
   public disablePreviousButton(pageName: string): void {
     const currentPage = this.getCurrentPage(pageName.toLowerCase());
     if (currentPage === Numbers.one) {
-      if (pageName === APP_TEXT_CONTENT.garage) {
-        (document.querySelector('.garage__previous-page-button') as HTMLElement).setAttribute(
-          'disabled',
-          ''
-        );
-      } else {
-        (document.querySelector('.winners__previous-page-button') as HTMLElement).setAttribute(
-          'disabled',
-          ''
-        );
-      }
+      (
+        document.querySelector(`.${pageName.toLowerCase()}__previous-page-button`) as HTMLElement
+      ).setAttribute('disabled', '');
     }
   }
 }
