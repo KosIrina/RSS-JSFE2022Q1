@@ -6,11 +6,13 @@ export default class EngineAPI {
     id: number,
     status: string
   ): Promise<IRaceParameters | { success: boolean }> {
-    const response = await fetch(`${BASE_LINK}/${PAGE_URL.engine}?id=${id}&status=${status}`, {
+    const url = `${BASE_LINK}/${PAGE_URL.engine}?id=${id}&status=${status}`;
+    const response = await fetch(url, {
       method: HTTP_METHOD.patch,
     });
-    return response.status === ResponseCodes.OK
-      ? { ...(await response.json()) }
-      : { success: false };
+    if (response.status === ResponseCodes.OK) {
+      return { ...(await response.json()) };
+    }
+    return { success: false };
   }
 }
