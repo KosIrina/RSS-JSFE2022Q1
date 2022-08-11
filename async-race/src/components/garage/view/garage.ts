@@ -206,19 +206,19 @@ export default class GarageView {
     const carsContainer: HTMLElement = document.createElement('div');
     carsContainer.classList.add('garage__cars');
 
-    cars.data.forEach((item) => {
-      const car = this.createCarContainer(item.id, item.name, item.color);
+    cars.data.forEach((carInGarage) => {
+      const car = this.createCarContainer(carInGarage.id, carInGarage.name, carInGarage.color);
       carsContainer.append(car);
       (car.querySelector('.garage__car-start-engine-button') as HTMLElement).addEventListener(
         'click',
         () => {
-          this.garageController.activateStartCarButton(item.id);
+          this.garageController.activateStartCarButton(carInGarage.id);
         }
       );
       (car.querySelector('.garage__car-stop-engine-button') as HTMLElement).addEventListener(
         'click',
         () => {
-          this.garageController.activateStopCarButton(item.id);
+          this.garageController.activateStopCarButton(carInGarage.id);
         }
       );
     });
