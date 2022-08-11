@@ -12,7 +12,7 @@ export default class RandomGenerator {
   private generateRandomCarColor(): string {
     const possibleSymols = COLOR.possibleSymbols;
     let randomColor = COLOR.hash;
-    for (let iteration = Numbers.zero; iteration < Numbers.six; iteration += 1) {
+    for (let iteration = Numbers.zero; iteration < Numbers.six; iteration += Numbers.one) {
       randomColor += possibleSymols[Math.floor(Math.random() * possibleSymols.length)];
     }
     return randomColor;
