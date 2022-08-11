@@ -34,7 +34,7 @@ export default class WinnersAPI {
     const response = await fetch(url);
     const data: WinningCars = await response.json();
     const fullData: WinningCarsFullInfo = await Promise.all(
-      data.map(async (item: IWinner) => ({ ...item, ...(await this.garage.getCar(item.id)) }))
+      data.map(async (winner: IWinner) => ({ ...winner, ...(await this.garage.getCar(winner.id)) }))
     );
     const winnersTotal = response.headers.get(TOTAL_COUNT_HEADER) as string;
     return {
