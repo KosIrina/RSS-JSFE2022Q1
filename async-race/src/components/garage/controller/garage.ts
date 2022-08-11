@@ -2,7 +2,7 @@ import API from '../../../api';
 import CommonController from '../../common/controller/common';
 import CommonView from '../../common/view/common';
 import { COLOR, APP_TEXT_CONTENT, Numbers, ENGINE_STATUS } from '../../../constants';
-import { IRaceParameters, ICar, Store } from '../../../types';
+import { IRaceParameters, ICar, Store, EngineStatus } from '../../../types';
 import Animation from '../../../utils/animation';
 import store from '../../../store';
 
@@ -134,9 +134,10 @@ export default class GarageController {
 
     this.animation.animateCar(car, distanceBetweenPlusHalfCar, time);
 
-    const { success } = (await this.api.engine.operateEngine(id, ENGINE_STATUS.drive)) as {
-      success: boolean;
-    };
+    const { success } = (await this.api.engine.operateEngine(
+      id,
+      ENGINE_STATUS.drive
+    )) as EngineStatus;
     if (!success) {
       window.cancelAnimationFrame(+store.animationId[id]);
     }
@@ -178,9 +179,10 @@ export default class GarageController {
         const distanceBetweenPlusHalfCar = distanceBetween + Numbers.thirty;
         this.updateButtonsStatesDuringRace(car.id);
         this.animation.animateCar(currentCar, distanceBetweenPlusHalfCar, time);
-        const { success } = (await this.api.engine.operateEngine(car.id, ENGINE_STATUS.drive)) as {
-          success: boolean;
-        };
+        const { success } = (await this.api.engine.operateEngine(
+          car.id,
+          ENGINE_STATUS.drive
+        )) as EngineStatus;
         if (!success) {
           window.cancelAnimationFrame(+store.animationId[car.id]);
         }

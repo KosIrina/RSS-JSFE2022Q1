@@ -57,3 +57,7 @@ export interface Store {
   sortType: string;
   sortOrder: string;
 }
+
+export interface EngineStatus {
+  success: boolean;
+}
