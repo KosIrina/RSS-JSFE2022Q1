@@ -70,8 +70,8 @@ export default class WinnersTable {
     newCell5.classList.add('winner-best-time');
     newCell5.textContent = `${time}`;
 
-    [newCell1, newCell2, newCell3, newCell4, newCell5].forEach((item: HTMLTableCellElement) => {
-      item.classList.add('cell-content');
+    [newCell1, newCell2, newCell3, newCell4, newCell5].forEach((cell: HTMLTableCellElement) => {
+      cell.classList.add('cell-content');
     });
 
     return newRow;

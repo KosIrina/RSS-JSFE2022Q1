@@ -158,14 +158,14 @@ export default class WinnersView {
     }
 
     const winnersTableBody = document.querySelector('.winners__table-body') as HTMLElement;
-    winningCars.fullData.forEach((item) => {
+    winningCars.fullData.forEach((winner) => {
       const winnerRow = this.winnersTable.createRow(
         numberInTable,
-        item.color,
-        item.name,
-        item.wins,
-        item.time,
-        item.id
+        winner.color,
+        winner.name,
+        winner.wins,
+        winner.time,
+        winner.id
       );
       winnersTableBody.append(winnerRow);
       numberInTable += Numbers.one;
@@ -190,14 +190,14 @@ export default class WinnersView {
 
     const winnersTableBody = document.querySelector('.winners__table-body') as HTMLElement;
     winnersTableBody.innerHTML = '';
-    winningCars.fullData.forEach((item) => {
+    winningCars.fullData.forEach((winner) => {
       const winnerRow = this.winnersTable.createRow(
         numberInTable,
-        item.color,
-        item.name,
-        item.wins,
-        item.time,
-        item.id
+        winner.color,
+        winner.name,
+        winner.wins,
+        winner.time,
+        winner.id
       );
       winnersTableBody.append(winnerRow);
       numberInTable += Numbers.one;
